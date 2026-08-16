@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Archive des Sujets</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,400&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap');
+
+  :root{
+    --paper:#F1ECE0;
+    --paper-dark:#E4DCC8;
+    --ink:#1F2A1E;
+    --archive-green:#2B4530;
+    --archive-green-light:#3E5C42;
+    --stamp-red:#A8402F;
+    --tab-yellow:#D8A63E;
+    --line:#C9BFA5;
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box;}
+
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Inter',sans-serif;
+    line-height:1.5;
+  }
+
+  h1,h2,h3{
+    font-family:'Newsreader',serif;
+    font-weight:600;
+    letter-spacing:-0.01em;
+  }
+
+  .mono{
+    font-family:'IBM Plex Mono',monospace;
+  }
+
+  /* texture papier subtile */
+  body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    background-image:
+      repeating-linear-gradient(0deg, rgba(0,0,0,0.012) 0px, transparent 1px, transparent 2px);
+    pointer-events:none;
+    z-index:0;
+  }
+
+  header{
+    padding:20px 24px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    border-bottom:2px solid var(--ink);
+    position:sticky;
+    top:0;
+    background:var(--paper);
+    z-index:20;
+  }
+
+  .logo{
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+  .logo-mark{
+    width:34px;height:34px;
+    border:2px solid var(--ink);
+    border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    font-family:'IBM Plex Mono',monospace;
+    font-weight:600;
+    font-size:11px;
+    transform:rotate(-8deg);
+  }
+  .logo-text{
+    font-family:'Newsreader',serif;
+    font-weight:700;
+    font-size:19px;
+  }
+  .logo-text span{
+    color:var(--stamp-red);
+  }
+
+  nav a{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12px;
+    text-transform:uppercase;
+    letter-spacing:0.06em;
+    color:var(--ink);
+    text-decoration:none;
+    margin-left:22px;
+  }
+  nav{display:none;}
+  @media(min-width:760px){nav{display:block;}}
+
+  /* HERO */
+  .hero{
+    position:relative;
+    padding:64px 24px 48px;
+    max-width:1100px;
+    margin:0 auto;
+    z-index:1;
+  }
+  .hero-eyebrow{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:var(--archive-green);
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin-bottom:18px;
+  }
+  .hero-eyebrow::before{
+    content:"";
+    width:26px;height:1px;
+    background:var(--archive-green);
+  }
+  .hero h1{
+    font-size:clamp(34px,6vw,58px);
+    max-width:780px;
+    line-height:1.05;
+  }
+  .hero h1 em{
+    font-style:italic;
+    color:var(--archive-green);
+  }
+  .hero p.lead{
+    max-width:520px;
+    margin-top:22px;
+    font-size:16px;
+    color:#3A3A32;
+  }
+
+  .hero-actions{
+    margin-top:32px;
+    display:flex;
+    gap:14px;
+    flex-wrap:wrap;
+  }
+  .btn{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:13px;
+    text-transform:uppercase;
+    letter-spacing:0.04em;
+    padding:13px 22px;
+    border-radius:2px;
+    text-decoration:none;
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    border:1.5px solid var(--ink);
+  }
+  .btn-primary{
+    background:var(--archive-green);
+    color:var(--paper);
+    border-color:var(--archive-green);
+  }
+  .btn-ghost{
+    background:transparent;
+    color:var(--ink);
+  }
+
+  /* tampon décoratif */
+  .stamp{
+    position:absolute;
+    right:6%;
+    top:70px;
+    width:118px;height:118px;
+    border:3px solid var(--stamp-red);
+    border-radius:50%;
+    color:var(--stamp-red);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    transform:rotate(11deg);
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11px;
+    font-weight:600;
+    letter-spacing:0.05em;
+    text-transform:uppercase;
+    opacity:0.85;
+    line-height:1.3;
+  }
+  .stamp::before,.stamp::after{
+    content:"";
+    position:absolute;
+    border:1.5px solid var(--stamp-red);
+    border-radius:50%;
+  }
+  .stamp::before{inset:8px;}
+  @media(max-width:760px){.stamp{display:none;}}
+
+  /* PRODUIT PHARE */
+  .featured-card{
+    border:2px solid var(--ink);
+    background:linear-gradient(180deg, var(--paper) 0%, var(--paper-dark) 100%);
+    padding:28px 24px;
+    border-radius:8px;
+    position:relative;
+  }
+  @media(min-width:760px){.featured-card{padding:34px 36px;}}
+  .featured-card::before{
+    content:"Exclusif";
+    position:absolute;
+    top:-12px;
+    left:24px;
+    background:var(--stamp-red);
+    color:var(--paper);
+    font-family:'IBM Plex Mono',monospace;
+    font-size:10.5px;
+    text-transform:uppercase;
+    letter-spacing:0.05em;
+    padding:4px 12px;
+    border-radius:20px;
+  }
+  .featured-ref{
+    font-size:11px;
+    color:#8A8270;
+    letter-spacing:0.03em;
+  }
+  .featured-title{
+    font-size:clamp(24px,3.6vw,32px);
+    margin-top:8px;
+  }
+  .featured-desc{
+    margin-top:14px;
+    max-width:560px;
+    font-size:15px;
+    color:#3A3A32;
+  }
+  .featured-list{
+    margin-top:16px;
+    padding-left:20px;
+    max-width:520px;
+  }
+  .featured-list li{
+    font-size:14px;
+    color:#3A3A32;
+    margin-bottom:6px;
+  }
+  .featured-foot{
+    display:flex;
+    align-items:center;
+    gap:18px;
+    margin-top:24px;
+    padding-top:20px;
+    border-top:1px dashed var(--line);
+  }
+
+  /* ONGLETS FILIERES - element signature */
+  .dossier{
+    max-width:1100px;
+    margin:20px auto 0;
+    padding:0 24px 80px;
+    position:relative;
+    z-index:1;
+  }
+  .dossier-label{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12px;
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+    color:#5A5A4E;
+    margin-bottom:2px;
+  }
+
+  .tabs{
+    display:flex;
+    gap:0;
+    overflow-x:auto;
+    scrollbar-width:none;
+    margin-top:16px;
+  }
+  .tabs::-webkit-scrollbar{display:none;}
+
+  .tab{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12.5px;
+    text-transform:uppercase;
+    letter-spacing:0.03em;
+    white-space:nowrap;
+    padding:12px 18px;
+    background:var(--paper-dark);
+    border:1.5px solid var(--ink);
+    border-bottom:none;
+    border-radius:8px 8px 0 0;
+    cursor:pointer;
+    position:relative;
+    top:2px;
+    color:#5A5A4E;
+    transition:transform .15s ease;
+  }
+  .tab + .tab{margin-left:-1.5px;}
+  .tab.active{
+    background:var(--archive-green);
+    color:var(--paper);
+    border-color:var(--archive-green);
+    top:0;
+    z-index:2;
+    font-weight:600;
+  }
+  .tab:not(.active):hover{transform:translateY(-3px);}
+
+  .folder-body{
+    border:1.5px solid var(--ink);
+    background:var(--paper);
+    padding:28px 24px;
+    border-radius:0 8px 8px 8px;
+  }
+  @media(min-width:760px){.folder-body{padding:32px;}}
+
+  .level-row{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    flex-wrap:wrap;
+    margin-bottom:22px;
+    padding-bottom:20px;
+    border-bottom:1px dashed var(--line);
+  }
+  .level-label{
+    font-size:11px;
+    text-transform:uppercase;
+    letter-spacing:0.06em;
+    color:#8A8270;
+    margin-right:6px;
+  }
+  .level-chip{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12px;
+    padding:7px 14px;
+    border:1px solid var(--line);
+    border-radius:20px;
+    cursor:pointer;
+    color:#5A5A4E;
+    transition:all .15s ease;
+  }
+  .level-chip:hover{border-color:var(--ink);color:var(--ink);}
+  .level-chip.active{
+    background:var(--ink);
+    border-color:var(--ink);
+    color:var(--paper);
+  }
+
+  .grid{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:16px;
+  }
+  @media(min-width:640px){.grid{grid-template-columns:1fr 1fr;}}
+  @media(min-width:980px){.grid{grid-template-columns:1fr 1fr 1fr;}}
+
+  .card{
+    border:1.5px solid var(--line);
+    background:var(--paper);
+    padding:18px;
+    position:relative;
+    transition:border-color .15s ease, transform .15s ease;
+  }
+  .card:hover{
+    border-color:var(--ink);
+    transform:translateY(-2px);
+  }
+  .card-ref{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11px;
+    color:#8A8270;
+    letter-spacing:0.03em;
+  }
+  .card h3{
+    font-size:17px;
+    margin-top:6px;
+    line-height:1.25;
+  }
+  .card-meta{
+    display:flex;
+    gap:8px;
+    flex-wrap:wrap;
+    margin-top:12px;
+  }
+  .pill{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:10.5px;
+    text-transform:uppercase;
+    padding:3px 9px;
+    border:1px solid var(--line);
+    border-radius:20px;
+    color:#5A5A4E;
+  }
+  .card-foot{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-top:16px;
+    padding-top:14px;
+    border-top:1px dashed var(--line);
+  }
+  .price{
+    font-family:'IBM Plex Mono',monospace;
+    font-weight:600;
+    font-size:15px;
+  }
+  .buy{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11px;
+    text-transform:uppercase;
+    background:var(--ink);
+    color:var(--paper);
+    border:none;
+    padding:8px 14px;
+    border-radius:2px;
+    cursor:pointer;
+  }
+  .corrige-tag{
+    position:absolute;
+    top:14px;right:14px;
+    color:var(--stamp-red);
+    border:1px solid var(--stamp-red);
+    font-family:'IBM Plex Mono',monospace;
+    font-size:9.5px;
+    text-transform:uppercase;
+    padding:2px 7px;
+    border-radius:20px;
+    transform:rotate(4deg);
+  }
+
+  /* COMMENT CA MARCHE */
+  .steps{
+    max-width:1100px;
+    margin:0 auto;
+    padding:70px 24px;
+    border-top:1.5px solid var(--ink);
+  }
+  .steps h2{
+    font-size:clamp(26px,4vw,36px);
+    max-width:480px;
+  }
+  .steps-grid{
+    margin-top:40px;
+    display:grid;
+    grid-template-columns:1fr;
+    gap:0;
+  }
+  @media(min-width:760px){.steps-grid{grid-template-columns:repeat(3,1fr);}}
+  .step{
+    padding:24px 0;
+    border-top:1px solid var(--line);
+  }
+  @media(min-width:760px){
+    .step{border-top:none;border-left:1px solid var(--line);padding:4px 24px;}
+    .step:first-child{border-left:none;padding-left:0;}
+  }
+  .step-num{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12px;
+    color:var(--stamp-red);
+  }
+  .step h3{
+    font-size:19px;
+    margin-top:10px;
+  }
+  .step p{
+    margin-top:8px;
+    font-size:14px;
+    color:#4A4A40;
+    max-width:280px;
+  }
+
+  footer{
+    border-top:2px solid var(--ink);
+    padding:30px 24px;
+    display:flex;
+    flex-direction:column;
+    gap:6px;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11.5px;
+    color:#6A6A5C;
+  }
+  @media(min-width:760px){
+    footer{flex-direction:row;justify-content:space-between;align-items:center;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">
+    <div class="logo-mark">GC</div>
+    <div class="logo-text">Archive<span>.</span>Sujets</div>
+  </div>
+  <nav>
+    <a href="#catalogue">Catalogue</a>
+    <a href="#fonctionnement">Comment ça marche</a>
+    <a href="#">Se connecter</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="stamp">Vérifié<br>Bonaberi<br>Douala</div>
+  <div class="hero-eyebrow">Douala &middot; Bonaberi</div>
+  <h1>Les anciens sujets d'examen, <em>classés</em> par filière.</h1>
+  <p class="lead">Du BEPC au BAC, séries A, C, D, F4BA, F4BE, GT, MHB&nbsp;: retrouve les épreuves des années précédentes et des fiches sur les chapitres les plus difficiles, prêtes à télécharger dès le paiement.</p>
+  <div class="hero-actions">
+    <a class="btn btn-primary" href="#catalogue">Parcourir le catalogue</a>
+    <a class="btn btn-ghost" href="#fonctionnement">Comment ça marche</a>
+  </div>
+</section>
+
+<div class="dossier" id="produit-phare">
+  <div class="dossier-label">Dossier &middot; guide exclusif</div>
+  <div class="featured-card">
+    <div class="featured-ref mono">GUIDE &middot; F4BE / F4BA</div>
+    <h2 class="featured-title">Décryptage F4BE/F4BA</h2>
+    <p class="featured-desc">Ne découvre pas la structure de l'épreuve le jour J. Ce guide t'explique, matière par matière, comment sont élaborés les sujets F4BE et F4BA — pour réviser avec méthode, pas au hasard.</p>
+    <ul class="featured-list">
+      <li>Comprendre la structure exacte de chaque épreuve F4BE/F4BA</li>
+      <li>Savoir à quoi t'attendre matière par matière</li>
+      <li>Cibler tes révisions sur l'essentiel</li>
+    </ul>
+    <div class="featured-foot">
+      <span class="price" style="font-size:19px;">1000 FCFA</span>
+      <a href="https://wa.me/237673045034?text=Bonjour%2C%20je%20veux%20le%20guide%20D%C3%A9cryptage%20F4BE%2FF4BA%20(1000%20FCFA)" target="_blank" class="buy" style="padding:11px 20px; text-decoration:none; display:inline-block;">Acheter maintenant</a>
+    </div>
+  </div>
+</div>
+
+<div class="dossier" id="catalogue">
+  <div class="dossier-label">Dossier &middot; par filière</div>
+  <div class="tabs">
+    <div class="tab active" data-tab="f4be">F4BE</div>
+    <div class="tab" data-tab="f4ba">F4BA</div>
+    <div class="tab" data-tab="c">C</div>
+    <div class="tab" data-tab="d">D</div>
+    <div class="tab" data-tab="a">A</div>
+    <div class="tab" data-tab="gt">GT</div>
+    <div class="tab" data-tab="mhb">MHB</div>
+  </div>
+
+  <div class="folder-body">
+    <div class="level-row" id="levelRow">
+      <span class="level-label mono">Niveau</span>
+      <div class="level-chip active" data-level="all">Tous</div>
+      <div class="level-chip" data-level="3ème">3ème</div>
+      <div class="level-chip" data-level="2nde">2nde</div>
+      <div class="level-chip" data-level="1ère">1ère</div>
+      <div class="level-chip" data-level="Terminale">Terminale</div>
+    </div>
+    <div class="grid" id="cardGrid">
+      <!-- cartes générées en JS selon l'onglet -->
+    </div>
+  </div>
+</div>
+
+<div class="dossier" id="chapitres">
+  <div class="dossier-label">Dossier &middot; chapitres réputés difficiles</div>
+  <h2 style="font-size:clamp(22px,3.4vw,30px); margin-top:6px; max-width:520px;">Des fiches ciblées, là où les élèves bloquent le plus.</h2>
+  <div class="grid" id="chapGrid" style="margin-top:24px;"></div>
+</div>
+
+<section class="steps" id="fonctionnement">
+  <h2>Trois étapes, un PDF entre les mains.</h2>
+  <div class="steps-grid">
+    <div class="step">
+      <div class="step-num">01</div>
+      <h3>Choisis ta filière</h3>
+      <p>Parcours les onglets par filière, matière et année pour trouver l'épreuve qu'il te faut.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">02</div>
+      <h3>Paie en Mobile Money</h3>
+      <p>Orange Money ou MTN MoMo, paiement sécurisé directement depuis ton téléphone.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">03</div>
+      <h3>Télécharge le sujet</h3>
+      <p>Le PDF est disponible immédiatement, avec le corrigé si tu l'as choisi.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div>Archive.Sujets &mdash; Bonaberi, Douala, Cameroun</div>
+  <div>Maquette de démonstration</div>
+</footer>
+
+<script>
+  const data = {
+    f4be: [
+      {ref:"F4BE-2024-MAT",title:"Mathématiques — Épreuve du BAC",tags:["Terminale","2024"],price:"500 FCFA",corrige:true},
+      {ref:"F4BE-2023-PHY",title:"Physique",tags:["1ère","2023"],price:"400 FCFA",corrige:false},
+      {ref:"F4BE-2024-ANG",title:"Anglais",tags:["Terminale","2024"],price:"450 FCFA",corrige:true},
+      {ref:"F4BE-2024-MET",title:"Métré",tags:["Terminale","2024"],price:"500 FCFA",corrige:true},
+      {ref:"F4BE-2023-TOP",title:"Topographie",tags:["1ère","2023"],price:"400 FCFA",corrige:false},
+      {ref:"F4BE-2024-PDC",title:"Procédé de construction",tags:["Terminale","2024"],price:"500 FCFA",corrige:true},
+      {ref:"F4BE-2023-LAB",title:"Laboratoire",tags:["1ère","2023"],price:"400 FCFA",corrige:false},
+      {ref:"F4BE-2024-MEC",title:"Mécanique",tags:["Terminale","2024"],price:"450 FCFA",corrige:true},
+      {ref:"F4BE-2023-DES",title:"Dessin",tags:["2nde","2023"],price:"400 FCFA",corrige:false},
+      {ref:"F4BE-2024-EXC",title:"Exploitation des chantiers",tags:["Terminale","2024"],price:"500 FCFA",corrige:true},
+      {ref:"F4BE-2023-HG",title:"Histoire-Géographie (prépa)",tags:["1ère","2023"],price:"350 FCFA",corrige:false},
+      {ref:"F4BE-2023-ECM",title:"ECM (prépa)",tags:["1ère","2023"],price:"350 FCFA",corrige:false},
+    ],
+    f4ba: [
+      {ref:"F4BA-2024-MAT",title:"Mathématiques",tags:["Terminale","2024"],price:"500 FCFA",corrige:true},
+      {ref:"F4BA-2023-PHY",title:"Physique",tags:["1ère","2023"],price:"400 FCFA",corrige:false},
+      {ref:"F4BA-2024-CHI",title:"Chimie",tags:["Terminale","2024"],price:"450 FCFA",corrige:true},
+      {ref:"F4BA-2023-DES",title:"Dessin technique",tags:["1ère","2023"],price:"400 FCFA",corrige:false},
+      {ref:"F4BA-2024-TDB",title:"Technologie du bâtiment",tags:["Terminale","2024"],price:"500 FCFA",corrige:true},
+      {ref:"F4BA-2023-PDC",title:"Procédés de construction",tags:["1ère","2023"],price:"500 FCFA",corrige:false},
+      {ref:"F4BA-2024-TOP",title:"Topographie",tags:["Terminale","2024"],price:"450 FCFA",corrige:true},
+      {ref:"F4BA-2023-MET",title:"Métré",tags:["1ère","2023"],price:"450 FCFA",corrige:false},
+      {ref:"F4BA-2024-MEC",title:"Mécanique appliquée",tags:["Terminale","2024"],price:"450 FCFA",corrige:true},
+      {ref:"F4BA-2023-LAB",title:"Laboratoire",tags:["2nde","2023"],price:"400 FCFA",corrige:false},
+      {ref:"F4BA-2023-ANG",title:"Anglais",tags:["1ère","2023"],price:"400 FCFA",corrige:false},
+      {ref:"F4BA-2022-BEPC",title:"Épreuve blanche BEPC — Français",tags:["3ème","2022"],price:"300 FCFA",corrige:false},
+    ],
+    c: [
+      {ref:"C-2024-MAT",title:"Mathématiques",tags:["Terminale","2024"],price:"500 FCFA",corrige:true},
+      {ref:"C-2023-PHY",title:"Physique",tags:["1ère","2023"],price:"400 FCFA",corrige:false},
+      {ref:"C-2024-CHI",title:"Chimie",tags:["Terminale","2024"],price:"450 FCFA",corrige:true},
+      {ref:"C-2023-INF",title:"Informatique",tags:["1ère","2023"],price:"400 FCFA",corrige:false},
+      {ref:"C-2024-HG",title:"Histoire-Géographie",tags:["Terminale","2024"],price:"400 FCFA",corrige:true},
+      {ref:"C-2023-PHI",title:"Philosophie",tags:["Terminale","2023"],price:"450 FCFA",corrige:false},
+      {ref:"C-2023-FR",title:"Français",tags:["2nde","2023"],price:"350 FCFA",corrige:false},
+      {ref:"C-2022-BEPC",title:"Épreuve blanche BEPC — Maths",tags:["3ème","2022"],price:"300 FCFA",corrige:true},
+    ],
+    d: [
+      {ref:"D-2024-MAT",title:"Mathématiques",tags:["Terminale","2024"],price:"500 FCFA",corrige:true},
+      {ref:"D-2023-PHY",title:"Physique",tags:["1ère","2023"],price:"400 FCFA",corrige:false},
+      {ref:"D-2024-CHI",title:"Chimie",tags:["Terminale","2024"],price:"450 FCFA",corrige:true},
+      {ref:"D-2024-SVT",title:"Sciences de la Vie et de la Terre",tags:["Terminale","2024"],price:"450 FCFA",corrige:true},
+      {ref:"D-2023-INF",title:"Informatique",tags:["1ère","2023"],price:"400 FCFA",corrige:false},
+      {ref:"D-2024-HG",title:"Histoire-Géographie",tags:["Terminale","2024"],price:"400 FCFA",corrige:false},
+      {ref:"D-2023-PHI",title:"Philosophie",tags:["Terminale","2023"],price:"450 FCFA",corrige:true},
+      {ref:"D-2022-BEPC",title:"Épreuve blanche BEPC — SVT",tags:["3ème","2022"],price:"300 FCFA",corrige:false},
+    ],
+    a: [
+      {ref:"A-2024-PHI",title:"Philosophie",tags:["Terminale","2024"],price:"500 FCFA",corrige:true},
+      {ref:"A-2023-HIS",title:"Histoire-Géographie",tags:["1ère","2023"],price:"400 FCFA",corrige:false},
+      {ref:"A-2024-FR",title:"Français",tags:["Terminale","2024"],price:"450 FCFA",corrige:true},
+      {ref:"A-2023-ANG",title:"Anglais",tags:["1ère","2023"],price:"400 FCFA",corrige:false},
+      {ref:"A-2024-LV",title:"Langue vivante 2",tags:["Terminale","2024"],price:"400 FCFA",corrige:false},
+      {ref:"A-2023-MAT",title:"Mathématiques",tags:["2nde","2023"],price:"350 FCFA",corrige:false},
+      {ref:"A-2022-BEPC",title:"Épreuve blanche BEPC — Français",tags:["3ème","2022"],price:"300 FCFA",corrige:false},
+    ],
+    gt: [
+      {ref:"GT-2024-MAT",title:"Mathématiques",tags:["Terminale","2024"],price:"500 FCFA",corrige:true},
+      {ref:"GT-2023-PHY",title:"Physique",tags:["1ère","2023"],price:"400 FCFA",corrige:false},
+      {ref:"GT-2024-DES",title:"Dessin technique",tags:["Terminale","2024"],price:"450 FCFA",corrige:true},
+      {ref:"GT-2023-TEC",title:"Technologie",tags:["1ère","2023"],price:"450 FCFA",corrige:false},
+      {ref:"GT-2024-MEC",title:"Mécanique",tags:["Terminale","2024"],price:"500 FCFA",corrige:true},
+      {ref:"GT-2023-ELE",title:"Électricité / Électrotechnique",tags:["1ère","2023"],price:"500 FCFA",corrige:false},
+      {ref:"GT-2024-TP",title:"Travaux pratiques",tags:["Terminale","2024"],price:"450 FCFA",corrige:true},
+    ],
+    mhb: [
+      {ref:"MHB-2024-MAT",title:"Mathématiques",tags:["Terminale","2024"],price:"500 FCFA",corrige:true},
+      {ref:"MHB-2023-PHY",title:"Physique",tags:["1ère","2023"],price:"400 FCFA",corrige:false},
+      {ref:"MHB-2024-DES",title:"Dessin technique",tags:["Terminale","2024"],price:"450 FCFA",corrige:true},
+      {ref:"MHB-2023-TDB",title:"Technologie du bois",tags:["1ère","2023"],price:"450 FCFA",corrige:false},
+      {ref:"MHB-2024-LEC",title:"Lecture de plans",tags:["Terminale","2024"],price:"450 FCFA",corrige:true},
+      {ref:"MHB-2023-PDF",title:"Procédés de fabrication",tags:["1ère","2023"],price:"450 FCFA",corrige:false},
+      {ref:"MHB-2024-MEN",title:"Menuiserie",tags:["Terminale","2024"],price:"500 FCFA",corrige:true},
+      {ref:"MHB-2023-MET",title:"Métré / Étude des matériaux",tags:["2nde","2023"],price:"400 FCFA",corrige:false},
+    ],
+  };
+
+  const chapitres = [
+    {ref:"CH-F4BE-MET",title:"Métré — calcul des quantités",tags:["F4BE","Difficile"],price:"600 FCFA"},
+    {ref:"CH-F4BE-TOP",title:"Topographie — nivellement",tags:["F4BE","Difficile"],price:"600 FCFA"},
+    {ref:"CH-F4BE-PDC",title:"Procédé de construction — le béton armé",tags:["F4BE","Difficile"],price:"600 FCFA"},
+    {ref:"CH-C-INT",title:"Intégrales et primitives",tags:["C · D","Difficile"],price:"600 FCFA"},
+    {ref:"CH-F4BE-MEC",title:"Mécanique — statique des structures",tags:["F4BE","Difficile"],price:"600 FCFA"},
+    {ref:"CH-A-DISS",title:"Méthode de la dissertation philo",tags:["A","Difficile"],price:"500 FCFA"},
+  ];
+
+  let currentTab = 'f4be';
+  let currentLevel = 'all';
+
+  function render(tabKey){
+    const grid = document.getElementById('cardGrid');
+    grid.innerHTML = '';
+    const items = data[tabKey].filter(item => currentLevel === 'all' || item.tags.includes(currentLevel));
+    if(items.length === 0){
+      grid.innerHTML = `<p class="mono" style="font-size:13px;color:#8A8270;">Aucun sujet pour ce niveau dans cette filière pour l'instant.</p>`;
+      return;
+    }
+    items.forEach(item=>{
+      const card = document.createElement('div');
+      card.className = 'card';
+      card.innerHTML = `
+        ${item.corrige ? '<div class="corrige-tag">Avec corrigé</div>' : ''}
+        <div class="card-ref mono">${item.ref}</div>
+        <h3>${item.title}</h3>
+        <div class="card-meta">
+          ${item.tags.map(t=>`<span class="pill">${t}</span>`).join('')}
+        </div>
+        <div class="card-foot">
+          <span class="price">${item.price}</span>
+          <a href="https://wa.me/237673045034?text=${encodeURIComponent('Bonjour, je veux : '+item.title+' ('+item.ref+') — '+item.price)}" target="_blank" class="buy" style="text-decoration:none; display:inline-block;">Acheter</a>
+        </div>
+      `;
+      grid.appendChild(card);
+    });
+  }
+
+  function renderChapitres(){
+    const grid = document.getElementById('chapGrid');
+    grid.innerHTML = '';
+    chapitres.forEach(item=>{
+      const card = document.createElement('div');
+      card.className = 'card';
+      card.innerHTML = `
+        <div class="corrige-tag" style="border-color:var(--tab-yellow); color:#8a6a1e;">Fiche de cours</div>
+        <div class="card-ref mono">${item.ref}</div>
+        <h3>${item.title}</h3>
+        <div class="card-meta">
+          ${item.tags.map(t=>`<span class="pill">${t}</span>`).join('')}
+        </div>
+        <div class="card-foot">
+          <span class="price">${item.price}</span>
+          <a href="https://wa.me/237673045034?text=${encodeURIComponent('Bonjour, je veux : '+item.title+' ('+item.ref+') — '+item.price)}" target="_blank" class="buy" style="text-decoration:none; display:inline-block;">Acheter</a>
+        </div>
+      `;
+      grid.appendChild(card);
+    });
+  }
+
+  document.querySelectorAll('.tab').forEach(tab=>{
+    tab.addEventListener('click', ()=>{
+      document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+      tab.classList.add('active');
+      currentTab = tab.dataset.tab;
+      render(currentTab);
+    });
+  });
+
+  document.querySelectorAll('.level-chip').forEach(chip=>{
+    chip.addEventListener('click', ()=>{
+      document.querySelectorAll('.level-chip').forEach(c=>c.classList.remove('active'));
+      chip.classList.add('active');
+      currentLevel = chip.dataset.level;
+      render(currentTab);
+    });
+  });
+
+  render('f4be');
+  renderChapitres();
+</script>
+
+</body>
+</html>
