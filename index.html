@@ -377,12 +377,13 @@
   }
   .year-select{
     font-family:'IBM Plex Mono',monospace;
-    font-size:12.5px;
-    padding:7px 10px;
+    font-size:11px;
+    padding:4px 8px;
     border:1px solid var(--line);
-    border-radius:20px;
+    border-radius:16px;
     background:var(--paper);
     color:var(--ink);
+    max-width:150px;
   }
 
   .grid{
@@ -579,7 +580,7 @@
       <li>Cibler tes révisions sur l'essentiel</li>
     </ul>
     <div class="featured-foot">
-      <span class="price" style="font-size:19px;">1200 FCFA</span>
+      <span class="price" style="font-size:19px;">1000 FCFA</span>
       <a href="https://wa.me/237673045034?text=Bonjour%2C%20je%20veux%20le%20guide%20D%C3%A9cryptage%20F4BE%2FF4BA%20(1000%20FCFA)" target="_blank" class="buy" style="padding:11px 20px; text-decoration:none; display:inline-block;">Acheter maintenant</a>
     </div>
   </div>
@@ -613,6 +614,13 @@
         <option value="all">Toutes (2012–2026)</option>
       </select>
     </div>
+    <div class="level-row" id="subjectRow" style="margin-top:-14px;">
+      <span class="level-label mono">Matière</span>
+      <select id="subjectSelect" class="year-select" style="max-width:220px;">
+        <option value="all">Toutes les matières</option>
+      </select>
+    </div>
+    <p class="mono" style="font-size:11px; color:#8A8270; margin:-8px 0 16px;">💡 Filtre par matière et année pour aller droit à ce dont tu as besoin — pas de temps perdu à chercher.</p>
     <div class="grid" id="cardGrid">
       <!-- cartes générées en JS selon l'onglet -->
     </div>
@@ -774,6 +782,7 @@
   let currentTab = 'f4be';
   let currentLevel = 'all';
   let currentYear = 'all';
+  let currentSubject = 'all';
 
   // Remplit le sélecteur d'années 2012-2026
   const yearSelect = document.getElementById('yearSelect');
@@ -788,12 +797,31 @@
     render(currentTab);
   });
 
+  // Remplit le sélecteur de matière selon la filière active
+  const subjectSelect = document.getElementById('subjectSelect');
+  function populateSubjects(tabKey){
+    subjectSelect.innerHTML = '<option value="all">Toutes les matières</option>';
+    const list = SUBJECTS[tabKey] || [];
+    list.forEach(s => {
+      const opt = document.createElement('option');
+      opt.value = s.title;
+      opt.textContent = s.title;
+      subjectSelect.appendChild(opt);
+    });
+    currentSubject = 'all';
+  }
+  subjectSelect.addEventListener('change', ()=>{
+    currentSubject = subjectSelect.value;
+    render(currentTab);
+  });
+
   function render(tabKey){
     const grid = document.getElementById('cardGrid');
     grid.innerHTML = '';
     const items = data[tabKey].filter(item =>
       (currentLevel === 'all' || item.tags.includes(currentLevel)) &&
-      (currentYear === 'all' || item.tags.includes(currentYear))
+      (currentYear === 'all' || item.tags.includes(currentYear)) &&
+      (currentSubject === 'all' || item.title === currentSubject)
     );
     if(items.length === 0){
       grid.innerHTML = `<p class="mono" style="font-size:13px;color:#8A8270;">Aucun sujet pour ce filtre dans cette filière pour l'instant.</p>`;
@@ -845,6 +873,7 @@
       document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
       tab.classList.add('active');
       currentTab = tab.dataset.tab;
+      populateSubjects(currentTab);
       render(currentTab);
     });
   });
@@ -858,6 +887,7 @@
     });
   });
 
+  populateSubjects('f4be');
   render('f4be');
   renderChapitres();
 </script>
