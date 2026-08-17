@@ -8,14 +8,14 @@
   @import url('https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,400&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap');
 
   :root{
-    --paper:#F1ECE0;
-    --paper-dark:#E4DCC8;
-    --ink:#1F2A1E;
-    --archive-green:#2B4530;
-    --archive-green-light:#3E5C42;
-    --stamp-red:#A8402F;
-    --tab-yellow:#D8A63E;
-    --line:#C9BFA5;
+    --paper:#FBF7EC;
+    --paper-dark:#F3E9D2;
+    --ink:#1C2B24;
+    --archive-green:#0E6B54;
+    --archive-green-light:#12A17E;
+    --stamp-red:#E8552E;
+    --tab-yellow:#F5B301;
+    --line:#DCCFAE;
   }
 
   *{margin:0;padding:0;box-sizing:border-box;}
@@ -156,7 +156,7 @@
     border:1.5px solid var(--ink);
   }
   .btn-primary{
-    background:var(--archive-green);
+    background:linear-gradient(135deg, var(--archive-green) 0%, var(--archive-green-light) 100%);
     color:var(--paper);
     border-color:var(--archive-green);
   }
@@ -195,6 +195,34 @@
   }
   .stamp::before{inset:8px;}
   @media(max-width:760px){.stamp{display:none;}}
+
+  /* AVANTAGES */
+  .avantages{
+    max-width:1100px;
+    margin:0 auto;
+    padding:8px 24px 56px;
+    display:grid;
+    grid-template-columns:1fr;
+    gap:28px;
+    position:relative;
+    z-index:1;
+  }
+  @media(min-width:760px){.avantages{grid-template-columns:repeat(3,1fr); gap:36px;}}
+  .avantage-num{
+    font-size:13px;
+    color:var(--stamp-red);
+    letter-spacing:0.05em;
+  }
+  .avantage-item h3{
+    font-size:19px;
+    margin-top:8px;
+  }
+  .avantage-item p{
+    margin-top:8px;
+    font-size:14px;
+    color:#4A4A40;
+    max-width:300px;
+  }
 
   /* PRODUIT PHARE */
   .featured-card{
@@ -346,6 +374,15 @@
     background:var(--ink);
     border-color:var(--ink);
     color:var(--paper);
+  }
+  .year-select{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12.5px;
+    padding:7px 10px;
+    border:1px solid var(--line);
+    border-radius:20px;
+    background:var(--paper);
+    color:var(--ink);
   }
 
   .grid{
@@ -504,19 +541,37 @@
 <section class="hero">
   <div class="stamp">Vérifié<br>Bonaberi<br>Douala</div>
   <div class="hero-eyebrow">Douala &middot; Bonaberi</div>
-  <h1>Les anciens sujets d'examen, <em>classés</em> par filière.</h1>
-  <p class="lead">Du BEPC au BAC, séries A, C, D, F4BA, F4BE, GT, MHB&nbsp;: retrouve les épreuves des années précédentes et des fiches sur les chapitres les plus difficiles, prêtes à télécharger dès le paiement.</p>
+  <h1>Toutes tes années d'examen, <em>au même endroit</em>.</h1>
+  <p class="lead">De la 3ème (BEPC) au BAC, séries A, C, D, F4BA, F4BE, GT, MHB, années 2012 à 2026&nbsp;: une vraie bibliothèque de sujets et de fiches, classée pour que réviser devienne simple — pas une chasse au trésor sur WhatsApp.</p>
   <div class="hero-actions">
     <a class="btn btn-primary" href="#catalogue">Parcourir le catalogue</a>
     <a class="btn btn-ghost" href="#fonctionnement">Comment ça marche</a>
   </div>
 </section>
 
+<div class="avantages">
+  <div class="avantage-item">
+    <div class="avantage-num mono">01</div>
+    <h3>Une mini bibliothèque</h3>
+    <p>Fini les recherches éparpillées entre dix groupes WhatsApp. Tout est ici, classé par filière, niveau et année.</p>
+  </div>
+  <div class="avantage-item">
+    <div class="avantage-num mono">02</div>
+    <h3>Un seul endroit, tout de suite</h3>
+    <p>Tu cherches, tu trouves, tu télécharges. Pas besoin de fouiller ailleurs pour préparer ton examen.</p>
+  </div>
+  <div class="avantage-item">
+    <div class="avantage-num mono">03</div>
+    <h3>Apprendre, en plus simple</h3>
+    <p>Des fiches sur les chapitres qui bloquent le plus, pensées pour rendre chaque révision plus claire.</p>
+  </div>
+</div>
+
 <div class="dossier" id="produit-phare">
   <div class="dossier-label">Dossier &middot; guide exclusif</div>
   <div class="featured-card">
     <div class="featured-ref mono">GUIDE &middot; F4BE / F4BA</div>
-    <h2 class="featured-title">Décryptage F4BE/F4BA comment réussir son examen avec brio</h2>
+    <h2 class="featured-title">Décryptage F4BE/F4BA</h2>
     <p class="featured-desc">Ne découvre pas la structure de l'épreuve le jour J. Ce guide t'explique, matière par matière, comment sont élaborés les sujets F4BE et F4BA — pour réviser avec méthode, pas au hasard.</p>
     <ul class="featured-list">
       <li>Comprendre la structure exacte de chaque épreuve F4BE/F4BA</li>
@@ -532,6 +587,7 @@
 
 <div class="dossier" id="catalogue">
   <div class="dossier-label">Dossier &middot; par filière</div>
+  <p style="font-family:'Newsreader',serif; font-style:italic; font-size:17px; color:var(--archive-green); margin-top:4px; margin-bottom:6px;">Ta filière, tes années, tes matières — tout est rangé ici.</p>
   <div class="tabs">
     <div class="tab active" data-tab="f4be">F4BE</div>
     <div class="tab" data-tab="f4ba">F4BA</div>
@@ -540,16 +596,22 @@
     <div class="tab" data-tab="a">A</div>
     <div class="tab" data-tab="gt">GT</div>
     <div class="tab" data-tab="mhb">MHB</div>
+    <div class="tab" data-tab="bepc">3ème · BEPC</div>
   </div>
 
   <div class="folder-body">
     <div class="level-row" id="levelRow">
       <span class="level-label mono">Niveau</span>
       <div class="level-chip active" data-level="all">Tous</div>
-      <div class="level-chip" data-level="3ème">3ème</div>
       <div class="level-chip" data-level="2nde">2nde</div>
       <div class="level-chip" data-level="1ère">1ère</div>
       <div class="level-chip" data-level="Terminale">Terminale</div>
+    </div>
+    <div class="level-row" id="yearRow" style="margin-top:-14px;">
+      <span class="level-label mono">Année</span>
+      <select id="yearSelect" class="year-select">
+        <option value="all">Toutes (2012–2026)</option>
+      </select>
     </div>
     <div class="grid" id="cardGrid">
       <!-- cartes générées en JS selon l'onglet -->
@@ -590,84 +652,115 @@
 </footer>
 
 <script>
+  // Génère une série d'années pour une matière (bibliothèque complète 2012-2026)
+  function genYears(refPrefix, title, level, startPrice){
+    const years = [];
+    for(let y=2026; y>=2012; y--){
+      const age = 2026 - y;
+      const price = Math.max(200, startPrice - age*15);
+      years.push({
+        ref:`${refPrefix}-${y}`,
+        title:title,
+        tags:[level, String(y)],
+        price:`${price} FCFA`,
+        corrige: y >= 2020
+      });
+    }
+    return years;
+  }
+
+  // Génère la bibliothèque complète (2012-2026) pour toutes les matières d'une filière
+  function genFiliere(prefix, subjects, startPrice){
+    let all = [];
+    subjects.forEach(s => {
+      all = all.concat(genYears(`${prefix}-${s.code}`, s.title, "Terminale", startPrice));
+    });
+    return all;
+  }
+
+  const SUBJECTS = {
+    f4be: [{code:"MAT",title:"Mathématiques"},{code:"PHY",title:"Physique"},{code:"ANG",title:"Anglais"},{code:"MET",title:"Métré"},{code:"TOP",title:"Topographie"},{code:"PDC",title:"Procédé de construction"},{code:"LAB",title:"Laboratoire"},{code:"MEC",title:"Mécanique"},{code:"DES",title:"Dessin"},{code:"EXC",title:"Exploitation des chantiers"},{code:"HG",title:"Histoire-Géographie"},{code:"ECM",title:"ECM"}],
+    f4ba: [{code:"MAT",title:"Mathématiques"},{code:"FR",title:"Français"},{code:"ANG",title:"Anglais"},{code:"PHY",title:"Physique"},{code:"CHI",title:"Chimie"},{code:"DES",title:"Dessin technique"},{code:"TDB",title:"Technologie du bâtiment"},{code:"PDC",title:"Procédés de construction"},{code:"TOP",title:"Topographie"},{code:"MET",title:"Métré"},{code:"MEC",title:"Mécanique appliquée"},{code:"LAB",title:"Laboratoire"}],
+    c: [{code:"MAT",title:"Mathématiques"},{code:"PHY",title:"Physique"},{code:"CHI",title:"Chimie"},{code:"FR",title:"Français"},{code:"ANG",title:"Anglais"},{code:"INF",title:"Informatique"},{code:"HIS",title:"Histoire"},{code:"GEO",title:"Géographie"},{code:"EPS",title:"Éducation physique"},{code:"PHI",title:"Philosophie"}],
+    d: [{code:"MAT",title:"Mathématiques"},{code:"PHY",title:"Physique"},{code:"CHI",title:"Chimie"},{code:"SVT",title:"Sciences de la Vie et de la Terre"},{code:"FR",title:"Français"},{code:"ANG",title:"Anglais"},{code:"INF",title:"Informatique"},{code:"HIS",title:"Histoire"},{code:"GEO",title:"Géographie"},{code:"PHI",title:"Philosophie"},{code:"EPS",title:"Éducation physique"}],
+    a: [{code:"FR",title:"Français"},{code:"ANG",title:"Anglais"},{code:"PHI",title:"Philosophie"},{code:"HIS",title:"Histoire"},{code:"GEO",title:"Géographie"},{code:"LV",title:"Langue vivante 2"},{code:"MAT",title:"Mathématiques"},{code:"SCI",title:"Sciences"},{code:"EPS",title:"Éducation physique"}],
+    gt: [{code:"MAT",title:"Mathématiques"},{code:"PHY",title:"Physique"},{code:"FR",title:"Français"},{code:"ANG",title:"Anglais"},{code:"DES",title:"Dessin technique"},{code:"TEC",title:"Technologie"},{code:"MEC",title:"Mécanique"},{code:"ELE",title:"Électricité / Électrotechnique"}],
+    mhb: [{code:"MAT",title:"Mathématiques"},{code:"FR",title:"Français"},{code:"ANG",title:"Anglais"},{code:"PHY",title:"Physique"},{code:"DES",title:"Dessin technique"},{code:"TDB",title:"Technologie du bois"},{code:"LEC",title:"Lecture de plans"},{code:"PDF",title:"Procédés de fabrication"},{code:"MEN",title:"Menuiserie"},{code:"MET",title:"Métré / Étude des matériaux"}],
+  };
+
   const data = {
     f4be: [
-      {ref:"F4BE-2024-MAT",title:"Mathématiques — Épreuve du BAC",tags:["Terminale","2024"],price:"500 FCFA",corrige:true},
       {ref:"F4BE-2023-PHY",title:"Physique",tags:["1ère","2023"],price:"400 FCFA",corrige:false},
-      {ref:"F4BE-2024-ANG",title:"Anglais",tags:["Terminale","2024"],price:"450 FCFA",corrige:true},
-      {ref:"F4BE-2024-MET",title:"Métré",tags:["Terminale","2024"],price:"500 FCFA",corrige:true},
       {ref:"F4BE-2023-TOP",title:"Topographie",tags:["1ère","2023"],price:"400 FCFA",corrige:false},
-      {ref:"F4BE-2024-PDC",title:"Procédé de construction",tags:["Terminale","2024"],price:"500 FCFA",corrige:true},
       {ref:"F4BE-2023-LAB",title:"Laboratoire",tags:["1ère","2023"],price:"400 FCFA",corrige:false},
-      {ref:"F4BE-2024-MEC",title:"Mécanique",tags:["Terminale","2024"],price:"450 FCFA",corrige:true},
       {ref:"F4BE-2023-DES",title:"Dessin",tags:["2nde","2023"],price:"400 FCFA",corrige:false},
-      {ref:"F4BE-2024-EXC",title:"Exploitation des chantiers",tags:["Terminale","2024"],price:"500 FCFA",corrige:true},
       {ref:"F4BE-2023-HG",title:"Histoire-Géographie (prépa)",tags:["1ère","2023"],price:"350 FCFA",corrige:false},
       {ref:"F4BE-2023-ECM",title:"ECM (prépa)",tags:["1ère","2023"],price:"350 FCFA",corrige:false},
     ],
     f4ba: [
-      {ref:"F4BA-2024-MAT",title:"Mathématiques",tags:["Terminale","2024"],price:"500 FCFA",corrige:true},
       {ref:"F4BA-2023-PHY",title:"Physique",tags:["1ère","2023"],price:"400 FCFA",corrige:false},
-      {ref:"F4BA-2024-CHI",title:"Chimie",tags:["Terminale","2024"],price:"450 FCFA",corrige:true},
       {ref:"F4BA-2023-DES",title:"Dessin technique",tags:["1ère","2023"],price:"400 FCFA",corrige:false},
-      {ref:"F4BA-2024-TDB",title:"Technologie du bâtiment",tags:["Terminale","2024"],price:"500 FCFA",corrige:true},
       {ref:"F4BA-2023-PDC",title:"Procédés de construction",tags:["1ère","2023"],price:"500 FCFA",corrige:false},
-      {ref:"F4BA-2024-TOP",title:"Topographie",tags:["Terminale","2024"],price:"450 FCFA",corrige:true},
       {ref:"F4BA-2023-MET",title:"Métré",tags:["1ère","2023"],price:"450 FCFA",corrige:false},
-      {ref:"F4BA-2024-MEC",title:"Mécanique appliquée",tags:["Terminale","2024"],price:"450 FCFA",corrige:true},
       {ref:"F4BA-2023-LAB",title:"Laboratoire",tags:["2nde","2023"],price:"400 FCFA",corrige:false},
       {ref:"F4BA-2023-ANG",title:"Anglais",tags:["1ère","2023"],price:"400 FCFA",corrige:false},
-      {ref:"F4BA-2022-BEPC",title:"Épreuve blanche BEPC — Français",tags:["3ème","2022"],price:"300 FCFA",corrige:false},
     ],
     c: [
-      {ref:"C-2024-MAT",title:"Mathématiques",tags:["Terminale","2024"],price:"500 FCFA",corrige:true},
       {ref:"C-2023-PHY",title:"Physique",tags:["1ère","2023"],price:"400 FCFA",corrige:false},
-      {ref:"C-2024-CHI",title:"Chimie",tags:["Terminale","2024"],price:"450 FCFA",corrige:true},
       {ref:"C-2023-INF",title:"Informatique",tags:["1ère","2023"],price:"400 FCFA",corrige:false},
-      {ref:"C-2024-HG",title:"Histoire-Géographie",tags:["Terminale","2024"],price:"400 FCFA",corrige:true},
-      {ref:"C-2023-PHI",title:"Philosophie",tags:["Terminale","2023"],price:"450 FCFA",corrige:false},
       {ref:"C-2023-FR",title:"Français",tags:["2nde","2023"],price:"350 FCFA",corrige:false},
-      {ref:"C-2022-BEPC",title:"Épreuve blanche BEPC — Maths",tags:["3ème","2022"],price:"300 FCFA",corrige:true},
     ],
     d: [
-      {ref:"D-2024-MAT",title:"Mathématiques",tags:["Terminale","2024"],price:"500 FCFA",corrige:true},
       {ref:"D-2023-PHY",title:"Physique",tags:["1ère","2023"],price:"400 FCFA",corrige:false},
-      {ref:"D-2024-CHI",title:"Chimie",tags:["Terminale","2024"],price:"450 FCFA",corrige:true},
-      {ref:"D-2024-SVT",title:"Sciences de la Vie et de la Terre",tags:["Terminale","2024"],price:"450 FCFA",corrige:true},
       {ref:"D-2023-INF",title:"Informatique",tags:["1ère","2023"],price:"400 FCFA",corrige:false},
-      {ref:"D-2024-HG",title:"Histoire-Géographie",tags:["Terminale","2024"],price:"400 FCFA",corrige:false},
-      {ref:"D-2023-PHI",title:"Philosophie",tags:["Terminale","2023"],price:"450 FCFA",corrige:true},
-      {ref:"D-2022-BEPC",title:"Épreuve blanche BEPC — SVT",tags:["3ème","2022"],price:"300 FCFA",corrige:false},
+      {ref:"D-2023-HG",title:"Histoire-Géographie",tags:["2nde","2023"],price:"350 FCFA",corrige:false},
     ],
     a: [
-      {ref:"A-2024-PHI",title:"Philosophie",tags:["Terminale","2024"],price:"500 FCFA",corrige:true},
       {ref:"A-2023-HIS",title:"Histoire-Géographie",tags:["1ère","2023"],price:"400 FCFA",corrige:false},
-      {ref:"A-2024-FR",title:"Français",tags:["Terminale","2024"],price:"450 FCFA",corrige:true},
       {ref:"A-2023-ANG",title:"Anglais",tags:["1ère","2023"],price:"400 FCFA",corrige:false},
-      {ref:"A-2024-LV",title:"Langue vivante 2",tags:["Terminale","2024"],price:"400 FCFA",corrige:false},
       {ref:"A-2023-MAT",title:"Mathématiques",tags:["2nde","2023"],price:"350 FCFA",corrige:false},
-      {ref:"A-2022-BEPC",title:"Épreuve blanche BEPC — Français",tags:["3ème","2022"],price:"300 FCFA",corrige:false},
     ],
     gt: [
-      {ref:"GT-2024-MAT",title:"Mathématiques",tags:["Terminale","2024"],price:"500 FCFA",corrige:true},
       {ref:"GT-2023-PHY",title:"Physique",tags:["1ère","2023"],price:"400 FCFA",corrige:false},
-      {ref:"GT-2024-DES",title:"Dessin technique",tags:["Terminale","2024"],price:"450 FCFA",corrige:true},
       {ref:"GT-2023-TEC",title:"Technologie",tags:["1ère","2023"],price:"450 FCFA",corrige:false},
-      {ref:"GT-2024-MEC",title:"Mécanique",tags:["Terminale","2024"],price:"500 FCFA",corrige:true},
       {ref:"GT-2023-ELE",title:"Électricité / Électrotechnique",tags:["1ère","2023"],price:"500 FCFA",corrige:false},
-      {ref:"GT-2024-TP",title:"Travaux pratiques",tags:["Terminale","2024"],price:"450 FCFA",corrige:true},
+      {ref:"GT-2023-DES",title:"Dessin technique",tags:["2nde","2023"],price:"400 FCFA",corrige:false},
     ],
     mhb: [
-      {ref:"MHB-2024-MAT",title:"Mathématiques",tags:["Terminale","2024"],price:"500 FCFA",corrige:true},
       {ref:"MHB-2023-PHY",title:"Physique",tags:["1ère","2023"],price:"400 FCFA",corrige:false},
-      {ref:"MHB-2024-DES",title:"Dessin technique",tags:["Terminale","2024"],price:"450 FCFA",corrige:true},
       {ref:"MHB-2023-TDB",title:"Technologie du bois",tags:["1ère","2023"],price:"450 FCFA",corrige:false},
-      {ref:"MHB-2024-LEC",title:"Lecture de plans",tags:["Terminale","2024"],price:"450 FCFA",corrige:true},
       {ref:"MHB-2023-PDF",title:"Procédés de fabrication",tags:["1ère","2023"],price:"450 FCFA",corrige:false},
-      {ref:"MHB-2024-MEN",title:"Menuiserie",tags:["Terminale","2024"],price:"500 FCFA",corrige:true},
       {ref:"MHB-2023-MET",title:"Métré / Étude des matériaux",tags:["2nde","2023"],price:"400 FCFA",corrige:false},
     ],
   };
+
+  // Bibliothèque complète : toutes les matières, toutes les années 2012-2026 (niveau Terminale/BAC)
+  data.f4be = data.f4be.concat(genFiliere("F4BE", SUBJECTS.f4be, 500));
+  data.f4ba = data.f4ba.concat(genFiliere("F4BA", SUBJECTS.f4ba, 500));
+  data.c   = data.c.concat(genFiliere("C", SUBJECTS.c, 500));
+  data.d   = data.d.concat(genFiliere("D", SUBJECTS.d, 500));
+  data.a   = data.a.concat(genFiliere("A", SUBJECTS.a, 500));
+  data.gt  = data.gt.concat(genFiliere("GT", SUBJECTS.gt, 500));
+  data.mhb = data.mhb.concat(genFiliere("MHB", SUBJECTS.mhb, 500));
+
+  // Classe de 3ème / BEPC — commune à tous, avant le choix de filière
+  SUBJECTS.bepc = [{code:"PCT",title:"Physique-Chimie-Technologie"},{code:"ANG",title:"Anglais"},{code:"MAT",title:"Mathématiques"},{code:"FR",title:"Français"},{code:"HG",title:"Histoire-Géographie"},{code:"INF",title:"Informatique"}];
+  data.bepc = [];
+  SUBJECTS.bepc.forEach(s => {
+    for(let y=2026; y>=2012; y--){
+      const age = 2026 - y;
+      const price = Math.max(150, 350 - age*12);
+      data.bepc.push({
+        ref:`BEPC-${s.code}-${y}`,
+        title:s.title,
+        tags:["3ème", String(y)],
+        price:`${price} FCFA`,
+        corrige: y >= 2020
+      });
+    }
+  });
+  data.bepc.push({ref:"BEPC-PREPA-01",title:"Guide de préparation au BEPC — méthodologie",tags:["3ème","Prépa"],price:"600 FCFA",corrige:false});
+
 
   const chapitres = [
     {ref:"CH-F4BE-MET",title:"Métré — calcul des quantités",tags:["F4BE","Difficile"],price:"600 FCFA"},
@@ -680,13 +773,30 @@
 
   let currentTab = 'f4be';
   let currentLevel = 'all';
+  let currentYear = 'all';
+
+  // Remplit le sélecteur d'années 2012-2026
+  const yearSelect = document.getElementById('yearSelect');
+  for(let y=2026; y>=2012; y--){
+    const opt = document.createElement('option');
+    opt.value = String(y);
+    opt.textContent = y;
+    yearSelect.appendChild(opt);
+  }
+  yearSelect.addEventListener('change', ()=>{
+    currentYear = yearSelect.value;
+    render(currentTab);
+  });
 
   function render(tabKey){
     const grid = document.getElementById('cardGrid');
     grid.innerHTML = '';
-    const items = data[tabKey].filter(item => currentLevel === 'all' || item.tags.includes(currentLevel));
+    const items = data[tabKey].filter(item =>
+      (currentLevel === 'all' || item.tags.includes(currentLevel)) &&
+      (currentYear === 'all' || item.tags.includes(currentYear))
+    );
     if(items.length === 0){
-      grid.innerHTML = `<p class="mono" style="font-size:13px;color:#8A8270;">Aucun sujet pour ce niveau dans cette filière pour l'instant.</p>`;
+      grid.innerHTML = `<p class="mono" style="font-size:13px;color:#8A8270;">Aucun sujet pour ce filtre dans cette filière pour l'instant.</p>`;
       return;
     }
     items.forEach(item=>{
