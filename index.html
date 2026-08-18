@@ -580,8 +580,8 @@
       <li>Cibler tes révisions sur l'essentiel</li>
     </ul>
     <div class="featured-foot">
-      <span class="price" style="font-size:19px;">1200 FCFA</span>
-      <a href="https://wa.me/237673045034?text=Bonjour%2C%20je%20veux%20le%20guide%20D%C3%A9cryptage%20F4BE%2FF4BA%20(1000%20FCFA)" target="_blank" class="buy" style="padding:11px 20px; text-decoration:none; display:inline-block;">Acheter maintenant</a>
+      <span class="price" style="font-size:19px;">1000 FCFA</span>
+      <a href="https://camerpay.biz/l/yzeyx3rlrk" target="_blank" class="buy" style="padding:11px 20px; text-decoration:none; display:inline-block;">Acheter maintenant</a>
     </div>
   </div>
 </div>
@@ -656,7 +656,7 @@
 
 <footer>
   <div>Archive.Sujets &mdash; Bonaberi, Douala, Cameroun</div>
-  <div>Maquette de démonstration</div>
+  <div>Une question, besoin de ton PDF après achat ? <a href="https://wa.me/237673045034" target="_blank" style="color:inherit;">Écris-nous sur WhatsApp</a></div>
 </footer>
 
 <script>
@@ -665,7 +665,7 @@
     const years = [];
     for(let y=2026; y>=2012; y--){
       const age = 2026 - y;
-      const price = Math.max(200, startPrice - age*15);
+      const price = Math.max(100, startPrice - age*10);
       years.push({
         ref:`${refPrefix}-${y}`,
         title:title,
@@ -678,10 +678,32 @@
   }
 
   // Génère la bibliothèque complète (2012-2026) pour toutes les matières d'une filière
-  function genFiliere(prefix, subjects, startPrice){
+  function genFiliere(prefix, subjects, startPrice, levels){
+    levels = levels || ["Terminale"];
+    const levelCode = {"2nde":"2ND","1ère":"1ERE","Terminale":"TLE"};
     let all = [];
     subjects.forEach(s => {
-      all = all.concat(genYears(`${prefix}-${s.code}`, s.title, "Terminale", startPrice));
+      levels.forEach(lvl => {
+        all = all.concat(genYears(`${prefix}-${s.code}-${levelCode[lvl]||lvl}`, s.title, lvl, startPrice));
+      });
+    });
+    return all;
+  }
+
+  // Génère un pack "10 sujets corrigés" par matière et par niveau
+  function genPacks(prefix, subjects, levels, price){
+    const levelCode = {"2nde":"2ND","1ère":"1ERE","Terminale":"TLE"};
+    let all = [];
+    subjects.forEach(s => {
+      levels.forEach(lvl => {
+        all.push({
+          ref:`${prefix}-${s.code}-${levelCode[lvl]||lvl}-PACK10`,
+          title:`Pack 10 sujets corrigés — ${s.title}`,
+          tags:[lvl, "Pack"],
+          price:`${price} FCFA`,
+          corrige:true
+        });
+      });
     });
     return all;
   }
@@ -692,64 +714,73 @@
     c: [{code:"MAT",title:"Mathématiques"},{code:"PHY",title:"Physique"},{code:"CHI",title:"Chimie"},{code:"FR",title:"Français"},{code:"ANG",title:"Anglais"},{code:"INF",title:"Informatique"},{code:"HIS",title:"Histoire"},{code:"GEO",title:"Géographie"},{code:"EPS",title:"Éducation physique"},{code:"PHI",title:"Philosophie"}],
     d: [{code:"MAT",title:"Mathématiques"},{code:"PHY",title:"Physique"},{code:"CHI",title:"Chimie"},{code:"SVT",title:"Sciences de la Vie et de la Terre"},{code:"FR",title:"Français"},{code:"ANG",title:"Anglais"},{code:"INF",title:"Informatique"},{code:"HIS",title:"Histoire"},{code:"GEO",title:"Géographie"},{code:"PHI",title:"Philosophie"},{code:"EPS",title:"Éducation physique"}],
     a: [{code:"FR",title:"Français"},{code:"ANG",title:"Anglais"},{code:"PHI",title:"Philosophie"},{code:"HIS",title:"Histoire"},{code:"GEO",title:"Géographie"},{code:"LV",title:"Langue vivante 2"},{code:"MAT",title:"Mathématiques"},{code:"SCI",title:"Sciences"},{code:"EPS",title:"Éducation physique"}],
-    gt: [{code:"MAT",title:"Mathématiques"},{code:"PHY",title:"Physique"},{code:"FR",title:"Français"},{code:"ANG",title:"Anglais"},{code:"DES",title:"Dessin technique"},{code:"TEC",title:"Technologie"},{code:"MEC",title:"Mécanique"},{code:"ELE",title:"Électricité / Électrotechnique"}],
+    gt: [{code:"MAT",title:"Mathématiques"},{code:"PHY",title:"Physique"},{code:"FR",title:"Français"},{code:"ANG",title:"Anglais"},{code:"TOP",title:"Topographie"},{code:"NIV",title:"Nivellement"},{code:"CAR",title:"Cartographie"},{code:"DAO",title:"Dessin topographique / DAO"},{code:"LEG",title:"Législation foncière"},{code:"PHO",title:"Photogrammétrie"},{code:"INF",title:"Informatique appliquée"}],
     mhb: [{code:"MAT",title:"Mathématiques"},{code:"FR",title:"Français"},{code:"ANG",title:"Anglais"},{code:"PHY",title:"Physique"},{code:"DES",title:"Dessin technique"},{code:"TDB",title:"Technologie du bois"},{code:"LEC",title:"Lecture de plans"},{code:"PDF",title:"Procédés de fabrication"},{code:"MEN",title:"Menuiserie"},{code:"MET",title:"Métré / Étude des matériaux"}],
   };
 
   const data = {
     f4be: [
-      {ref:"F4BE-2023-PHY",title:"Physique",tags:["1ère","2023"],price:"400 FCFA",corrige:false},
-      {ref:"F4BE-2023-TOP",title:"Topographie",tags:["1ère","2023"],price:"400 FCFA",corrige:false},
-      {ref:"F4BE-2023-LAB",title:"Laboratoire",tags:["1ère","2023"],price:"400 FCFA",corrige:false},
-      {ref:"F4BE-2023-DES",title:"Dessin",tags:["2nde","2023"],price:"400 FCFA",corrige:false},
-      {ref:"F4BE-2023-HG",title:"Histoire-Géographie (prépa)",tags:["1ère","2023"],price:"350 FCFA",corrige:false},
-      {ref:"F4BE-2023-ECM",title:"ECM (prépa)",tags:["1ère","2023"],price:"350 FCFA",corrige:false},
+      {ref:"F4BE-2023-PHY",title:"Physique",tags:["1ère","2023"],price:"200 FCFA",corrige:false},
+      {ref:"F4BE-2023-TOP",title:"Topographie",tags:["1ère","2023"],price:"200 FCFA",corrige:false},
+      {ref:"F4BE-2023-LAB",title:"Laboratoire",tags:["1ère","2023"],price:"200 FCFA",corrige:false},
+      {ref:"F4BE-2023-DES",title:"Dessin",tags:["2nde","2023"],price:"200 FCFA",corrige:false},
+      {ref:"F4BE-2023-HG",title:"Histoire-Géographie (prépa)",tags:["1ère","2023"],price:"150 FCFA",corrige:false},
+      {ref:"F4BE-2023-ECM",title:"ECM (prépa)",tags:["1ère","2023"],price:"150 FCFA",corrige:false},
     ],
     f4ba: [
-      {ref:"F4BA-2023-PHY",title:"Physique",tags:["1ère","2023"],price:"400 FCFA",corrige:false},
-      {ref:"F4BA-2023-DES",title:"Dessin technique",tags:["1ère","2023"],price:"400 FCFA",corrige:false},
-      {ref:"F4BA-2023-PDC",title:"Procédés de construction",tags:["1ère","2023"],price:"500 FCFA",corrige:false},
-      {ref:"F4BA-2023-MET",title:"Métré",tags:["1ère","2023"],price:"450 FCFA",corrige:false},
-      {ref:"F4BA-2023-LAB",title:"Laboratoire",tags:["2nde","2023"],price:"400 FCFA",corrige:false},
-      {ref:"F4BA-2023-ANG",title:"Anglais",tags:["1ère","2023"],price:"400 FCFA",corrige:false},
+      {ref:"F4BA-2023-PHY",title:"Physique",tags:["1ère","2023"],price:"200 FCFA",corrige:false},
+      {ref:"F4BA-2023-DES",title:"Dessin technique",tags:["1ère","2023"],price:"200 FCFA",corrige:false},
+      {ref:"F4BA-2023-PDC",title:"Procédés de construction",tags:["1ère","2023"],price:"100 FCFA",corrige:false},
+      {ref:"F4BA-2023-MET",title:"Métré",tags:["1ère","2023"],price:"250 FCFA",corrige:false},
+      {ref:"F4BA-2023-LAB",title:"Laboratoire",tags:["2nde","2023"],price:"200 FCFA",corrige:false},
+      {ref:"F4BA-2023-ANG",title:"Anglais",tags:["1ère","2023"],price:"200 FCFA",corrige:false},
     ],
     c: [
-      {ref:"C-2023-PHY",title:"Physique",tags:["1ère","2023"],price:"400 FCFA",corrige:false},
-      {ref:"C-2023-INF",title:"Informatique",tags:["1ère","2023"],price:"400 FCFA",corrige:false},
-      {ref:"C-2023-FR",title:"Français",tags:["2nde","2023"],price:"350 FCFA",corrige:false},
+      {ref:"C-2023-PHY",title:"Physique",tags:["1ère","2023"],price:"200 FCFA",corrige:false},
+      {ref:"C-2023-INF",title:"Informatique",tags:["1ère","2023"],price:"200 FCFA",corrige:false},
+      {ref:"C-2023-FR",title:"Français",tags:["2nde","2023"],price:"150 FCFA",corrige:false},
     ],
     d: [
-      {ref:"D-2023-PHY",title:"Physique",tags:["1ère","2023"],price:"400 FCFA",corrige:false},
-      {ref:"D-2023-INF",title:"Informatique",tags:["1ère","2023"],price:"400 FCFA",corrige:false},
-      {ref:"D-2023-HG",title:"Histoire-Géographie",tags:["2nde","2023"],price:"350 FCFA",corrige:false},
+      {ref:"D-2023-PHY",title:"Physique",tags:["1ère","2023"],price:"200 FCFA",corrige:false},
+      {ref:"D-2023-INF",title:"Informatique",tags:["1ère","2023"],price:"200 FCFA",corrige:false},
+      {ref:"D-2023-HG",title:"Histoire-Géographie",tags:["1ère","2023"],price:"150 FCFA",corrige:false},
     ],
     a: [
-      {ref:"A-2023-HIS",title:"Histoire-Géographie",tags:["1ère","2023"],price:"400 FCFA",corrige:false},
-      {ref:"A-2023-ANG",title:"Anglais",tags:["1ère","2023"],price:"400 FCFA",corrige:false},
-      {ref:"A-2023-MAT",title:"Mathématiques",tags:["2nde","2023"],price:"350 FCFA",corrige:false},
+      {ref:"A-2023-HIS",title:"Histoire-Géographie",tags:["1ère","2023"],price:"200 FCFA",corrige:false},
+      {ref:"A-2023-ANG",title:"Anglais",tags:["1ère","2023"],price:"200 FCFA",corrige:false},
+      {ref:"A-2023-MAT",title:"Mathématiques",tags:["2nde","2023"],price:"150 FCFA",corrige:false},
     ],
     gt: [
-      {ref:"GT-2023-PHY",title:"Physique",tags:["1ère","2023"],price:"400 FCFA",corrige:false},
-      {ref:"GT-2023-TEC",title:"Technologie",tags:["1ère","2023"],price:"450 FCFA",corrige:false},
-      {ref:"GT-2023-ELE",title:"Électricité / Électrotechnique",tags:["1ère","2023"],price:"500 FCFA",corrige:false},
-      {ref:"GT-2023-DES",title:"Dessin technique",tags:["2nde","2023"],price:"400 FCFA",corrige:false},
+      {ref:"GT-2023-PHY",title:"Physique",tags:["1ère","2023"],price:"200 FCFA",corrige:false},
+      {ref:"GT-2023-NIV",title:"Nivellement",tags:["1ère","2023"],price:"250 FCFA",corrige:false},
+      {ref:"GT-2023-LEG",title:"Législation foncière",tags:["1ère","2023"],price:"200 FCFA",corrige:false},
+      {ref:"GT-2023-DAO",title:"Dessin topographique / DAO",tags:["2nde","2023"],price:"200 FCFA",corrige:false},
     ],
     mhb: [
-      {ref:"MHB-2023-PHY",title:"Physique",tags:["1ère","2023"],price:"400 FCFA",corrige:false},
-      {ref:"MHB-2023-TDB",title:"Technologie du bois",tags:["1ère","2023"],price:"450 FCFA",corrige:false},
-      {ref:"MHB-2023-PDF",title:"Procédés de fabrication",tags:["1ère","2023"],price:"450 FCFA",corrige:false},
-      {ref:"MHB-2023-MET",title:"Métré / Étude des matériaux",tags:["2nde","2023"],price:"400 FCFA",corrige:false},
+      {ref:"MHB-2023-PHY",title:"Physique",tags:["1ère","2023"],price:"200 FCFA",corrige:false},
+      {ref:"MHB-2023-TDB",title:"Technologie du bois",tags:["1ère","2023"],price:"250 FCFA",corrige:false},
+      {ref:"MHB-2023-PDF",title:"Procédés de fabrication",tags:["1ère","2023"],price:"250 FCFA",corrige:false},
+      {ref:"MHB-2023-MET",title:"Métré / Étude des matériaux",tags:["2nde","2023"],price:"200 FCFA",corrige:false},
     ],
   };
 
-  // Bibliothèque complète : toutes les matières, toutes les années 2012-2026 (niveau Terminale/BAC)
-  data.f4be = data.f4be.concat(genFiliere("F4BE", SUBJECTS.f4be, 500));
-  data.f4ba = data.f4ba.concat(genFiliere("F4BA", SUBJECTS.f4ba, 500));
-  data.c   = data.c.concat(genFiliere("C", SUBJECTS.c, 500));
-  data.d   = data.d.concat(genFiliere("D", SUBJECTS.d, 500));
-  data.a   = data.a.concat(genFiliere("A", SUBJECTS.a, 500));
-  data.gt  = data.gt.concat(genFiliere("GT", SUBJECTS.gt, 500));
-  data.mhb = data.mhb.concat(genFiliere("MHB", SUBJECTS.mhb, 500));
+  // Bibliothèque complète : toutes les matières, tous les niveaux, toutes les années 2012-2026
+  data.f4be = data.f4be.concat(genFiliere("F4BE", SUBJECTS.f4be, 300, ["2nde","1ère","Terminale"]));
+  data.f4ba = data.f4ba.concat(genFiliere("F4BA", SUBJECTS.f4ba, 300, ["2nde","1ère","Terminale"]));
+  data.c   = data.c.concat(genFiliere("C", SUBJECTS.c, 300, ["2nde","1ère","Terminale"]));
+  data.d   = data.d.concat(genFiliere("D", SUBJECTS.d, 300, ["1ère","Terminale"]));
+  data.a   = data.a.concat(genFiliere("A", SUBJECTS.a, 300, ["2nde","1ère","Terminale"]));
+  data.gt  = data.gt.concat(genFiliere("GT", SUBJECTS.gt, 300, ["2nde","1ère","Terminale"]));
+  data.mhb = data.mhb.concat(genFiliere("MHB", SUBJECTS.mhb, 300, ["2nde","1ère","Terminale"]));
+
+  // Packs "10 sujets corrigés" par matière et niveau — 1300 FCFA
+  data.f4be = data.f4be.concat(genPacks("F4BE", SUBJECTS.f4be, ["2nde","1ère","Terminale"], 1300));
+  data.f4ba = data.f4ba.concat(genPacks("F4BA", SUBJECTS.f4ba, ["2nde","1ère","Terminale"], 1300));
+  data.c   = data.c.concat(genPacks("C", SUBJECTS.c, ["2nde","1ère","Terminale"], 1300));
+  data.d   = data.d.concat(genPacks("D", SUBJECTS.d, ["1ère","Terminale"], 1300));
+  data.a   = data.a.concat(genPacks("A", SUBJECTS.a, ["2nde","1ère","Terminale"], 1300));
+  data.gt  = data.gt.concat(genPacks("GT", SUBJECTS.gt, ["2nde","1ère","Terminale"], 1300));
+  data.mhb = data.mhb.concat(genPacks("MHB", SUBJECTS.mhb, ["2nde","1ère","Terminale"], 1300));
 
   // Classe de 3ème / BEPC — commune à tous, avant le choix de filière
   SUBJECTS.bepc = [{code:"PCT",title:"Physique-Chimie-Technologie"},{code:"ANG",title:"Anglais"},{code:"MAT",title:"Mathématiques"},{code:"FR",title:"Français"},{code:"HG",title:"Histoire-Géographie"},{code:"INF",title:"Informatique"}];
@@ -757,7 +788,7 @@
   SUBJECTS.bepc.forEach(s => {
     for(let y=2026; y>=2012; y--){
       const age = 2026 - y;
-      const price = Math.max(150, 350 - age*12);
+      const price = Math.max(100, 200 - age*8);
       data.bepc.push({
         ref:`BEPC-${s.code}-${y}`,
         title:s.title,
@@ -768,6 +799,7 @@
     }
   });
   data.bepc.push({ref:"BEPC-PREPA-01",title:"Guide de préparation au BEPC — méthodologie",tags:["3ème","Prépa"],price:"600 FCFA",corrige:false});
+  data.bepc = data.bepc.concat(genPacks("BEPC", SUBJECTS.bepc, ["3ème"], 1300));
 
 
   const chapitres = [
@@ -776,7 +808,7 @@
     {ref:"CH-F4BE-PDC",title:"Procédé de construction — le béton armé",tags:["F4BE","Difficile"],price:"600 FCFA"},
     {ref:"CH-C-INT",title:"Intégrales et primitives",tags:["C · D","Difficile"],price:"600 FCFA"},
     {ref:"CH-F4BE-MEC",title:"Mécanique — statique des structures",tags:["F4BE","Difficile"],price:"600 FCFA"},
-    {ref:"CH-A-DISS",title:"Méthode de la dissertation philo",tags:["A","Difficile"],price:"500 FCFA"},
+    {ref:"CH-A-DISS",title:"Méthode de la dissertation philo",tags:["A","Difficile"],price:"400 FCFA"},
   ];
 
   let currentTab = 'f4be';
@@ -839,7 +871,7 @@
         </div>
         <div class="card-foot">
           <span class="price">${item.price}</span>
-          <a href="https://wa.me/237673045034?text=${encodeURIComponent('Bonjour, je veux : '+item.title+' ('+item.ref+') — '+item.price)}" target="_blank" class="buy" style="text-decoration:none; display:inline-block;">Acheter</a>
+          <a href="https://camerpay.biz/l/gvqjulj85s" target="_blank" class="buy" style="text-decoration:none; display:inline-block;">Acheter</a>
         </div>
       `;
       grid.appendChild(card);
@@ -861,7 +893,7 @@
         </div>
         <div class="card-foot">
           <span class="price">${item.price}</span>
-          <a href="https://wa.me/237673045034?text=${encodeURIComponent('Bonjour, je veux : '+item.title+' ('+item.ref+') — '+item.price)}" target="_blank" class="buy" style="text-decoration:none; display:inline-block;">Acheter</a>
+          <a href="https://camerpay.biz/l/gvqjulj85s" target="_blank" class="buy" style="text-decoration:none; display:inline-block;">Acheter</a>
         </div>
       `;
       grid.appendChild(card);
