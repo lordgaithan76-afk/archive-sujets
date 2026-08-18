@@ -607,6 +607,7 @@
       <div class="level-chip" data-level="2nde">2nde</div>
       <div class="level-chip" data-level="1ère">1ère</div>
       <div class="level-chip" data-level="Terminale">Terminale</div>
+      <div class="level-chip" data-level="Pack" style="border-color:var(--tab-yellow);">📦 Packs 10 sujets</div>
     </div>
     <div class="level-row" id="yearRow" style="margin-top:-14px;">
       <span class="level-label mono">Année</span>
@@ -764,6 +765,15 @@
     ],
   };
 
+  // Packs "10 sujets corrigés" par matière et niveau — 1300 FCFA (mis en avant, en tête de liste)
+  data.f4be = genPacks("F4BE", SUBJECTS.f4be, ["2nde","1ère","Terminale"], 1300).concat(data.f4be);
+  data.f4ba = genPacks("F4BA", SUBJECTS.f4ba, ["2nde","1ère","Terminale"], 1300).concat(data.f4ba);
+  data.c   = genPacks("C", SUBJECTS.c, ["2nde","1ère","Terminale"], 1300).concat(data.c);
+  data.d   = genPacks("D", SUBJECTS.d, ["1ère","Terminale"], 1300).concat(data.d);
+  data.a   = genPacks("A", SUBJECTS.a, ["2nde","1ère","Terminale"], 1300).concat(data.a);
+  data.gt  = genPacks("GT", SUBJECTS.gt, ["2nde","1ère","Terminale"], 1300).concat(data.gt);
+  data.mhb = genPacks("MHB", SUBJECTS.mhb, ["2nde","1ère","Terminale"], 1300).concat(data.mhb);
+
   // Bibliothèque complète : toutes les matières, tous les niveaux, toutes les années 2012-2026
   data.f4be = data.f4be.concat(genFiliere("F4BE", SUBJECTS.f4be, 300, ["2nde","1ère","Terminale"]));
   data.f4ba = data.f4ba.concat(genFiliere("F4BA", SUBJECTS.f4ba, 300, ["2nde","1ère","Terminale"]));
@@ -772,15 +782,6 @@
   data.a   = data.a.concat(genFiliere("A", SUBJECTS.a, 300, ["2nde","1ère","Terminale"]));
   data.gt  = data.gt.concat(genFiliere("GT", SUBJECTS.gt, 300, ["2nde","1ère","Terminale"]));
   data.mhb = data.mhb.concat(genFiliere("MHB", SUBJECTS.mhb, 300, ["2nde","1ère","Terminale"]));
-
-  // Packs "10 sujets corrigés" par matière et niveau — 1300 FCFA
-  data.f4be = data.f4be.concat(genPacks("F4BE", SUBJECTS.f4be, ["2nde","1ère","Terminale"], 1300));
-  data.f4ba = data.f4ba.concat(genPacks("F4BA", SUBJECTS.f4ba, ["2nde","1ère","Terminale"], 1300));
-  data.c   = data.c.concat(genPacks("C", SUBJECTS.c, ["2nde","1ère","Terminale"], 1300));
-  data.d   = data.d.concat(genPacks("D", SUBJECTS.d, ["1ère","Terminale"], 1300));
-  data.a   = data.a.concat(genPacks("A", SUBJECTS.a, ["2nde","1ère","Terminale"], 1300));
-  data.gt  = data.gt.concat(genPacks("GT", SUBJECTS.gt, ["2nde","1ère","Terminale"], 1300));
-  data.mhb = data.mhb.concat(genPacks("MHB", SUBJECTS.mhb, ["2nde","1ère","Terminale"], 1300));
 
   // Classe de 3ème / BEPC — commune à tous, avant le choix de filière
   SUBJECTS.bepc = [{code:"PCT",title:"Physique-Chimie-Technologie"},{code:"ANG",title:"Anglais"},{code:"MAT",title:"Mathématiques"},{code:"FR",title:"Français"},{code:"HG",title:"Histoire-Géographie"},{code:"INF",title:"Informatique"}];
