@@ -224,6 +224,63 @@
     max-width:300px;
   }
 
+  /* PROMO SERIES (D, C, A) */
+  .promo-grid{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:20px;
+    max-width:1100px;
+    margin:0 auto;
+    padding:8px 24px 56px;
+  }
+  @media(min-width:760px){.promo-grid{grid-template-columns:repeat(3,1fr);}}
+  .promo-card{
+    border:2px solid var(--ink);
+    border-radius:8px;
+    padding:22px;
+    background:var(--paper);
+    position:relative;
+  }
+  .promo-card::before{
+    content:"Promo";
+    position:absolute;
+    top:-11px;
+    left:20px;
+    background:var(--stamp-red);
+    color:var(--paper);
+    font-family:'IBM Plex Mono',monospace;
+    font-size:10px;
+    text-transform:uppercase;
+    letter-spacing:0.05em;
+    padding:3px 10px;
+    border-radius:20px;
+  }
+  .promo-card .serie{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11px;
+    color:#8A8270;
+    letter-spacing:0.05em;
+  }
+  .promo-card h3{
+    font-family:'Newsreader',serif;
+    font-size:21px;
+    font-style:italic;
+    margin-top:8px;
+    color:var(--archive-green);
+    line-height:1.3;
+  }
+  .promo-card p{
+    font-size:13.5px;
+    color:#3A3A32;
+    margin-top:10px;
+  }
+  .promo-card .price{
+    display:block;
+    margin-top:14px;
+    font-family:'IBM Plex Mono',monospace;
+    font-weight:600;
+  }
+
   /* PRODUIT PHARE */
   .featured-card{
     border:2px solid var(--ink);
@@ -586,6 +643,44 @@
   </div>
 </div>
 
+<div class="dossier" style="margin-top:24px;">
+  <div class="featured-card" style="border-color:var(--stamp-red);">
+    <div class="featured-ref mono" style="color:var(--stamp-red);">PROMO &middot; 1ère F4BE / F4BA</div>
+    <h2 class="featured-title">Nouveau programme OBC — Comment réussir en 1ère F4BE et F4BA</h2>
+    <p class="featured-desc">Conformément au nouveau programme de l'Office du Baccalauréat du Cameroun (OBC), retrouve les recueils complets d'Exploitation des chantiers, Métré et Topographie pour la classe de 1ère — F4BE et F4BA. Un contenu pensé pour t'aider à vraiment réussir ces matières clés du bureau d'études.</p>
+    <ul class="featured-list">
+      <li>Recueil Exploitation des chantiers — 1ère F4BE/F4BA</li>
+      <li>Recueil Métré — 1ère F4BE/F4BA</li>
+      <li>Recueil Topographie — 1ère F4BE/F4BA</li>
+    </ul>
+    <div class="featured-foot">
+      <span class="price" style="font-size:19px;">2000 FCFA / recueil</span>
+      <a href="#catalogue" class="buy" style="padding:11px 20px; text-decoration:none; display:inline-block;">Voir dans le catalogue</a>
+    </div>
+  </div>
+</div>
+
+<div class="promo-grid">
+  <div class="promo-card">
+    <div class="serie mono">SÉRIE D &middot; NOUVEAU PROGRAMME OBC</div>
+    <h3>"Le BAC D se gagne avec méthode, pas avec le stress."</h3>
+    <p>Un guide complet pour transformer tes révisions en vraies armes le jour de l'épreuve.</p>
+    <span class="price">2000 FCFA</span>
+  </div>
+  <div class="promo-card">
+    <div class="serie mono">SÉRIE C &middot; NOUVEAU PROGRAMME OBC</div>
+    <h3>"Les maths ne te font plus peur, elles t'attendent."</h3>
+    <p>La méthode pour aborder ton BAC C avec confiance, matière par matière.</p>
+    <span class="price">2000 FCFA</span>
+  </div>
+  <div class="promo-card">
+    <div class="serie mono">SÉRIE A &middot; NOUVEAU PROGRAMME OBC</div>
+    <h3>"Ta plume, ton BAC. On t'aide à viser juste."</h3>
+    <p>Le guide qui structure ta réussite en série littéraire, du texte à la note.</p>
+    <span class="price">2000 FCFA</span>
+  </div>
+</div>
+
 <div class="dossier" id="catalogue">
   <div class="dossier-label">Dossier &middot; par filière</div>
   <p style="font-family:'Newsreader',serif; font-style:italic; font-size:17px; color:var(--archive-green); margin-top:4px; margin-bottom:6px;">Ta filière, tes années, tes matières — tout est rangé ici.</p>
@@ -608,6 +703,7 @@
       <div class="level-chip" data-level="1ère">1ère</div>
       <div class="level-chip" data-level="Terminale">Terminale</div>
       <div class="level-chip" data-level="Pack" style="border-color:var(--tab-yellow);">📦 Packs 10 sujets</div>
+      <div class="level-chip" data-level="Promo" style="border-color:var(--stamp-red);">🔥 Promo</div>
     </div>
     <div class="level-row" id="yearRow" style="margin-top:-14px;">
       <span class="level-label mono">Année</span>
@@ -634,296 +730,4 @@
   <div class="grid" id="chapGrid" style="margin-top:24px;"></div>
 </div>
 
-<section class="steps" id="fonctionnement">
-  <h2>Trois étapes, un PDF entre les mains.</h2>
-  <div class="steps-grid">
-    <div class="step">
-      <div class="step-num">01</div>
-      <h3>Choisis ta filière</h3>
-      <p>Parcours les onglets par filière, matière et année pour trouver l'épreuve qu'il te faut.</p>
-    </div>
-    <div class="step">
-      <div class="step-num">02</div>
-      <h3>Paie en Mobile Money</h3>
-      <p>Orange Money ou MTN MoMo, paiement sécurisé directement depuis ton téléphone.</p>
-    </div>
-    <div class="step">
-      <div class="step-num">03</div>
-      <h3>Télécharge le sujet</h3>
-      <p>Le PDF est disponible immédiatement, avec le corrigé si tu l'as choisi.</p>
-    </div>
-  </div>
-</section>
-
-<footer>
-  <div>Archive.Sujets &mdash; Bonaberi, Douala, Cameroun</div>
-  <div>Une question, besoin de ton PDF après achat ? <a href="https://wa.me/237673045034" target="_blank" style="color:inherit;">Écris-nous sur WhatsApp</a></div>
-</footer>
-
-<script>
-  // Génère une série d'années pour une matière (bibliothèque complète 2012-2026)
-  function genYears(refPrefix, title, level, startPrice){
-    const years = [];
-    for(let y=2026; y>=2012; y--){
-      const age = 2026 - y;
-      const price = Math.max(100, startPrice - age*10);
-      years.push({
-        ref:`${refPrefix}-${y}`,
-        title:title,
-        tags:[level, String(y)],
-        price:`${price} FCFA`,
-        corrige: y >= 2020
-      });
-    }
-    return years;
-  }
-
-  // Génère la bibliothèque complète (2012-2026) pour toutes les matières d'une filière
-  function genFiliere(prefix, subjects, startPrice, levels){
-    levels = levels || ["Terminale"];
-    const levelCode = {"2nde":"2ND","1ère":"1ERE","Terminale":"TLE"};
-    let all = [];
-    subjects.forEach(s => {
-      levels.forEach(lvl => {
-        all = all.concat(genYears(`${prefix}-${s.code}-${levelCode[lvl]||lvl}`, s.title, lvl, startPrice));
-      });
-    });
-    return all;
-  }
-
-  // Génère un pack "10 sujets corrigés" par matière et par niveau
-  function genPacks(prefix, subjects, levels, price){
-    const levelCode = {"2nde":"2ND","1ère":"1ERE","Terminale":"TLE"};
-    let all = [];
-    subjects.forEach(s => {
-      levels.forEach(lvl => {
-        all.push({
-          ref:`${prefix}-${s.code}-${levelCode[lvl]||lvl}-PACK10`,
-          title:`Pack 10 sujets corrigés — ${s.title}`,
-          tags:[lvl, "Pack"],
-          price:`${price} FCFA`,
-          corrige:true
-        });
-      });
-    });
-    return all;
-  }
-
-  const SUBJECTS = {
-    f4be: [{code:"MAT",title:"Mathématiques"},{code:"PHY",title:"Physique"},{code:"ANG",title:"Anglais"},{code:"MET",title:"Métré"},{code:"TOP",title:"Topographie"},{code:"PDC",title:"Procédé de construction"},{code:"LAB",title:"Laboratoire"},{code:"MEC",title:"Mécanique"},{code:"DES",title:"Dessin"},{code:"EXC",title:"Exploitation des chantiers"},{code:"HG",title:"Histoire-Géographie"},{code:"ECM",title:"ECM"}],
-    f4ba: [{code:"MAT",title:"Mathématiques"},{code:"FR",title:"Français"},{code:"ANG",title:"Anglais"},{code:"PHY",title:"Physique"},{code:"CHI",title:"Chimie"},{code:"DES",title:"Dessin technique"},{code:"TDB",title:"Technologie du bâtiment"},{code:"PDC",title:"Procédés de construction"},{code:"TOP",title:"Topographie"},{code:"MET",title:"Métré"},{code:"MEC",title:"Mécanique appliquée"},{code:"LAB",title:"Laboratoire"}],
-    c: [{code:"MAT",title:"Mathématiques"},{code:"PHY",title:"Physique"},{code:"CHI",title:"Chimie"},{code:"FR",title:"Français"},{code:"ANG",title:"Anglais"},{code:"INF",title:"Informatique"},{code:"HIS",title:"Histoire"},{code:"GEO",title:"Géographie"},{code:"EPS",title:"Éducation physique"},{code:"PHI",title:"Philosophie"}],
-    d: [{code:"MAT",title:"Mathématiques"},{code:"PHY",title:"Physique"},{code:"CHI",title:"Chimie"},{code:"SVT",title:"Sciences de la Vie et de la Terre"},{code:"FR",title:"Français"},{code:"ANG",title:"Anglais"},{code:"INF",title:"Informatique"},{code:"HIS",title:"Histoire"},{code:"GEO",title:"Géographie"},{code:"PHI",title:"Philosophie"},{code:"EPS",title:"Éducation physique"}],
-    a: [{code:"FR",title:"Français"},{code:"ANG",title:"Anglais"},{code:"PHI",title:"Philosophie"},{code:"HIS",title:"Histoire"},{code:"GEO",title:"Géographie"},{code:"LV",title:"Langue vivante 2"},{code:"MAT",title:"Mathématiques"},{code:"SCI",title:"Sciences"},{code:"EPS",title:"Éducation physique"}],
-    gt: [{code:"MAT",title:"Mathématiques"},{code:"PHY",title:"Physique"},{code:"FR",title:"Français"},{code:"ANG",title:"Anglais"},{code:"TOP",title:"Topographie"},{code:"NIV",title:"Nivellement"},{code:"CAR",title:"Cartographie"},{code:"DAO",title:"Dessin topographique / DAO"},{code:"LEG",title:"Législation foncière"},{code:"PHO",title:"Photogrammétrie"},{code:"INF",title:"Informatique appliquée"}],
-    mhb: [{code:"MAT",title:"Mathématiques"},{code:"FR",title:"Français"},{code:"ANG",title:"Anglais"},{code:"PHY",title:"Physique"},{code:"DES",title:"Dessin technique"},{code:"TDB",title:"Technologie du bois"},{code:"LEC",title:"Lecture de plans"},{code:"PDF",title:"Procédés de fabrication"},{code:"MEN",title:"Menuiserie"},{code:"MET",title:"Métré / Étude des matériaux"}],
-  };
-
-  const data = {
-    f4be: [
-      {ref:"F4BE-2023-PHY",title:"Physique",tags:["1ère","2023"],price:"200 FCFA",corrige:false},
-      {ref:"F4BE-2023-TOP",title:"Topographie",tags:["1ère","2023"],price:"200 FCFA",corrige:false},
-      {ref:"F4BE-2023-LAB",title:"Laboratoire",tags:["1ère","2023"],price:"200 FCFA",corrige:false},
-      {ref:"F4BE-2023-DES",title:"Dessin",tags:["2nde","2023"],price:"200 FCFA",corrige:false},
-      {ref:"F4BE-2023-HG",title:"Histoire-Géographie (prépa)",tags:["1ère","2023"],price:"150 FCFA",corrige:false},
-      {ref:"F4BE-2023-ECM",title:"ECM (prépa)",tags:["1ère","2023"],price:"150 FCFA",corrige:false},
-    ],
-    f4ba: [
-      {ref:"F4BA-2023-PHY",title:"Physique",tags:["1ère","2023"],price:"200 FCFA",corrige:false},
-      {ref:"F4BA-2023-DES",title:"Dessin technique",tags:["1ère","2023"],price:"200 FCFA",corrige:false},
-      {ref:"F4BA-2023-PDC",title:"Procédés de construction",tags:["1ère","2023"],price:"100 FCFA",corrige:false},
-      {ref:"F4BA-2023-MET",title:"Métré",tags:["1ère","2023"],price:"250 FCFA",corrige:false},
-      {ref:"F4BA-2023-LAB",title:"Laboratoire",tags:["2nde","2023"],price:"200 FCFA",corrige:false},
-      {ref:"F4BA-2023-ANG",title:"Anglais",tags:["1ère","2023"],price:"200 FCFA",corrige:false},
-    ],
-    c: [
-      {ref:"C-2023-PHY",title:"Physique",tags:["1ère","2023"],price:"200 FCFA",corrige:false},
-      {ref:"C-2023-INF",title:"Informatique",tags:["1ère","2023"],price:"200 FCFA",corrige:false},
-      {ref:"C-2023-FR",title:"Français",tags:["2nde","2023"],price:"150 FCFA",corrige:false},
-    ],
-    d: [
-      {ref:"D-2023-PHY",title:"Physique",tags:["1ère","2023"],price:"200 FCFA",corrige:false},
-      {ref:"D-2023-INF",title:"Informatique",tags:["1ère","2023"],price:"200 FCFA",corrige:false},
-      {ref:"D-2023-HG",title:"Histoire-Géographie",tags:["1ère","2023"],price:"150 FCFA",corrige:false},
-    ],
-    a: [
-      {ref:"A-2023-HIS",title:"Histoire-Géographie",tags:["1ère","2023"],price:"200 FCFA",corrige:false},
-      {ref:"A-2023-ANG",title:"Anglais",tags:["1ère","2023"],price:"200 FCFA",corrige:false},
-      {ref:"A-2023-MAT",title:"Mathématiques",tags:["2nde","2023"],price:"150 FCFA",corrige:false},
-    ],
-    gt: [
-      {ref:"GT-2023-PHY",title:"Physique",tags:["1ère","2023"],price:"200 FCFA",corrige:false},
-      {ref:"GT-2023-NIV",title:"Nivellement",tags:["1ère","2023"],price:"250 FCFA",corrige:false},
-      {ref:"GT-2023-LEG",title:"Législation foncière",tags:["1ère","2023"],price:"200 FCFA",corrige:false},
-      {ref:"GT-2023-DAO",title:"Dessin topographique / DAO",tags:["2nde","2023"],price:"200 FCFA",corrige:false},
-    ],
-    mhb: [
-      {ref:"MHB-2023-PHY",title:"Physique",tags:["1ère","2023"],price:"200 FCFA",corrige:false},
-      {ref:"MHB-2023-TDB",title:"Technologie du bois",tags:["1ère","2023"],price:"250 FCFA",corrige:false},
-      {ref:"MHB-2023-PDF",title:"Procédés de fabrication",tags:["1ère","2023"],price:"250 FCFA",corrige:false},
-      {ref:"MHB-2023-MET",title:"Métré / Étude des matériaux",tags:["2nde","2023"],price:"200 FCFA",corrige:false},
-    ],
-  };
-
-  // Packs "10 sujets corrigés" par matière et niveau — 1300 FCFA (mis en avant, en tête de liste)
-  data.f4be = genPacks("F4BE", SUBJECTS.f4be, ["2nde","1ère","Terminale"], 1300).concat(data.f4be);
-  data.f4ba = genPacks("F4BA", SUBJECTS.f4ba, ["2nde","1ère","Terminale"], 1300).concat(data.f4ba);
-  data.c   = genPacks("C", SUBJECTS.c, ["2nde","1ère","Terminale"], 1300).concat(data.c);
-  data.d   = genPacks("D", SUBJECTS.d, ["1ère","Terminale"], 1300).concat(data.d);
-  data.a   = genPacks("A", SUBJECTS.a, ["2nde","1ère","Terminale"], 1300).concat(data.a);
-  data.gt  = genPacks("GT", SUBJECTS.gt, ["2nde","1ère","Terminale"], 1300).concat(data.gt);
-  data.mhb = genPacks("MHB", SUBJECTS.mhb, ["2nde","1ère","Terminale"], 1300).concat(data.mhb);
-
-  // Bibliothèque complète : toutes les matières, tous les niveaux, toutes les années 2012-2026
-  data.f4be = data.f4be.concat(genFiliere("F4BE", SUBJECTS.f4be, 300, ["2nde","1ère","Terminale"]));
-  data.f4ba = data.f4ba.concat(genFiliere("F4BA", SUBJECTS.f4ba, 300, ["2nde","1ère","Terminale"]));
-  data.c   = data.c.concat(genFiliere("C", SUBJECTS.c, 300, ["2nde","1ère","Terminale"]));
-  data.d   = data.d.concat(genFiliere("D", SUBJECTS.d, 300, ["1ère","Terminale"]));
-  data.a   = data.a.concat(genFiliere("A", SUBJECTS.a, 300, ["2nde","1ère","Terminale"]));
-  data.gt  = data.gt.concat(genFiliere("GT", SUBJECTS.gt, 300, ["2nde","1ère","Terminale"]));
-  data.mhb = data.mhb.concat(genFiliere("MHB", SUBJECTS.mhb, 300, ["2nde","1ère","Terminale"]));
-
-  // Classe de 3ème / BEPC — commune à tous, avant le choix de filière
-  SUBJECTS.bepc = [{code:"PCT",title:"Physique-Chimie-Technologie"},{code:"ANG",title:"Anglais"},{code:"MAT",title:"Mathématiques"},{code:"FR",title:"Français"},{code:"HG",title:"Histoire-Géographie"},{code:"INF",title:"Informatique"}];
-  data.bepc = [];
-  SUBJECTS.bepc.forEach(s => {
-    for(let y=2026; y>=2012; y--){
-      const age = 2026 - y;
-      const price = Math.max(100, 200 - age*8);
-      data.bepc.push({
-        ref:`BEPC-${s.code}-${y}`,
-        title:s.title,
-        tags:["3ème", String(y)],
-        price:`${price} FCFA`,
-        corrige: y >= 2020
-      });
-    }
-  });
-  data.bepc.push({ref:"BEPC-PREPA-01",title:"Guide de préparation au BEPC — méthodologie",tags:["3ème","Prépa"],price:"600 FCFA",corrige:false});
-  data.bepc = data.bepc.concat(genPacks("BEPC", SUBJECTS.bepc, ["3ème"], 1300));
-
-
-  const chapitres = [
-    {ref:"CH-F4BE-MET",title:"Métré — calcul des quantités",tags:["F4BE","Difficile"],price:"600 FCFA"},
-    {ref:"CH-F4BE-TOP",title:"Topographie — nivellement",tags:["F4BE","Difficile"],price:"600 FCFA"},
-    {ref:"CH-F4BE-PDC",title:"Procédé de construction — le béton armé",tags:["F4BE","Difficile"],price:"600 FCFA"},
-    {ref:"CH-C-INT",title:"Intégrales et primitives",tags:["C · D","Difficile"],price:"600 FCFA"},
-    {ref:"CH-F4BE-MEC",title:"Mécanique — statique des structures",tags:["F4BE","Difficile"],price:"600 FCFA"},
-    {ref:"CH-A-DISS",title:"Méthode de la dissertation philo",tags:["A","Difficile"],price:"400 FCFA"},
-  ];
-
-  let currentTab = 'f4be';
-  let currentLevel = 'all';
-  let currentYear = 'all';
-  let currentSubject = 'all';
-
-  // Remplit le sélecteur d'années 2012-2026
-  const yearSelect = document.getElementById('yearSelect');
-  for(let y=2026; y>=2012; y--){
-    const opt = document.createElement('option');
-    opt.value = String(y);
-    opt.textContent = y;
-    yearSelect.appendChild(opt);
-  }
-  yearSelect.addEventListener('change', ()=>{
-    currentYear = yearSelect.value;
-    render(currentTab);
-  });
-
-  // Remplit le sélecteur de matière selon la filière active
-  const subjectSelect = document.getElementById('subjectSelect');
-  function populateSubjects(tabKey){
-    subjectSelect.innerHTML = '<option value="all">Toutes les matières</option>';
-    const list = SUBJECTS[tabKey] || [];
-    list.forEach(s => {
-      const opt = document.createElement('option');
-      opt.value = s.title;
-      opt.textContent = s.title;
-      subjectSelect.appendChild(opt);
-    });
-    currentSubject = 'all';
-  }
-  subjectSelect.addEventListener('change', ()=>{
-    currentSubject = subjectSelect.value;
-    render(currentTab);
-  });
-
-  function render(tabKey){
-    const grid = document.getElementById('cardGrid');
-    grid.innerHTML = '';
-    const items = data[tabKey].filter(item =>
-      (currentLevel === 'all' || item.tags.includes(currentLevel)) &&
-      (currentYear === 'all' || item.tags.includes(currentYear)) &&
-      (currentSubject === 'all' || item.title === currentSubject)
-    );
-    if(items.length === 0){
-      grid.innerHTML = `<p class="mono" style="font-size:13px;color:#8A8270;">Aucun sujet pour ce filtre dans cette filière pour l'instant.</p>`;
-      return;
-    }
-    items.forEach(item=>{
-      const card = document.createElement('div');
-      card.className = 'card';
-      card.innerHTML = `
-        ${item.corrige ? '<div class="corrige-tag">Avec corrigé</div>' : ''}
-        <div class="card-ref mono">${item.ref}</div>
-        <h3>${item.title}</h3>
-        <div class="card-meta">
-          ${item.tags.map(t=>`<span class="pill">${t}</span>`).join('')}
-        </div>
-        <div class="card-foot">
-          <span class="price">${item.price}</span>
-          <a href="https://camerpay.biz/l/gvqjulj85s" target="_blank" class="buy" style="text-decoration:none; display:inline-block;">Acheter</a>
-        </div>
-      `;
-      grid.appendChild(card);
-    });
-  }
-
-  function renderChapitres(){
-    const grid = document.getElementById('chapGrid');
-    grid.innerHTML = '';
-    chapitres.forEach(item=>{
-      const card = document.createElement('div');
-      card.className = 'card';
-      card.innerHTML = `
-        <div class="corrige-tag" style="border-color:var(--tab-yellow); color:#8a6a1e;">Fiche de cours</div>
-        <div class="card-ref mono">${item.ref}</div>
-        <h3>${item.title}</h3>
-        <div class="card-meta">
-          ${item.tags.map(t=>`<span class="pill">${t}</span>`).join('')}
-        </div>
-        <div class="card-foot">
-          <span class="price">${item.price}</span>
-          <a href="https://camerpay.biz/l/gvqjulj85s" target="_blank" class="buy" style="text-decoration:none; display:inline-block;">Acheter</a>
-        </div>
-      `;
-      grid.appendChild(card);
-    });
-  }
-
-  document.querySelectorAll('.tab').forEach(tab=>{
-    tab.addEventListener('click', ()=>{
-      document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
-      tab.classList.add('active');
-      currentTab = tab.dataset.tab;
-      populateSubjects(currentTab);
-      render(currentTab);
-    });
-  });
-
-  document.querySelectorAll('.level-chip').forEach(chip=>{
-    chip.addEventListener('click', ()=>{
-      document.querySelectorAll('.level-chip').forEach(c=>c.classList.remove('active'));
-      chip.classList.add('active');
-      currentLevel = chip.dataset.level;
-      render(currentTab);
-    });
-  });
-
-  populateSubjects('f4be');
-  render('f4be');
-  renderChapitres();
-</script>
-
-</body>
-</html>
+<section class="steps" id="fo
