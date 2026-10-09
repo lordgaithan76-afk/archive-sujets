@@ -1,1050 +1,289 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Archive des Sujets</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Archive.Sujets : sujets d'examen BEPC et BAC au Cameroun, 2012 à 2026</title>
+<meta name="description" content="Sujets et fiches du BEPC au BAC (séries A, C, D, F4BA, F4BE, GT, MHB), années 2012 à 2026. Paiement Orange Money ou MTN MoMo, PDF tout de suite. Bonaberi, Douala.">
+<meta property="og:title" content="Archive.Sujets : toutes tes années d'examen au même endroit">
+<meta property="og:description" content="Du BEPC au BAC, sujets et fiches classés par filière, niveau et année.">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#1B2559">
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,400&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap');
-
-  :root{
-    --paper:#FBF7EC;
-    --paper-dark:#F3E9D2;
-    --ink:#1C2B24;
-    --archive-green:#0E6B54;
-    --archive-green-light:#12A17E;
-    --stamp-red:#E8552E;
-    --tab-yellow:#F5B301;
-    --line:#DCCFAE;
-  }
-
-  *{margin:0;padding:0;box-sizing:border-box;}
-
-  body{
-    background:var(--paper);
-    color:var(--ink);
-    font-family:'Inter',sans-serif;
-    line-height:1.5;
-  }
-
-  h1,h2,h3{
-    font-family:'Newsreader',serif;
-    font-weight:600;
-    letter-spacing:-0.01em;
-  }
-
-  .mono{
-    font-family:'IBM Plex Mono',monospace;
-  }
-
-  /* texture papier subtile */
-  body::before{
-    content:"";
-    position:fixed;
-    inset:0;
-    background-image:
-      repeating-linear-gradient(0deg, rgba(0,0,0,0.012) 0px, transparent 1px, transparent 2px);
-    pointer-events:none;
-    z-index:0;
-  }
-
-  header{
-    padding:20px 24px;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    border-bottom:2px solid var(--ink);
-    position:sticky;
-    top:0;
-    background:var(--paper);
-    z-index:20;
-  }
-
-  .logo{
-    display:flex;
-    align-items:center;
-    gap:10px;
-  }
-  .logo-mark{
-    width:34px;height:34px;
-    border:2px solid var(--ink);
-    border-radius:50%;
-    display:flex;align-items:center;justify-content:center;
-    font-family:'IBM Plex Mono',monospace;
-    font-weight:600;
-    font-size:11px;
-    transform:rotate(-8deg);
-  }
-  .logo-text{
-    font-family:'Newsreader',serif;
-    font-weight:700;
-    font-size:19px;
-  }
-  .logo-text span{
-    color:var(--stamp-red);
-  }
-
-  nav a{
-    font-family:'IBM Plex Mono',monospace;
-    font-size:12px;
-    text-transform:uppercase;
-    letter-spacing:0.06em;
-    color:var(--ink);
-    text-decoration:none;
-    margin-left:22px;
-  }
-  nav{display:none;}
-  @media(min-width:760px){nav{display:block;}}
-
-  /* HERO */
-  .hero{
-    position:relative;
-    padding:64px 24px 48px;
-    max-width:1100px;
-    margin:0 auto;
-    z-index:1;
-  }
-  .hero-eyebrow{
-    font-family:'IBM Plex Mono',monospace;
-    font-size:12px;
-    letter-spacing:0.08em;
-    text-transform:uppercase;
-    color:var(--archive-green);
-    display:flex;
-    align-items:center;
-    gap:10px;
-    margin-bottom:18px;
-  }
-  .hero-eyebrow::before{
-    content:"";
-    width:26px;height:1px;
-    background:var(--archive-green);
-  }
-  .hero h1{
-    font-size:clamp(34px,6vw,58px);
-    max-width:780px;
-    line-height:1.05;
-  }
-  .hero h1 em{
-    font-style:italic;
-    color:var(--archive-green);
-  }
-  .hero p.lead{
-    max-width:520px;
-    margin-top:22px;
-    font-size:16px;
-    color:#3A3A32;
-  }
-
-  .hero-actions{
-    margin-top:32px;
-    display:flex;
-    gap:14px;
-    flex-wrap:wrap;
-  }
-  .btn{
-    font-family:'IBM Plex Mono',monospace;
-    font-size:13px;
-    text-transform:uppercase;
-    letter-spacing:0.04em;
-    padding:13px 22px;
-    border-radius:2px;
-    text-decoration:none;
-    display:inline-flex;
-    align-items:center;
-    gap:8px;
-    border:1.5px solid var(--ink);
-  }
-  .btn-primary{
-    background:linear-gradient(135deg, var(--archive-green) 0%, var(--archive-green-light) 100%);
-    color:var(--paper);
-    border-color:var(--archive-green);
-  }
-  .btn-ghost{
-    background:transparent;
-    color:var(--ink);
-  }
-
-  /* tampon décoratif */
-  .stamp{
-    position:absolute;
-    right:6%;
-    top:70px;
-    width:118px;height:118px;
-    border:3px solid var(--stamp-red);
-    border-radius:50%;
-    color:var(--stamp-red);
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    text-align:center;
-    transform:rotate(11deg);
-    font-family:'IBM Plex Mono',monospace;
-    font-size:11px;
-    font-weight:600;
-    letter-spacing:0.05em;
-    text-transform:uppercase;
-    opacity:0.85;
-    line-height:1.3;
-  }
-  .stamp::before,.stamp::after{
-    content:"";
-    position:absolute;
-    border:1.5px solid var(--stamp-red);
-    border-radius:50%;
-  }
-  .stamp::before{inset:8px;}
-  @media(max-width:760px){.stamp{display:none;}}
-
-  /* AVANTAGES */
-  .avantages{
-    max-width:1100px;
-    margin:0 auto;
-    padding:8px 24px 56px;
-    display:grid;
-    grid-template-columns:1fr;
-    gap:28px;
-    position:relative;
-    z-index:1;
-  }
-  @media(min-width:760px){.avantages{grid-template-columns:repeat(3,1fr); gap:36px;}}
-  .avantage-num{
-    font-size:13px;
-    color:var(--stamp-red);
-    letter-spacing:0.05em;
-  }
-  .avantage-item h3{
-    font-size:19px;
-    margin-top:8px;
-  }
-  .avantage-item p{
-    margin-top:8px;
-    font-size:14px;
-    color:#4A4A40;
-    max-width:300px;
-  }
-
-  /* PROMO SERIES (D, C, A) */
-  .promo-grid{
-    display:grid;
-    grid-template-columns:1fr;
-    gap:20px;
-    max-width:1100px;
-    margin:0 auto;
-    padding:8px 24px 56px;
-  }
-  @media(min-width:760px){.promo-grid{grid-template-columns:repeat(3,1fr);}}
-  .promo-card{
-    border:2px solid var(--ink);
-    border-radius:8px;
-    padding:22px;
-    background:var(--paper);
-    position:relative;
-  }
-  .promo-card::before{
-    content:"Promo";
-    position:absolute;
-    top:-11px;
-    left:20px;
-    background:var(--stamp-red);
-    color:var(--paper);
-    font-family:'IBM Plex Mono',monospace;
-    font-size:10px;
-    text-transform:uppercase;
-    letter-spacing:0.05em;
-    padding:3px 10px;
-    border-radius:20px;
-  }
-  .promo-card .serie{
-    font-family:'IBM Plex Mono',monospace;
-    font-size:11px;
-    color:#8A8270;
-    letter-spacing:0.05em;
-  }
-  .promo-card h3{
-    font-family:'Newsreader',serif;
-    font-size:21px;
-    font-style:italic;
-    margin-top:8px;
-    color:var(--archive-green);
-    line-height:1.3;
-  }
-  .promo-card p{
-    font-size:13.5px;
-    color:#3A3A32;
-    margin-top:10px;
-  }
-  .promo-card .price{
-    display:block;
-    margin-top:14px;
-    font-family:'IBM Plex Mono',monospace;
-    font-weight:600;
-  }
-
-  /* PRODUIT PHARE */
-  .featured-card{
-    border:2px solid var(--ink);
-    background:linear-gradient(180deg, var(--paper) 0%, var(--paper-dark) 100%);
-    padding:28px 24px;
-    border-radius:8px;
-    position:relative;
-  }
-  @media(min-width:760px){.featured-card{padding:34px 36px;}}
-  .featured-card::before{
-    content:"Exclusif";
-    position:absolute;
-    top:-12px;
-    left:24px;
-    background:var(--stamp-red);
-    color:var(--paper);
-    font-family:'IBM Plex Mono',monospace;
-    font-size:10.5px;
-    text-transform:uppercase;
-    letter-spacing:0.05em;
-    padding:4px 12px;
-    border-radius:20px;
-  }
-  .featured-ref{
-    font-size:11px;
-    color:#8A8270;
-    letter-spacing:0.03em;
-  }
-  .featured-title{
-    font-size:clamp(24px,3.6vw,32px);
-    margin-top:8px;
-  }
-  .featured-desc{
-    margin-top:14px;
-    max-width:560px;
-    font-size:15px;
-    color:#3A3A32;
-  }
-  .featured-list{
-    margin-top:16px;
-    padding-left:20px;
-    max-width:520px;
-  }
-  .featured-list li{
-    font-size:14px;
-    color:#3A3A32;
-    margin-bottom:6px;
-  }
-  .featured-foot{
-    display:flex;
-    align-items:center;
-    gap:18px;
-    margin-top:24px;
-    padding-top:20px;
-    border-top:1px dashed var(--line);
-  }
-
-  /* ONGLETS FILIERES - element signature */
-  .dossier{
-    max-width:1100px;
-    margin:20px auto 0;
-    padding:0 24px 80px;
-    position:relative;
-    z-index:1;
-  }
-  .dossier-label{
-    font-family:'IBM Plex Mono',monospace;
-    font-size:12px;
-    text-transform:uppercase;
-    letter-spacing:0.08em;
-    color:#5A5A4E;
-    margin-bottom:2px;
-  }
-
-  .tabs{
-    display:flex;
-    gap:0;
-    overflow-x:auto;
-    scrollbar-width:none;
-    margin-top:16px;
-  }
-  .tabs::-webkit-scrollbar{display:none;}
-
-  .tab{
-    font-family:'IBM Plex Mono',monospace;
-    font-size:12.5px;
-    text-transform:uppercase;
-    letter-spacing:0.03em;
-    white-space:nowrap;
-    padding:12px 18px;
-    background:var(--paper-dark);
-    border:1.5px solid var(--ink);
-    border-bottom:none;
-    border-radius:8px 8px 0 0;
-    cursor:pointer;
-    position:relative;
-    top:2px;
-    color:#5A5A4E;
-    transition:transform .15s ease;
-  }
-  .tab + .tab{margin-left:-1.5px;}
-  .tab.active{
-    background:var(--archive-green);
-    color:var(--paper);
-    border-color:var(--archive-green);
-    top:0;
-    z-index:2;
-    font-weight:600;
-  }
-  .tab:not(.active):hover{transform:translateY(-3px);}
-
-  .folder-body{
-    border:1.5px solid var(--ink);
-    background:var(--paper);
-    padding:28px 24px;
-    border-radius:0 8px 8px 8px;
-  }
-  @media(min-width:760px){.folder-body{padding:32px;}}
-
-  .level-row{
-    display:flex;
-    align-items:center;
-    gap:8px;
-    flex-wrap:wrap;
-    margin-bottom:22px;
-    padding-bottom:20px;
-    border-bottom:1px dashed var(--line);
-  }
-  .level-label{
-    font-size:11px;
-    text-transform:uppercase;
-    letter-spacing:0.06em;
-    color:#8A8270;
-    margin-right:6px;
-  }
-  .level-chip{
-    font-family:'IBM Plex Mono',monospace;
-    font-size:12px;
-    padding:7px 14px;
-    border:1px solid var(--line);
-    border-radius:20px;
-    cursor:pointer;
-    color:#5A5A4E;
-    transition:all .15s ease;
-  }
-  .level-chip:hover{border-color:var(--ink);color:var(--ink);}
-  .level-chip.active{
-    background:var(--ink);
-    border-color:var(--ink);
-    color:var(--paper);
-  }
-  .year-select{
-    font-family:'IBM Plex Mono',monospace;
-    font-size:11px;
-    padding:4px 8px;
-    border:1px solid var(--line);
-    border-radius:16px;
-    background:var(--paper);
-    color:var(--ink);
-    max-width:150px;
-  }
-
-  .grid{
-    display:grid;
-    grid-template-columns:1fr;
-    gap:16px;
-  }
-  @media(min-width:640px){.grid{grid-template-columns:1fr 1fr;}}
-  @media(min-width:980px){.grid{grid-template-columns:1fr 1fr 1fr;}}
-
-  .card{
-    border:1.5px solid var(--line);
-    background:var(--paper);
-    padding:18px;
-    position:relative;
-    transition:border-color .15s ease, transform .15s ease;
-  }
-  .card:hover{
-    border-color:var(--ink);
-    transform:translateY(-2px);
-  }
-  .card-ref{
-    font-family:'IBM Plex Mono',monospace;
-    font-size:11px;
-    color:#8A8270;
-    letter-spacing:0.03em;
-  }
-  .card h3{
-    font-size:17px;
-    margin-top:6px;
-    line-height:1.25;
-  }
-  .card-meta{
-    display:flex;
-    gap:8px;
-    flex-wrap:wrap;
-    margin-top:12px;
-  }
-  .pill{
-    font-family:'IBM Plex Mono',monospace;
-    font-size:10.5px;
-    text-transform:uppercase;
-    padding:3px 9px;
-    border:1px solid var(--line);
-    border-radius:20px;
-    color:#5A5A4E;
-  }
-  .card-foot{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    margin-top:16px;
-    padding-top:14px;
-    border-top:1px dashed var(--line);
-  }
-  .price{
-    font-family:'IBM Plex Mono',monospace;
-    font-weight:600;
-    font-size:15px;
-  }
-  .buy{
-    font-family:'IBM Plex Mono',monospace;
-    font-size:11px;
-    text-transform:uppercase;
-    background:var(--ink);
-    color:var(--paper);
-    border:none;
-    padding:8px 14px;
-    border-radius:2px;
-    cursor:pointer;
-  }
-  .corrige-tag{
-    position:absolute;
-    top:14px;right:14px;
-    color:var(--stamp-red);
-    border:1px solid var(--stamp-red);
-    font-family:'IBM Plex Mono',monospace;
-    font-size:9.5px;
-    text-transform:uppercase;
-    padding:2px 7px;
-    border-radius:20px;
-    transform:rotate(4deg);
-  }
-
-  /* COMMENT CA MARCHE */
-  .steps{
-    max-width:1100px;
-    margin:0 auto;
-    padding:70px 24px;
-    border-top:1.5px solid var(--ink);
-  }
-  .steps h2{
-    font-size:clamp(26px,4vw,36px);
-    max-width:480px;
-  }
-  .steps-grid{
-    margin-top:40px;
-    display:grid;
-    grid-template-columns:1fr;
-    gap:0;
-  }
-  @media(min-width:760px){.steps-grid{grid-template-columns:repeat(3,1fr);}}
-  .step{
-    padding:24px 0;
-    border-top:1px solid var(--line);
-  }
-  @media(min-width:760px){
-    .step{border-top:none;border-left:1px solid var(--line);padding:4px 24px;}
-    .step:first-child{border-left:none;padding-left:0;}
-  }
-  .step-num{
-    font-family:'IBM Plex Mono',monospace;
-    font-size:12px;
-    color:var(--stamp-red);
-  }
-  .step h3{
-    font-size:19px;
-    margin-top:10px;
-  }
-  .step p{
-    margin-top:8px;
-    font-size:14px;
-    color:#4A4A40;
-    max-width:280px;
-  }
-
-  footer{
-    border-top:2px solid var(--ink);
-    padding:30px 24px;
-    display:flex;
-    flex-direction:column;
-    gap:6px;
-    font-family:'IBM Plex Mono',monospace;
-    font-size:11.5px;
-    color:#6A6A5C;
-  }
-  @media(min-width:760px){
-    footer{flex-direction:row;justify-content:space-between;align-items:center;}
-  }
+:root{--paper:#F2F5FA;--ink:#1B2559;--muted:#48537F;--red:#CF2E2E;--green:#0F7B4B;--hi:#FFD84D;--line:#C9D3E8;--white:#fff}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth;scroll-padding-top:64px}
+body{font:16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;color:var(--ink);background:var(--paper)}
+a{color:inherit}
+h1,h2,h3{font-family:Georgia,"Times New Roman",serif;line-height:1.15;font-weight:700}
+.wrap{max-width:960px;margin:0 auto;padding:0 18px}
+header{position:sticky;top:0;z-index:5;background:var(--ink);color:#fff}
+header .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:56px}
+.logo{font:700 1.15rem Georgia,serif;text-decoration:none}
+.logo b{color:var(--hi)}
+nav{display:none;gap:18px;font-size:.95rem}
+nav a{text-decoration:none;opacity:.9}
+@media(min-width:760px){nav{display:flex}}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:0 18px;border-radius:6px;background:var(--green);color:#fff;font-weight:600;text-decoration:none;border:2px solid var(--green);cursor:pointer;font-size:1rem}
+.btn.alt{background:transparent;color:var(--ink);border-color:var(--ink)}
+.btn:focus-visible,select:focus-visible,input:focus-visible,summary:focus-visible,.chip:focus-visible{outline:3px solid var(--hi);outline-offset:2px}
+header .btn{min-height:38px;padding:0 14px;font-size:.9rem}
+.hero{padding:24px 0 8px}
+.sheet{position:relative;background:var(--white) repeating-linear-gradient(transparent 0 35px,var(--line) 35px 36px);border:1px solid var(--line);padding:30px 18px 30px 58px;box-shadow:0 1px 0 var(--line)}
+.sheet::before{content:"";position:absolute;left:40px;top:0;bottom:0;width:2px;background:var(--red);opacity:.7}
+.sheet h1{font-size:clamp(2rem,7vw,3.3rem);max-width:15em;margin-bottom:16px;background:var(--white);display:inline;box-decoration-break:clone;-webkit-box-decoration-break:clone;padding:2px 6px 2px 0;line-height:1.3}
+.sheet p.lead{margin:18px 0;max-width:34em;background:var(--white);display:inline-block;padding:2px 0}
+.cta{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px}
+.stamp{position:absolute;right:14px;top:-14px;transform:rotate(6deg);border:2px solid var(--red);color:var(--red);border-radius:50%;padding:12px 10px;font:700 .8rem/1.2 Georgia,serif;text-align:center;background:var(--white)}
+.facts{display:flex;flex-wrap:wrap;gap:8px 22px;list-style:none;padding:16px 0 0;font-size:.95rem;color:var(--muted)}
+.facts li{padding-left:16px;position:relative}
+.facts li::before{content:"";position:absolute;left:0;top:.6em;width:8px;height:8px;background:var(--hi);border:1px solid var(--ink)}
+section{padding:36px 0 8px}
+h2{font-size:clamp(1.5rem,4.5vw,2.1rem);margin-bottom:6px}
+.intro{color:var(--muted);margin-bottom:18px;max-width:38em}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px}
+.chip{min-height:40px;padding:0 16px;border:2px solid var(--ink);border-radius:20px;background:var(--white);color:var(--ink);font:600 .95rem system-ui;cursor:pointer}
+.chip[aria-pressed=true]{background:var(--ink);color:#fff}
+.grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fill,minmax(250px,1fr))}
+.fiche{background:var(--white);border:1px solid var(--line);border-left:5px solid var(--red);padding:16px;display:flex;flex-direction:column;gap:6px}
+.fiche h3{font-size:1.2rem}
+.fiche .sub{color:var(--muted);font-size:.95rem;flex:1}
+.fiche .prix{font-weight:700;font-size:1.15rem;background:linear-gradient(transparent 55%,var(--hi) 55%);align-self:flex-start;padding:0 4px}
+.find{background:var(--white);border:1px solid var(--line);padding:18px;display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(170px,1fr))}
+label{display:grid;gap:4px;font-weight:600;font-size:.92rem}
+select,input{min-height:44px;border:2px solid var(--line);border-radius:6px;padding:0 10px;font:1rem system-ui;background:var(--white);color:var(--ink)}
+.find .btn{align-self:end}
+ol.steps{list-style:none;padding:0;display:grid;gap:12px;counter-reset:s}
+ol.steps li{counter-increment:s;background:var(--white);border:1px solid var(--line);padding:14px 16px 14px 56px;position:relative}
+ol.steps li::before{content:counter(s);position:absolute;left:14px;top:12px;width:30px;height:30px;border-radius:50%;background:var(--ink);color:#fff;display:grid;place-items:center;font-weight:700}
+ol.steps strong{display:block;font-family:Georgia,serif;font-size:1.1rem}
+details{background:var(--white);border:1px solid var(--line);margin-bottom:8px}
+summary{padding:14px 16px;font-weight:600;cursor:pointer;min-height:48px}
+details p{padding:0 16px 14px;color:var(--muted)}
+footer{margin-top:40px;background:var(--ink);color:#fff;padding:26px 0 90px;font-size:.95rem}
+footer a{color:var(--hi)}
+.float{position:fixed;right:14px;bottom:calc(14px + env(safe-area-inset-bottom,0px));z-index:6;box-shadow:0 4px 14px rgba(0,0,0,.25)}
+.fiche .btn{width:100%}
+.mini{display:flex;gap:18px;font-size:.9rem}
+.mini a{min-height:32px;display:inline-flex;align-items:center}
+.tarif{font-weight:700;font-size:1.15rem;background:linear-gradient(transparent 55%,var(--hi) 55%);padding:0 4px}
+.promo{background:var(--hi);color:var(--ink);text-align:center;padding:10px 18px;font-weight:600}
+.promo[hidden],.cartbtn[hidden]{display:none}
+.cartbtn{position:fixed;left:14px;bottom:calc(14px + env(safe-area-inset-bottom,0px));z-index:6;box-shadow:0 4px 14px rgba(0,0,0,.25);background:var(--ink);border-color:var(--ink)}
+dialog{border:2px solid var(--ink);padding:18px;max-width:92vw;width:460px;color:var(--ink);background:var(--white)}
+dialog::backdrop{background:rgba(27,37,89,.5)}
+dialog ul{list-style:none;padding:0;margin:12px 0;display:grid;gap:8px}
+dialog li{display:flex;justify-content:space-between;gap:10px;align-items:center;border-bottom:1px solid var(--line);padding-bottom:8px}
+dialog li button{background:none;border:0;text-decoration:underline;color:var(--red);font:inherit;cursor:pointer;min-height:44px}
+.box{background:var(--white);border:1px solid var(--line);padding:18px;display:grid;gap:12px;justify-items:start}
+.opts{display:flex;flex-wrap:wrap;gap:8px}
+.chip:disabled{cursor:default;opacity:.9}
+blockquote{background:var(--white);border-left:5px solid var(--hi);padding:14px 16px;margin-bottom:10px}
+blockquote cite{display:block;margin-top:6px;color:var(--muted);font-size:.9rem;font-style:normal}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 </style>
 </head>
 <body>
-
 <header>
-  <div class="logo">
-    <div class="logo-mark">GC</div>
-    <div class="logo-text">Archive<span>.</span>Sujets</div>
+  <div class="wrap">
+    <a class="logo" href="#">Archive<b>.</b>Sujets</a>
+    <nav aria-label="Navigation">
+      <a href="#catalogue">Catalogue</a>
+      <a href="#trouver">Trouver un sujet</a>
+      <a href="#fonctionnement">Comment ça marche</a>
+      <a href="#faq">Questions</a>
+    </nav>
+    <a class="btn" data-wa="Bonjour, j'ai une question sur Archive.Sujets." href="#">WhatsApp</a>
   </div>
-  <nav>
-    <a href="#catalogue">Catalogue</a>
-    <a href="#fonctionnement">Comment ça marche</a>
-    <a href="#">Se connecter</a>
-  </nav>
 </header>
+<div id="promo" class="promo" hidden></div>
 
-<section class="hero">
-  <div class="stamp">Vérifié<br>Bonaberi<br>Douala</div>
-  <div class="hero-eyebrow">Douala &middot; Bonaberi</div>
-  <h1>Toutes tes années d'examen, <em>au même endroit</em>.</h1>
-  <p class="lead">De la 3ème (BEPC) au BAC, séries A, C, D, F4BA, F4BE, GT, MHB, années 2012 à 2026&nbsp;: une vraie bibliothèque de sujets et de fiches, classée pour que réviser devienne simple — pas une chasse au trésor sur WhatsApp.</p>
-  <div class="hero-actions">
-    <a class="btn btn-primary" href="#catalogue">Parcourir le catalogue</a>
-    <a class="btn btn-ghost" href="#fonctionnement">Comment ça marche</a>
-  </div>
-</section>
-
-<div class="avantages">
-  <div class="avantage-item">
-    <div class="avantage-num mono">01</div>
-    <h3>Une mini bibliothèque</h3>
-    <p>Fini les recherches éparpillées entre dix groupes WhatsApp. Tout est ici, classé par filière, niveau et année.</p>
-  </div>
-  <div class="avantage-item">
-    <div class="avantage-num mono">02</div>
-    <h3>Un seul endroit, tout de suite</h3>
-    <p>Tu cherches, tu trouves, tu télécharges. Pas besoin de fouiller ailleurs pour préparer ton examen.</p>
-  </div>
-  <div class="avantage-item">
-    <div class="avantage-num mono">03</div>
-    <h3>Apprendre, en plus simple</h3>
-    <p>Des fiches sur les chapitres qui bloquent le plus, pensées pour rendre chaque révision plus claire.</p>
-  </div>
-</div>
-
-<div class="dossier" id="produit-phare">
-  <div class="dossier-label">Dossier &middot; guide exclusif</div>
-  <div class="featured-card">
-    <div class="featured-ref mono">GUIDE &middot; F4BE / F4BA</div>
-    <h2 class="featured-title">Décryptage F4BE/F4BA</h2>
-    <p class="featured-desc">Ne découvre pas la structure de l'épreuve le jour J. Ce guide t'explique, matière par matière, comment sont élaborés les sujets F4BE et F4BA — pour réviser avec méthode, pas au hasard.</p>
-    <ul class="featured-list">
-      <li>Comprendre la structure exacte de chaque épreuve F4BE/F4BA</li>
-      <li>Savoir à quoi t'attendre matière par matière</li>
-      <li>Cibler tes révisions sur l'essentiel</li>
+<main class="wrap">
+  <div class="hero">
+    <div class="sheet">
+      <div class="stamp">Bonaberi<br>Douala</div>
+      <h1>Toutes tes années d'examen au même endroit.</h1>
+      <p class="lead">Du BEPC au BAC, séries A, C, D, F4BA, F4BE, GT et MHB, années 2012 à 2026. Sujets et fiches classés par filière, niveau et année. Tu paies par Mobile Money et tu reçois ton PDF tout de suite.</p>
+      <div class="cta">
+        <a class="btn" href="#catalogue">Voir le catalogue</a>
+        <a class="btn alt" href="#trouver" style="background:var(--white)">Trouver mon sujet</a>
+      </div>
+    </div>
+    <ul class="facts">
+      <li>Années 2012 à 2026</li>
+      <li>Du BEPC au BAC</li>
+      <li>Orange Money et MTN MoMo</li>
+      <li>PDF disponible tout de suite</li>
     </ul>
-    <div class="featured-foot">
-      <span class="price" style="font-size:19px;">1000 FCFA</span>
-      <a href="https://camerpay.biz/l/yzeyx3rlrk" target="_blank" class="buy" style="padding:11px 20px; text-decoration:none; display:inline-block;">Acheter maintenant</a>
-    </div>
-  </div>
-</div>
-
-<div class="dossier" style="margin-top:24px;">
-  <div class="featured-card" style="border-color:var(--stamp-red);">
-    <div class="featured-ref mono" style="color:var(--stamp-red);">PROMO &middot; 1ère F4BE / F4BA</div>
-    <h2 class="featured-title">Nouveau programme OBC — Comment réussir en 1ère F4BE et F4BA</h2>
-    <p class="featured-desc">Conformément au nouveau programme de l'Office du Baccalauréat du Cameroun (OBC), retrouve les recueils complets d'Exploitation des chantiers, Métré et Topographie pour la classe de 1ère — F4BE et F4BA. Un contenu pensé pour t'aider à vraiment réussir ces matières clés du bureau d'études.</p>
-    <ul class="featured-list">
-      <li>Recueil Exploitation des chantiers — 1ère F4BE/F4BA</li>
-      <li>Recueil Métré — 1ère F4BE/F4BA</li>
-      <li>Recueil Topographie — 1ère F4BE/F4BA</li>
-    </ul>
-    <div class="featured-foot">
-      <span class="price" style="font-size:19px;">2000 FCFA / recueil</span>
-      <a href="#catalogue" class="buy" style="padding:11px 20px; text-decoration:none; display:inline-block;">Voir dans le catalogue</a>
-    </div>
-  </div>
-</div>
-
-<div class="promo-grid">
-  <div class="promo-card">
-    <div class="serie mono">SÉRIE D &middot; NOUVEAU PROGRAMME OBC</div>
-    <h3>"Le BAC D se gagne avec méthode, pas avec le stress."</h3>
-    <p>Un guide complet pour transformer tes révisions en vraies armes le jour de l'épreuve.</p>
-    <span class="price">2000 FCFA</span>
-  </div>
-  <div class="promo-card">
-    <div class="serie mono">SÉRIE C &middot; NOUVEAU PROGRAMME OBC</div>
-    <h3>"Les maths ne te font plus peur, elles t'attendent."</h3>
-    <p>La méthode pour aborder ton BAC C avec confiance, matière par matière.</p>
-    <span class="price">2000 FCFA</span>
-  </div>
-  <div class="promo-card">
-    <div class="serie mono">SÉRIE A &middot; NOUVEAU PROGRAMME OBC</div>
-    <h3>"Ta plume, ton BAC. On t'aide à viser juste."</h3>
-    <p>Le guide qui structure ta réussite en série littéraire, du texte à la note.</p>
-    <span class="price">2000 FCFA</span>
-  </div>
-</div>
-
-<div class="dossier" id="catalogue">
-  <div class="dossier-label">Dossier &middot; par filière</div>
-  <p style="font-family:'Newsreader',serif; font-style:italic; font-size:17px; color:var(--archive-green); margin-top:4px; margin-bottom:6px;">Ta filière, tes années, tes matières — tout est rangé ici.</p>
-  <div class="tabs">
-    <div class="tab active" data-tab="f4be">F4BE</div>
-    <div class="tab" data-tab="f4ba">F4BA</div>
-    <div class="tab" data-tab="c">C</div>
-    <div class="tab" data-tab="d">D</div>
-    <div class="tab" data-tab="a">A</div>
-    <div class="tab" data-tab="gt">GT</div>
-    <div class="tab" data-tab="mhb">MHB</div>
-    <div class="tab" data-tab="bepc">3ème · BEPC</div>
   </div>
 
-  <div class="folder-body">
-    <div class="level-row" id="levelRow">
-      <span class="level-label mono">Niveau</span>
-      <div class="level-chip active" data-level="all">Tous</div>
-      <div class="level-chip" data-level="2nde">2nde</div>
-      <div class="level-chip" data-level="1ère">1ère</div>
-      <div class="level-chip" data-level="Terminale">Terminale</div>
-      <div class="level-chip" data-level="Pack" style="border-color:var(--tab-yellow);">📦 Packs 10 sujets</div>
-      <div class="level-chip" data-level="Promo" style="border-color:var(--stamp-red);">🔥 Promo</div>
-    </div>
-    <div class="level-row" id="yearRow" style="margin-top:-14px;">
-      <span class="level-label mono">Année</span>
-      <select id="yearSelect" class="year-select">
-        <option value="all">Toutes (2012–2026)</option>
-      </select>
-    </div>
-    <div class="level-row" id="subjectRow" style="margin-top:-14px;">
-      <span class="level-label mono">Matière</span>
-      <select id="subjectSelect" class="year-select" style="max-width:220px;">
-        <option value="all">Toutes les matières</option>
-      </select>
-    </div>
-    <p class="mono" style="font-size:11px; color:#8A8270; margin:-8px 0 16px;">💡 Filtre par matière et année pour aller droit à ce dont tu as besoin — pas de temps perdu à chercher.</p>
-    <div class="grid" id="cardGrid">
-      <!-- cartes générées en JS selon l'onglet -->
-    </div>
-  </div>
-</div>
+  <section id="catalogue">
+    <h2>Guides et recueils</h2>
+    <p class="intro">Les guides du nouveau programme de l'Office du Baccalauréat du Cameroun (OBC) et les recueils pour la 1ère F4BE et F4BA.</p>
+    <div class="chips" id="chips" role="group" aria-label="Filtrer par filière"></div>
+    <div class="grid" id="grid" aria-live="polite"></div>
+  </section>
 
-<div class="dossier" id="chapitres">
-  <div class="dossier-label">Dossier &middot; chapitres réputés difficiles</div>
-  <h2 style="font-size:clamp(22px,3.4vw,30px); margin-top:6px; max-width:520px;">Des fiches ciblées, là où les élèves bloquent le plus.</h2>
-  <div class="grid" id="chapGrid" style="margin-top:24px;"></div>
-</div>
+  <section id="packs">
+    <h2>Packs de sujets</h2>
+    <p class="intro">Plus tu prends de sujets, moins chacun coûte. Choisis ton pack, puis dis-nous tes matières sur WhatsApp.</p>
+    <div class="box">
+      <div class="chips" id="packchips" role="group" aria-label="Taille du pack"></div>
+      <p class="tarif" id="packinfo" aria-live="polite"></p>
+      <button class="btn" id="packgo" type="button">Demander ce pack sur WhatsApp</button>
+    </div>
+  </section>
 
-<section class="steps" id="fonctionnement">
-  <h2>Trois étapes, un PDF entre les mains.</h2>
-  <div class="steps-grid">
-    <div class="step">
-      <div class="step-num">01</div>
-      <h3>Choisis ta filière</h3>
-      <p>Parcours les onglets par filière, matière et année pour trouver l'épreuve qu'il te faut.</p>
+  <section id="trouver">
+    <h2>Trouve ton sujet</h2>
+    <p class="intro">Choisis ta série, ton niveau et l'année. Ta demande part sur WhatsApp et on te répond avec le sujet et son prix.</p>
+    <div class="find">
+      <label>Série
+        <select id="s"><option>3ème (BEPC)</option><option>A</option><option>C</option><option>D</option><option>F4BA</option><option>F4BE</option><option>GT</option><option>MHB</option></select>
+      </label>
+      <label>Niveau
+        <select id="n"><option>Terminale</option><option>1ère</option><option>2nde</option><option>3ème</option></select>
+      </label>
+      <label>Année
+        <select id="a"></select>
+      </label>
+      <label>Matière
+        <input id="m" placeholder="Ex. Mathématiques">
+      </label>
+      <button class="btn" id="go" type="button">Demander sur WhatsApp</button>
     </div>
-    <div class="step">
-      <div class="step-num">02</div>
-      <h3>Paie en Mobile Money</h3>
-      <p>Orange Money ou MTN MoMo, paiement sécurisé directement depuis ton téléphone.</p>
-    </div>
-    <div class="step">
-      <div class="step-num">03</div>
-      <h3>Télécharge le sujet</h3>
-      <p>Le PDF est disponible immédiatement, avec le corrigé si tu l'as choisi.</p>
-    </div>
-  </div>
-</section>
+  </section>
+
+  <section id="jeu">
+    <h2>Mini-quiz gratuit : métré et topographie</h2>
+    <p class="intro">Cinq questions pour tester tes réflexes de calcul. Partage ton score avec tes camarades.</p>
+    <div class="box" id="qbox"></div>
+  </section>
+
+  <section id="conseils">
+    <h2>Réviser avec les anciens sujets</h2>
+    <details><summary>Fais un sujet en conditions réelles</summary><p>Chronomètre-toi, travaille sans cours ni téléphone, puis corrige seulement à la fin.</p></details>
+    <details><summary>Classe tes erreurs par chapitre</summary><p>Après chaque correction, note le chapitre concerné. Tu vois vite où tu perds des points.</p></details>
+    <details><summary>Reviens sur les chapitres qui bloquent</summary><p>Refais les exercices ratés une semaine plus tard, puis cherche la même notion dans d'autres années.</p></details>
+  </section>
+
+  <section id="avis" hidden>
+    <h2>Ce que disent les élèves</h2>
+    <div id="avislist"></div>
+  </section>
+
+  <section id="fonctionnement">
+    <h2>Trois étapes, un PDF entre les mains</h2>
+    <ol class="steps">
+      <li><strong>Choisis ta filière</strong>Parcours le catalogue ou demande ton sujet par série, matière et année.</li>
+      <li><strong>Paie en Mobile Money</strong>Orange Money ou MTN MoMo, directement depuis ton téléphone.</li>
+      <li><strong>Télécharge le PDF</strong>Le fichier est disponible tout de suite, avec le corrigé si tu l'as choisi.</li>
+    </ol>
+  </section>
+
+  <section id="faq">
+    <h2>Questions fréquentes</h2>
+    <details><summary>Comment je reçois mon PDF ?</summary><p>Après le paiement, tu télécharges le fichier immédiatement. Si tu as un souci, écris-nous sur WhatsApp.</p></details>
+    <details><summary>Quelles séries et quelles années ?</summary><p>Du BEPC au BAC, séries A, C, D, F4BA, F4BE, GT et MHB, pour les années 2012 à 2026.</p></details>
+    <details><summary>Comment payer ?</summary><p>Avec Orange Money ou MTN MoMo, depuis ton téléphone. Le paiement est sécurisé.</p></details>
+    <details><summary>Je ne trouve pas mon sujet.</summary><p>Utilise le formulaire « Trouve ton sujet » : ta demande arrive sur WhatsApp et on te répond.</p></details>
+  </section>
+</main>
 
 <footer>
-  <div>Archive.Sujets &mdash; Bonaberi, Douala, Cameroun</div>
-  <div>Une question, besoin de ton PDF après achat ? <a href="https://wa.me/237673045034" target="_blank" style="color:inherit;">Écris-nous sur WhatsApp</a></div>
+  <div class="wrap">
+    <p>Archive.Sujets, Bonaberi, Douala, Cameroun.</p>
+    <p>Une question ou un PDF à récupérer après achat ? <a data-wa="Bonjour, j'ai besoin d'aide pour mon PDF." href="#">Écris-nous sur WhatsApp</a>.</p>
+  </div>
 </footer>
+<button class="btn cartbtn" id="cartbtn" type="button" hidden></button>
+<dialog id="cart" aria-label="Panier">
+  <h2>Ton panier</h2>
+  <ul id="items"></ul>
+  <p class="tarif" id="total"></p>
+  <div class="cta" style="margin-top:12px"><a class="btn" id="order" href="#" target="_blank" rel="noopener">Commander sur WhatsApp</a><button class="btn alt" type="button" onclick="document.getElementById('cart').close()">Continuer mes achats</button></div>
+</dialog>
+<a class="btn float" data-wa="Bonjour, j'ai une question sur Archive.Sujets." href="#" aria-label="Écrire sur WhatsApp">WhatsApp</a>
 
 <script>
-  // Génère une série d'années pour une matière (bibliothèque complète 2012-2026)
-  function genYears(refPrefix, title, level, startPrice){
-    const years = [];
-    for(let y=2026; y>=2012; y--){
-      years.push({
-        ref:`${refPrefix}-${y}`,
-        title:title,
-        tags:[level, String(y)],
-        price:`300 FCFA`,
-        corrige: y >= 2020
-      });
-    }
-    return years;
-  }
-
-  // Génère la bibliothèque complète (2012-2026) pour toutes les matières d'une filière
-  function genFiliere(prefix, subjects, startPrice, levels){
-    levels = levels || ["Terminale"];
-    const levelCode = {"2nde":"2ND","1ère":"1ERE","Terminale":"TLE"};
-    let all = [];
-    subjects.forEach(s => {
-      levels.forEach(lvl => {
-        all = all.concat(genYears(`${prefix}-${s.code}-${levelCode[lvl]||lvl}`, s.title, lvl, startPrice));
-      });
-    });
-    return all;
-  }
-
-  // Génère un pack "10 sujets corrigés" par matière et par niveau
-  function genPacks(prefix, subjects, levels, price){
-    const levelCode = {"2nde":"2ND","1ère":"1ERE","Terminale":"TLE"};
-    let all = [];
-    subjects.forEach(s => {
-      levels.forEach(lvl => {
-        all.push({
-          ref:`${prefix}-${s.code}-${levelCode[lvl]||lvl}-PACK10`,
-          title:`Pack 10 sujets corrigés — ${s.title}`,
-          tags:[lvl, "Pack"],
-          price:`${price} FCFA`,
-          corrige:true
-        });
-      });
-    });
-    return all;
-  }
-
-  const SUBJECTS = {
-    f4be: [{code:"MAT",title:"Mathématiques"},{code:"PHY",title:"Physique"},{code:"ANG",title:"Anglais"},{code:"MET",title:"Métré"},{code:"TOP",title:"Topographie"},{code:"PDC",title:"Procédé de construction"},{code:"LAB",title:"Laboratoire"},{code:"MEC",title:"Mécanique"},{code:"DES",title:"Dessin"},{code:"EXC",title:"Exploitation des chantiers"},{code:"HG",title:"Histoire-Géographie"},{code:"ECM",title:"ECM"}],
-    f4ba: [{code:"MAT",title:"Mathématiques"},{code:"FR",title:"Français"},{code:"ANG",title:"Anglais"},{code:"PHY",title:"Physique"},{code:"CHI",title:"Chimie"},{code:"DES",title:"Dessin technique"},{code:"TDB",title:"Technologie du bâtiment"},{code:"PDC",title:"Procédés de construction"},{code:"TOP",title:"Topographie"},{code:"MET",title:"Métré"},{code:"MEC",title:"Mécanique appliquée"},{code:"LAB",title:"Laboratoire"}],
-    c: [{code:"MAT",title:"Mathématiques"},{code:"PHY",title:"Physique"},{code:"CHI",title:"Chimie"},{code:"FR",title:"Français"},{code:"ANG",title:"Anglais"},{code:"INF",title:"Informatique"},{code:"HIS",title:"Histoire"},{code:"GEO",title:"Géographie"},{code:"EPS",title:"Éducation physique"},{code:"PHI",title:"Philosophie"}],
-    d: [{code:"MAT",title:"Mathématiques"},{code:"PHY",title:"Physique"},{code:"CHI",title:"Chimie"},{code:"SVT",title:"Sciences de la Vie et de la Terre"},{code:"FR",title:"Français"},{code:"ANG",title:"Anglais"},{code:"INF",title:"Informatique"},{code:"HIS",title:"Histoire"},{code:"GEO",title:"Géographie"},{code:"PHI",title:"Philosophie"},{code:"EPS",title:"Éducation physique"}],
-    a: [{code:"FR",title:"Français"},{code:"ANG",title:"Anglais"},{code:"PHI",title:"Philosophie"},{code:"HIS",title:"Histoire"},{code:"GEO",title:"Géographie"},{code:"LV",title:"Langue vivante 2"},{code:"MAT",title:"Mathématiques"},{code:"SCI",title:"Sciences"},{code:"EPS",title:"Éducation physique"}],
-    gt: [{code:"MAT",title:"Mathématiques"},{code:"PHY",title:"Physique"},{code:"FR",title:"Français"},{code:"ANG",title:"Anglais"},{code:"TOP",title:"Topographie"},{code:"NIV",title:"Nivellement"},{code:"CAR",title:"Cartographie"},{code:"DAO",title:"Dessin topographique / DAO"},{code:"LEG",title:"Législation foncière"},{code:"PHO",title:"Photogrammétrie"},{code:"INF",title:"Informatique appliquée"}],
-    mhb: [{code:"MAT",title:"Mathématiques"},{code:"FR",title:"Français"},{code:"ANG",title:"Anglais"},{code:"PHY",title:"Physique"},{code:"DES",title:"Dessin technique"},{code:"TDB",title:"Technologie du bois"},{code:"LEC",title:"Lecture de plans"},{code:"PDF",title:"Procédés de fabrication"},{code:"MEN",title:"Menuiserie"},{code:"MET",title:"Métré / Étude des matériaux"}],
-  };
-
-  const data = {
-    f4be: [
-      {ref:"F4BE-PROMO-EXC",title:"Recueil — Exploitation des chantiers (1ère)",tags:["1ère","Promo"],price:"2000 FCFA",corrige:true},
-      {ref:"F4BE-PROMO-MET",title:"Recueil — Métré (1ère)",tags:["1ère","Promo"],price:"2000 FCFA",corrige:true},
-      {ref:"F4BE-PROMO-TOP",title:"Recueil — Topographie (1ère)",tags:["1ère","Promo"],price:"2000 FCFA",corrige:true},
-      {ref:"F4BE-2023-PHY",title:"Physique",tags:["1ère","2023"],price:"300 FCFA",corrige:false},
-      {ref:"F4BE-2023-TOP",title:"Topographie",tags:["1ère","2023"],price:"300 FCFA",corrige:false},
-      {ref:"F4BE-2023-LAB",title:"Laboratoire",tags:["1ère","2023"],price:"300 FCFA",corrige:false},
-      {ref:"F4BE-2023-DES",title:"Dessin",tags:["2nde","2023"],price:"300 FCFA",corrige:false},
-      {ref:"F4BE-2023-HG",title:"Histoire-Géographie (prépa)",tags:["1ère","2023"],price:"300 FCFA",corrige:false},
-      {ref:"F4BE-2023-ECM",title:"ECM (prépa)",tags:["1ère","2023"],price:"300 FCFA",corrige:false},
-    ],
-    f4ba: [
-      {ref:"F4BA-PROMO-EXC",title:"Recueil — Exploitation des chantiers (1ère)",tags:["1ère","Promo"],price:"2000 FCFA",corrige:true},
-      {ref:"F4BA-PROMO-MET",title:"Recueil — Métré (1ère)",tags:["1ère","Promo"],price:"2000 FCFA",corrige:true},
-      {ref:"F4BA-PROMO-TOP",title:"Recueil — Topographie (1ère)",tags:["1ère","Promo"],price:"2000 FCFA",corrige:true},
-      {ref:"F4BA-2023-PHY",title:"Physique",tags:["1ère","2023"],price:"300 FCFA",corrige:false},
-      {ref:"F4BA-2023-DES",title:"Dessin technique",tags:["1ère","2023"],price:"300 FCFA",corrige:false},
-      {ref:"F4BA-2023-PDC",title:"Procédés de construction",tags:["1ère","2023"],price:"300 FCFA",corrige:false},
-      {ref:"F4BA-2023-MET",title:"Métré",tags:["1ère","2023"],price:"300 FCFA",corrige:false},
-      {ref:"F4BA-2023-LAB",title:"Laboratoire",tags:["2nde","2023"],price:"300 FCFA",corrige:false},
-      {ref:"F4BA-2023-ANG",title:"Anglais",tags:["1ère","2023"],price:"300 FCFA",corrige:false},
-    ],
-    c: [
-      {ref:"C-PROMO-GUIDE",title:"Guide de réussite — Série C, nouveau programme OBC",tags:["Terminale","Promo"],price:"2000 FCFA",corrige:true},
-      {ref:"C-2023-PHY",title:"Physique",tags:["1ère","2023"],price:"300 FCFA",corrige:false},
-      {ref:"C-2023-INF",title:"Informatique",tags:["1ère","2023"],price:"300 FCFA",corrige:false},
-      {ref:"C-2023-FR",title:"Français",tags:["2nde","2023"],price:"300 FCFA",corrige:false},
-    ],
-    d: [
-      {ref:"D-PROMO-GUIDE",title:"Guide de réussite — Série D, nouveau programme OBC",tags:["Terminale","Promo"],price:"2000 FCFA",corrige:true},
-      {ref:"D-2023-PHY",title:"Physique",tags:["1ère","2023"],price:"300 FCFA",corrige:false},
-      {ref:"D-2023-INF",title:"Informatique",tags:["1ère","2023"],price:"300 FCFA",corrige:false},
-      {ref:"D-2023-HG",title:"Histoire-Géographie",tags:["1ère","2023"],price:"300 FCFA",corrige:false},
-    ],
-    a: [
-      {ref:"A-PROMO-GUIDE",title:"Guide de réussite — Série A, nouveau programme OBC",tags:["Terminale","Promo"],price:"2000 FCFA",corrige:true},
-      {ref:"A-2023-HIS",title:"Histoire-Géographie",tags:["1ère","2023"],price:"300 FCFA",corrige:false},
-      {ref:"A-2023-ANG",title:"Anglais",tags:["1ère","2023"],price:"300 FCFA",corrige:false},
-      {ref:"A-2023-MAT",title:"Mathématiques",tags:["2nde","2023"],price:"300 FCFA",corrige:false},
-    ],
-    gt: [
-      {ref:"GT-2023-PHY",title:"Physique",tags:["1ère","2023"],price:"300 FCFA",corrige:false},
-      {ref:"GT-2023-NIV",title:"Nivellement",tags:["1ère","2023"],price:"300 FCFA",corrige:false},
-      {ref:"GT-2023-LEG",title:"Législation foncière",tags:["1ère","2023"],price:"300 FCFA",corrige:false},
-      {ref:"GT-2023-DAO",title:"Dessin topographique / DAO",tags:["2nde","2023"],price:"300 FCFA",corrige:false},
-    ],
-    mhb: [
-      {ref:"MHB-2023-PHY",title:"Physique",tags:["1ère","2023"],price:"300 FCFA",corrige:false},
-      {ref:"MHB-2023-TDB",title:"Technologie du bois",tags:["1ère","2023"],price:"300 FCFA",corrige:false},
-      {ref:"MHB-2023-PDF",title:"Procédés de fabrication",tags:["1ère","2023"],price:"300 FCFA",corrige:false},
-      {ref:"MHB-2023-MET",title:"Métré / Étude des matériaux",tags:["2nde","2023"],price:"300 FCFA",corrige:false},
-    ],
-  };
-
-  // Packs "10 sujets corrigés" par matière et niveau — 1300 FCFA (mis en avant, en tête de liste)
-  data.f4be = genPacks("F4BE", SUBJECTS.f4be, ["2nde","1ère","Terminale"], 1500).concat(data.f4be);
-  data.f4ba = genPacks("F4BA", SUBJECTS.f4ba, ["2nde","1ère","Terminale"], 1500).concat(data.f4ba);
-  data.c   = genPacks("C", SUBJECTS.c, ["2nde","1ère","Terminale"], 1500).concat(data.c);
-  data.d   = genPacks("D", SUBJECTS.d, ["1ère","Terminale"], 1500).concat(data.d);
-  data.a   = genPacks("A", SUBJECTS.a, ["2nde","1ère","Terminale"], 1500).concat(data.a);
-  data.gt  = genPacks("GT", SUBJECTS.gt, ["2nde","1ère","Terminale"], 1500).concat(data.gt);
-  data.mhb = genPacks("MHB", SUBJECTS.mhb, ["2nde","1ère","Terminale"], 1500).concat(data.mhb);
-
-  // Bibliothèque complète : toutes les matières, tous les niveaux, toutes les années 2012-2026
-  data.f4be = data.f4be.concat(genFiliere("F4BE", SUBJECTS.f4be, 2000, ["2nde","1ère","Terminale"]));
-  data.f4ba = data.f4ba.concat(genFiliere("F4BA", SUBJECTS.f4ba, 2000, ["2nde","1ère","Terminale"]));
-  data.c   = data.c.concat(genFiliere("C", SUBJECTS.c, 2000, ["2nde","1ère","Terminale"]));
-  data.d   = data.d.concat(genFiliere("D", SUBJECTS.d, 2000, ["1ère","Terminale"]));
-  data.a   = data.a.concat(genFiliere("A", SUBJECTS.a, 2000, ["2nde","1ère","Terminale"]));
-  data.gt  = data.gt.concat(genFiliere("GT", SUBJECTS.gt, 2000, ["2nde","1ère","Terminale"]));
-  data.mhb = data.mhb.concat(genFiliere("MHB", SUBJECTS.mhb, 2000, ["2nde","1ère","Terminale"]));
-
-  // Classe de 3ème / BEPC — commune à tous, avant le choix de filière
-  SUBJECTS.bepc = [{code:"PCT",title:"Physique-Chimie-Technologie"},{code:"ANG",title:"Anglais"},{code:"MAT",title:"Mathématiques"},{code:"FR",title:"Français"},{code:"HG",title:"Histoire-Géographie"},{code:"INF",title:"Informatique"}];
-  data.bepc = [];
-  SUBJECTS.bepc.forEach(s => {
-    for(let y=2026; y>=2012; y--){
-      const age = 2026 - y;
-      const price = 300;
-      data.bepc.push({
-        ref:`BEPC-${s.code}-${y}`,
-        title:s.title,
-        tags:["3ème", String(y)],
-        price:`${price} FCFA`,
-        corrige: y >= 2020
-      });
-    }
-  });
-  data.bepc.push({ref:"BEPC-PREPA-01",title:"Guide de préparation au BEPC — méthodologie",tags:["3ème","Prépa"],price:"600 FCFA",corrige:false});
-  data.bepc = data.bepc.concat(genPacks("BEPC", SUBJECTS.bepc, ["3ème"], 1500));
-
-
-  const chapitres = [
-    {ref:"CH-F4BE-MET",title:"Métré — calcul des quantités",tags:["F4BE","Difficile"],price:"600 FCFA"},
-    {ref:"CH-F4BE-TOP",title:"Topographie — nivellement",tags:["F4BE","Difficile"],price:"600 FCFA"},
-    {ref:"CH-F4BE-PDC",title:"Procédé de construction — le béton armé",tags:["F4BE","Difficile"],price:"600 FCFA"},
-    {ref:"CH-C-INT",title:"Intégrales et primitives",tags:["C · D","Difficile"],price:"600 FCFA"},
-    {ref:"CH-F4BE-MEC",title:"Mécanique — statique des structures",tags:["F4BE","Difficile"],price:"600 FCFA"},
-    {ref:"CH-A-DISS",title:"Méthode de la dissertation philo",tags:["A","Difficile"],price:"400 FCFA"},
-  ];
-
-  let currentTab = 'f4be';
-  let currentLevel = 'all';
-  let currentYear = 'all';
-  let currentSubject = 'all';
-
-  // Remplit le sélecteur d'années 2012-2026
-  const yearSelect = document.getElementById('yearSelect');
-  for(let y=2026; y>=2012; y--){
-    const opt = document.createElement('option');
-    opt.value = String(y);
-    opt.textContent = y;
-    yearSelect.appendChild(opt);
-  }
-  yearSelect.addEventListener('change', ()=>{
-    currentYear = yearSelect.value;
-    visibleCount = 24;
-    render(currentTab);
-  });
-
-  // Remplit le sélecteur de matière selon la filière active
-  const subjectSelect = document.getElementById('subjectSelect');
-  function populateSubjects(tabKey){
-    subjectSelect.innerHTML = '<option value="all">Toutes les matières</option>';
-    const list = SUBJECTS[tabKey] || [];
-    list.forEach(s => {
-      const opt = document.createElement('option');
-      opt.value = s.title;
-      opt.textContent = s.title;
-      subjectSelect.appendChild(opt);
-    });
-    currentSubject = 'all';
-  }
-  subjectSelect.addEventListener('change', ()=>{
-    currentSubject = subjectSelect.value;
-    visibleCount = 24;
-    render(currentTab);
-  });
-
-  let visibleCount = 24;
-
-  function render(tabKey){
-    const grid = document.getElementById('cardGrid');
-    grid.innerHTML = '';
-    const items = data[tabKey].filter(item =>
-      (currentLevel === 'all' || item.tags.includes(currentLevel)) &&
-      (currentYear === 'all' || item.tags.includes(currentYear)) &&
-      (currentSubject === 'all' || item.title === currentSubject)
-    );
-    if(items.length === 0){
-      grid.innerHTML = `<p class="mono" style="font-size:13px;color:#8A8270;">Aucun sujet pour ce filtre dans cette filière pour l'instant.</p>`;
-      return;
-    }
-    const toShow = items.slice(0, visibleCount);
-    toShow.forEach(item=>{
-      const card = document.createElement('div');
-      card.className = 'card';
-      card.innerHTML = `
-        ${item.corrige ? '<div class="corrige-tag">Avec corrigé</div>' : ''}
-        <div class="card-ref mono">${item.ref}</div>
-        <h3>${item.title}</h3>
-        <div class="card-meta">
-          ${item.tags.map(t=>`<span class="pill">${t}</span>`).join('')}
-        </div>
-        <div class="card-foot">
-          <span class="price">${item.price}</span>
-          <a href="https://camerpay.biz/l/gvqjulj85s" target="_blank" class="buy" style="text-decoration:none; display:inline-block;">Acheter</a>
-        </div>
-      `;
-      grid.appendChild(card);
-    });
-    if(items.length > visibleCount){
-      const moreBtn = document.createElement('button');
-      moreBtn.className = 'buy';
-      moreBtn.style = 'grid-column:1/-1; margin-top:8px; padding:12px; width:100%; cursor:pointer;';
-      moreBtn.textContent = `Voir plus (${items.length - visibleCount} restants)`;
-      moreBtn.addEventListener('click', ()=>{
-        visibleCount += 24;
-        render(tabKey);
-      });
-      grid.appendChild(moreBtn);
-    }
-  }
-
-  function renderChapitres(){
-    const grid = document.getElementById('chapGrid');
-    grid.innerHTML = '';
-    chapitres.forEach(item=>{
-      const card = document.createElement('div');
-      card.className = 'card';
-      card.innerHTML = `
-        <div class="corrige-tag" style="border-color:var(--tab-yellow); color:#8a6a1e;">Fiche de cours</div>
-        <div class="card-ref mono">${item.ref}</div>
-        <h3>${item.title}</h3>
-        <div class="card-meta">
-          ${item.tags.map(t=>`<span class="pill">${t}</span>`).join('')}
-        </div>
-        <div class="card-foot">
-          <span class="price">${item.price}</span>
-          <a href="https://camerpay.biz/l/gvqjulj85s" target="_blank" class="buy" style="text-decoration:none; display:inline-block;">Acheter</a>
-        </div>
-      `;
-      grid.appendChild(card);
-    });
-  }
-
-  document.querySelectorAll('.tab').forEach(tab=>{
-    tab.addEventListener('click', ()=>{
-      document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
-      tab.classList.add('active');
-      currentTab = tab.dataset.tab;
-      visibleCount = 24;
-      populateSubjects(currentTab);
-      render(currentTab);
-    });
-  });
-
-  document.querySelectorAll('.level-chip').forEach(chip=>{
-    chip.addEventListener('click', ()=>{
-      document.querySelectorAll('.level-chip').forEach(c=>c.classList.remove('active'));
-      chip.classList.add('active');
-      currentLevel = chip.dataset.level;
-      visibleCount = 24;
-      render(currentTab);
-    });
-  });
-
-  populateSubjects('f4be');
-  render('f4be');
-  renderChapitres();
+/* Pour ajouter un lien de paiement à un produit, remplis son champ pay avec l'adresse de paiement. */
+const WA="237673045034";
+const wa=t=>"https://wa.me/"+WA+"?text="+encodeURIComponent(t);
+const P=[
+{t:"Décryptage F4BE et F4BA",d:"La structure de chaque épreuve, matière par matière, pour réviser avec méthode.",p:1000,f:["F4BE","F4BA"],pay:"https://camerpay.biz/l/yzeyx3rlrk"},
+{t:"Recueil Exploitation des chantiers",d:"1ère F4BE et F4BA, nouveau programme OBC.",p:2000,f:["F4BE","F4BA"],pay:""},
+{t:"Recueil Métré",d:"1ère F4BE et F4BA, nouveau programme OBC.",p:2000,f:["F4BE","F4BA"],pay:""},
+{t:"Recueil Topographie",d:"1ère F4BE et F4BA, nouveau programme OBC.",p:2000,f:["F4BE","F4BA"],pay:""},
+{t:"Guide BAC D",d:"Un guide complet pour transformer tes révisions en armes le jour de l'épreuve.",p:2000,f:["D"],pay:""},
+{t:"Guide BAC C",d:"La méthode pour aborder le BAC C avec confiance, matière par matière.",p:2000,f:["C"],pay:""},
+{t:"Guide BAC A",d:"Le guide qui structure ta réussite en série littéraire, du texte à la note.",p:2000,f:["A"],pay:""}
+];
+const grid=document.getElementById("grid"),chips=document.getElementById("chips");
+function show(f){
+  grid.innerHTML=P.filter(p=>f==="Tous"||p.f.includes(f)).map(p=>{
+    const href=p.pay||wa("Bonjour, je veux commander : "+p.t);
+    const i=P.indexOf(p);
+    return '<article class="fiche"><h3>'+p.t+'</h3><p class="sub">'+p.d+'</p><p class="prix">'+p.p.toLocaleString("fr-FR")+' FCFA</p><button class="btn" type="button" onclick="add('+i+')">Ajouter au panier</button>'+(p.pay?'<a class="btn alt" href="'+p.pay+'" target="_blank" rel="noopener">Payer maintenant</a>':'')+'<p class="mini"><a href="#" data-wa="Bonjour, je veux un aperçu gratuit de : '+p.t+'" onclick="return lien(this)">Aperçu gratuit</a><a href="#" onclick="return partage('+i+')">Partager</a></p></article>';
+  }).join("");
+  chips.querySelectorAll(".chip").forEach(c=>c.setAttribute("aria-pressed",c.textContent===f));
+}
+["Tous","F4BE","F4BA","C","D","A"].forEach(f=>{
+  const b=document.createElement("button");b.className="chip";b.type="button";b.textContent=f;
+  b.onclick=()=>show(f);chips.appendChild(b);
+});
+show("Tous");
+const a=document.getElementById("a");
+for(let y=2026;y>=2012;y--)a.add(new Option(y,y));
+document.getElementById("go").onclick=()=>{
+  const v=id=>document.getElementById(id).value.trim();
+  window.open(wa("Bonjour, je cherche le sujet de "+(v("m")||"(matière)")+", série "+v("s")+", niveau "+v("n")+", année "+v("a")+"."),"_blank","noopener");
+};
+document.querySelectorAll("[data-wa]").forEach(el=>{el.href=wa(el.dataset.wa);el.target="_blank";el.rel="noopener";});
+/* Réglages à modifier */
+const PRIX_SUJET=500; /* prix d'un sujet à l'unité, en FCFA */
+const PACKS=[{n:3,r:10},{n:5,r:15},{n:10,r:25}]; /* n sujets, r % de réduction */
+const EXAMEN={nom:"BAC",date:""}; /* ex. date:"2027-06-01" pour afficher le compte à rebours */
+const AVIS=[]; /* ex. {nom:"Prénom",serie:"Terminale D",texte:"Avis de l'élève"} */
+const fcfa=n=>Math.round(n).toLocaleString("fr-FR")+" FCFA";
+const lien=el=>{window.open(wa(el.dataset.wa),"_blank","noopener");return false};
+const partage=i=>{const t="Regarde « "+P[i].t+" » sur Archive.Sujets",u=location.href.split("#")[0];if(navigator.share)navigator.share({title:t,url:u}).catch(()=>{});else window.open(wa(t+" : "+u),"_blank","noopener");return false};
+/* Panier */
+const dlg=document.getElementById("cart"),bar=document.getElementById("cartbtn");let cart=[];
+const draw=()=>{
+  const tot=cart.reduce((s,i)=>s+P[i].p,0);
+  document.getElementById("items").innerHTML=cart.map(i=>'<li><span>'+P[i].t+' ('+fcfa(P[i].p)+')</span><button type="button" onclick="del('+i+')">Retirer</button></li>').join("");
+  document.getElementById("total").textContent="Total : "+fcfa(tot);
+  document.getElementById("order").href=wa("Bonjour, je veux commander :\n"+cart.map(i=>"- "+P[i].t+" ("+fcfa(P[i].p)+")").join("\n")+"\nTotal : "+fcfa(tot));
+  bar.hidden=!cart.length;bar.textContent="Panier ("+cart.length+") : "+fcfa(tot);
+  if(!cart.length&&dlg.open)dlg.close();
+};
+const add=i=>{if(!cart.includes(i))cart.push(i);draw()};
+const del=i=>{cart=cart.filter(x=>x!==i);draw()};
+bar.onclick=()=>dlg.showModal();
+/* Packs */
+const pc=document.getElementById("packchips"),pi=document.getElementById("packinfo");let pk=PACKS[1];
+const prixPack=()=>pk.n*PRIX_SUJET*(1-pk.r/100);
+const drawPack=()=>{pi.textContent="Pack de "+pk.n+" sujets : "+fcfa(prixPack())+" au lieu de "+fcfa(pk.n*PRIX_SUJET)+" (moins "+pk.r+" %)";pc.querySelectorAll(".chip").forEach((c,k)=>c.setAttribute("aria-pressed",PACKS[k]===pk))};
+PACKS.forEach(x=>{const b=document.createElement("button");b.className="chip";b.type="button";b.textContent=x.n+" sujets";b.onclick=()=>{pk=x;drawPack()};pc.appendChild(b)});
+drawPack();
+document.getElementById("packgo").onclick=()=>window.open(wa("Bonjour, je veux un pack de "+pk.n+" sujets ("+fcfa(prixPack())+"). Ma série, mon niveau et mes matières : "),"_blank","noopener");
+/* Compte à rebours */
+if(EXAMEN.date){const j=Math.ceil((new Date(EXAMEN.date)-Date.now())/864e5);if(j>0){const el=document.getElementById("promo");el.hidden=false;el.innerHTML="Le "+EXAMEN.nom+" commence dans <b>"+j+" jours</b>. <a href=\"#packs\">Prépare-toi avec un pack de sujets</a>."}}
+/* Avis */
+if(AVIS.length){document.getElementById("avis").hidden=false;document.getElementById("avislist").innerHTML=AVIS.map(v=>'<blockquote><p>'+v.texte+'</p><cite>'+v.nom+', '+v.serie+'</cite></blockquote>').join("")}
+/* Mini-quiz */
+const Q=[["Une pièce mesure 4 m sur 5 m. Quelle est sa surface ?",["9 m²","20 m²","18 m²"],1],["Sur un plan à l'échelle 1/100, 3 cm représentent :",["30 cm","3 m","300 m"],1],["Quel est le volume d'une dalle de 5 m sur 4 m, épaisse de 0,10 m ?",["20 m³","2 m³","0,2 m³"],1],["Quel est le périmètre d'un terrain rectangulaire de 10 m sur 6 m ?",["60 m","32 m","16 m"],1],["Sur un plan à l'échelle 1/500, 4 cm représentent :",["2 m","20 m","200 m"],1]];
+let qi=0,sc=0;const qb=document.getElementById("qbox");
+const jouer=()=>{
+  if(qi>=Q.length){qb.innerHTML='<p class="tarif">Score : '+sc+' sur '+Q.length+'</p><div class="cta"><a class="btn" href="#" onclick="return pq()">Partager mon score</a><button class="btn alt" type="button" onclick="qi=0;sc=0;jouer()">Recommencer</button></div>';return}
+  const q=Q[qi];
+  qb.innerHTML='<p><b>Question '+(qi+1)+' sur '+Q.length+'</b></p><p>'+q[0]+'</p><div class="opts">'+q[1].map((o,k)=>'<button class="chip" type="button" onclick="rep('+k+')">'+o+'</button>').join("")+'</div><p id="fb" aria-live="polite"></p>';
+};
+const rep=k=>{const ok=k===Q[qi][2];if(ok)sc++;qb.querySelectorAll(".chip").forEach((c,j)=>{c.disabled=true;if(j===Q[qi][2])c.style.background="#CDEFD9"});document.getElementById("fb").innerHTML=(ok?"Bonne réponse. ":"Mauvaise réponse. La bonne réponse est : "+Q[qi][1][Q[qi][2]]+". ")+'<button class="btn" type="button" onclick="qi++;jouer()">Suite</button>'};
+const pq=()=>{window.open(wa("J'ai eu "+sc+" sur "+Q.length+" au mini-quiz de métré d'Archive.Sujets : "+location.href.split("#")[0]),"_blank","noopener");return false};
+jouer();
+/* Mode hors-ligne */
+if("serviceWorker" in navigator)navigator.serviceWorker.register("sw.js").catch(()=>{});
 </script>
-
 </body>
 </html>
