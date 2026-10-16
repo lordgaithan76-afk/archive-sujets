@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Archive.Sujets : sujets d'examen BEPC et BAC au Cameroun, 2012 à 2026</title>
+<meta name="description" content="Sujets et fiches du BEPC au BAC (séries A, C, D, F4BA, F4BE, GT, MHB), années 2012 à 2026. Paiement Orange Money ou MTN MoMo, PDF tout de suite. Bonaberi, Douala.">
+<meta property="og:title" content="Archive.Sujets : toutes tes années d'examen au même endroit">
+<meta property="og:description" content="Du BEPC au BAC, sujets et fiches classés par filière, niveau et année.">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#1B2559">
+<style>
+:root{--paper:#F2F5FA;--ink:#1B2559;--muted:#48537F;--red:#CF2E2E;--green:#0F7B4B;--hi:#FFD84D;--line:#C9D3E8;--white:#fff}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth;scroll-padding-top:64px}
+body{font:16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;color:var(--ink);background:var(--paper)}
+a{color:inherit}
+h1,h2,h3{font-family:Georgia,"Times New Roman",serif;line-height:1.15;font-weight:700}
+.wrap{max-width:960px;margin:0 auto;padding:0 18px}
+header{position:sticky;top:0;z-index:5;background:var(--ink);color:#fff}
+header .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:56px}
+.logo{font:700 1.15rem Georgia,serif;text-decoration:none}
+.logo b{color:var(--hi)}
+nav{display:none;gap:18px;font-size:.95rem}
+nav a{text-decoration:none;opacity:.9}
+@media(min-width:760px){nav{display:flex}}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:0 18px;border-radius:6px;background:var(--green);color:#fff;font-weight:600;text-decoration:none;border:2px solid var(--green);cursor:pointer;font-size:1rem}
+.btn.alt{background:transparent;color:var(--ink);border-color:var(--ink)}
+.btn:focus-visible,select:focus-visible,input:focus-visible,summary:focus-visible,.chip:focus-visible{outline:3px solid var(--hi);outline-offset:2px}
+header .btn{min-height:38px;padding:0 14px;font-size:.9rem}
+.hero{padding:24px 0 8px}
+.sheet{position:relative;background:var(--white) repeating-linear-gradient(transparent 0 35px,var(--line) 35px 36px);border:1px solid var(--line);padding:30px 18px 30px 58px;box-shadow:0 1px 0 var(--line)}
+.sheet::before{content:"";position:absolute;left:40px;top:0;bottom:0;width:2px;background:var(--red);opacity:.7}
+.sheet h1{font-size:clamp(2rem,7vw,3.3rem);max-width:15em;margin-bottom:16px;background:var(--white);display:inline;box-decoration-break:clone;-webkit-box-decoration-break:clone;padding:2px 6px 2px 0;line-height:1.3}
+.sheet p.lead{margin:18px 0;max-width:34em;background:var(--white);display:inline-block;padding:2px 0}
+.cta{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px}
+.stamp{position:absolute;right:14px;top:-14px;transform:rotate(6deg);border:2px solid var(--red);color:var(--red);border-radius:50%;padding:12px 10px;font:700 .8rem/1.2 Georgia,serif;text-align:center;background:var(--white)}
+.facts{display:flex;flex-wrap:wrap;gap:8px 22px;list-style:none;padding:16px 0 0;font-size:.95rem;color:var(--muted)}
+.facts li{padding-left:16px;position:relative}
+.facts li::before{content:"";position:absolute;left:0;top:.6em;width:8px;height:8px;background:var(--hi);border:1px solid var(--ink)}
+section{padding:36px 0 8px}
+h2{font-size:clamp(1.5rem,4.5vw,2.1rem);margin-bottom:6px}
+.intro{color:var(--muted);margin-bottom:18px;max-width:38em}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px}
+.chip{min-height:40px;padding:0 16px;border:2px solid var(--ink);border-radius:20px;background:var(--white);color:var(--ink);font:600 .95rem system-ui;cursor:pointer}
+.chip[aria-pressed=true]{background:var(--ink);color:#fff}
+.grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fill,minmax(250px,1fr))}
+.fiche{background:var(--white);border:1px solid var(--line);border-left:5px solid var(--red);padding:16px;display:flex;flex-direction:column;gap:6px}
+.fiche h3{font-size:1.2rem}
+.fiche .sub{color:var(--muted);font-size:.95rem;flex:1}
+.fiche .prix{font-weight:700;font-size:1.15rem;background:linear-gradient(transparent 55%,var(--hi) 55%);align-self:flex-start;padding:0 4px}
+.find{background:var(--white);border:1px solid var(--line);padding:18px;display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(170px,1fr))}
+label{display:grid;gap:4px;font-weight:600;font-size:.92rem}
+select,input{min-height:44px;border:2px solid var(--line);border-radius:6px;padding:0 10px;font:1rem system-ui;background:var(--white);color:var(--ink)}
+.find .btn{align-self:end}
+ol.steps{list-style:none;padding:0;display:grid;gap:12px;counter-reset:s}
+ol.steps li{counter-increment:s;background:var(--white);border:1px solid var(--line);padding:14px 16px 14px 56px;position:relative}
+ol.steps li::before{content:counter(s);position:absolute;left:14px;top:12px;width:30px;height:30px;border-radius:50%;background:var(--ink);color:#fff;display:grid;place-items:center;font-weight:700}
+ol.steps strong{display:block;font-family:Georgia,serif;font-size:1.1rem}
+details{background:var(--white);border:1px solid var(--line);margin-bottom:8px}
+summary{padding:14px 16px;font-weight:600;cursor:pointer;min-height:48px}
+details p{padding:0 16px 14px;color:var(--muted)}
+footer{margin-top:40px;background:var(--ink);color:#fff;padding:26px 0 90px;font-size:.95rem}
+footer a{color:var(--hi)}
+.float{position:fixed;right:14px;bottom:calc(14px + env(safe-area-inset-bottom,0px));z-index:6;box-shadow:0 4px 14px rgba(0,0,0,.25)}
+.fiche .btn{width:100%}
+.mini{display:flex;gap:18px;font-size:.9rem}
+.mini a{min-height:32px;display:inline-flex;align-items:center}
+.tarif{font-weight:700;font-size:1.15rem;background:linear-gradient(transparent 55%,var(--hi) 55%);padding:0 4px}
+.promo{background:var(--hi);color:var(--ink);text-align:center;padding:10px 18px;font-weight:600}
+.promo[hidden],.cartbtn[hidden]{display:none}
+.cartbtn{position:fixed;left:14px;bottom:calc(14px + env(safe-area-inset-bottom,0px));z-index:6;box-shadow:0 4px 14px rgba(0,0,0,.25);background:var(--ink);border-color:var(--ink)}
+dialog{border:2px solid var(--ink);padding:18px;max-width:92vw;width:460px;color:var(--ink);background:var(--white)}
+dialog::backdrop{background:rgba(27,37,89,.5)}
+dialog ul{list-style:none;padding:0;margin:12px 0;display:grid;gap:8px}
+dialog li{display:flex;justify-content:space-between;gap:10px;align-items:center;border-bottom:1px solid var(--line);padding-bottom:8px}
+dialog li button{background:none;border:0;text-decoration:underline;color:var(--red);font:inherit;cursor:pointer;min-height:44px}
+.box{background:var(--white);border:1px solid var(--line);padding:18px;display:grid;gap:12px;justify-items:start}
+.opts{display:flex;flex-wrap:wrap;gap:8px}
+.chip:disabled{cursor:default;opacity:.9}
+blockquote{background:var(--white);border-left:5px solid var(--hi);padding:14px 16px;margin-bottom:10px}
+blockquote cite{display:block;margin-top:6px;color:var(--muted);font-size:.9rem;font-style:normal}
+.sujet{display:flex;justify-content:space-between;align-items:center;gap:12px;background:var(--white);border:1px solid var(--line);border-left:5px solid var(--hi);padding:12px 14px;margin-bottom:8px}
+.sujet small{color:var(--muted);display:block}
+.sujet .btn{min-height:40px;padding:0 14px;font-size:.9rem;white-space:nowrap}
+.tag{background:var(--green);color:#fff;font-size:.75rem;padding:1px 8px;border-radius:10px;margin-left:6px;font-weight:600}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <a class="logo" href="#">Archive<b>.</b>Sujets</a>
+    <nav aria-label="Navigation">
+      <a href="#sujets">Sujets</a>
+      <a href="#sujets" data-g>Sujets gratuits</a>
+      <a href="#catalogue">Guides</a>
+      <a href="#trouver">Trouver un sujet</a>
+      <a href="#fonctionnement">Comment ça marche</a>
+      <a href="#faq">Questions</a>
+    </nav>
+    <a class="btn" data-wa="Bonjour, j'ai une question sur Archive.Sujets." href="#">WhatsApp</a>
+  </div>
+</header>
+<div id="promo" class="promo" hidden></div>
+
+<main class="wrap">
+  <div class="hero">
+    <div class="sheet">
+      <div class="stamp">Bonaberi<br>Douala</div>
+      <h1>Toutes tes années d'examen au même endroit.</h1>
+      <p class="lead">Du BEPC au BAC, séries A, C, D, F4BA, F4BE, GT et MHB, années 2012 à 2026. Sujets et fiches classés par filière, niveau et année. Tu paies par Mobile Money et tu reçois ton PDF tout de suite. Nos prix restent abordables, pour t'accompagner pendant toute ta scolarité.</p>
+      <div class="cta">
+        <a class="btn" href="#catalogue">Voir le catalogue</a>
+        <a class="btn alt" href="#trouver" style="background:var(--white)">Trouver mon sujet</a>
+      </div>
+    </div>
+    <ul class="facts">
+      <li>Années 2012 à 2026</li>
+      <li>Du BEPC au BAC</li>
+      <li>Orange Money et MTN MoMo</li>
+      <li>PDF disponible tout de suite</li>
+    </ul>
+  </div>
+
+  <section id="catalogue">
+    <h2>Guides et recueils</h2>
+    <p class="intro">Les guides du nouveau programme de l'Office du Baccalauréat du Cameroun (OBC) pour le Probatoire et le BAC, et les recueils pour la 1ère F4BE et F4BA.</p>
+    <div class="chips" id="niv" role="group" aria-label="Filtrer par niveau"></div>
+    <div class="chips" id="chips" role="group" aria-label="Filtrer par filière"></div>
+    <div class="grid" id="grid" aria-live="polite"></div>
+  </section>
+
+  <section id="sujets">
+    <h2>Catalogue des sujets d'examen</h2>
+    <p class="intro">Retrouve les sujets par classe, série, matière et année. Les sujets gratuits se téléchargent directement.</p>
+    <div class="chips" id="acces" role="group" aria-label="Type de sujets"></div>
+    <div class="find" style="margin-bottom:14px">
+      <label>Classe<select id="sc"></select></label>
+      <label>Série<select id="ss"></select></label>
+      <label>Matière<select id="sm"></select></label>
+      <label>Année<select id="sy"></select></label>
+    </div>
+    <div id="sres" aria-live="polite"></div>
+  </section>
+
+  <section id="packs">
+    <h2>Packs de sujets</h2>
+    <p class="intro">Plus tu prends de sujets, moins chacun coûte. Choisis ton pack, puis dis-nous tes matières sur WhatsApp.</p>
+    <div class="box">
+      <div class="chips" id="packchips" role="group" aria-label="Taille du pack"></div>
+      <p class="tarif" id="packinfo" aria-live="polite"></p>
+      <button class="btn" id="packgo" type="button">Demander ce pack sur WhatsApp</button>
+    </div>
+  </section>
+
+  <section id="trouver">
+    <h2>Trouve ton sujet</h2>
+    <p class="intro">Choisis ta série, ton niveau et l'année. Ta demande part sur WhatsApp et on te répond avec le sujet et son prix.</p>
+    <div class="find">
+      <label>Série
+        <select id="s"><option>3ème (BEPC)</option><option>A</option><option>C</option><option>D</option><option>F4BA</option><option>F4BE</option><option>GT</option><option>MHB</option></select>
+      </label>
+      <label>Niveau
+        <select id="n"><option>Terminale</option><option>1ère</option><option>2nde</option><option>3ème</option></select>
+      </label>
+      <label>Année
+        <select id="a"></select>
+      </label>
+      <label>Matière
+        <input id="m" placeholder="Ex. Mathématiques">
+      </label>
+      <button class="btn" id="go" type="button">Demander sur WhatsApp</button>
+    </div>
+  </section>
+
+  <section id="jeu">
+    <h2>Mini-quiz gratuit : métré et topographie</h2>
+    <p class="intro">Cinq questions pour tester tes réflexes de calcul. Partage ton score avec tes camarades.</p>
+    <div class="box" id="qbox"></div>
+  </section>
+
+  <section id="conseils">
+    <h2>Réviser avec les anciens sujets</h2>
+    <details><summary>Fais un sujet en conditions réelles</summary><p>Chronomètre-toi, travaille sans cours ni téléphone, puis corrige seulement à la fin.</p></details>
+    <details><summary>Classe tes erreurs par chapitre</summary><p>Après chaque correction, note le chapitre concerné. Tu vois vite où tu perds des points.</p></details>
+    <details><summary>Reviens sur les chapitres qui bloquent</summary><p>Refais les exercices ratés une semaine plus tard, puis cherche la même notion dans d'autres années.</p></details>
+  </section>
+
+  <section id="avis" hidden>
+    <h2>Ce que disent les élèves</h2>
+    <div id="avislist"></div>
+  </section>
+
+  <section id="fonctionnement">
+    <h2>Trois étapes, un PDF entre les mains</h2>
+    <ol class="steps">
+      <li><strong>Choisis ta filière</strong>Parcours le catalogue ou demande ton sujet par série, matière et année.</li>
+      <li><strong>Paie en Mobile Money</strong>Orange Money ou MTN MoMo, directement depuis ton téléphone.</li>
+      <li><strong>Télécharge le PDF</strong>Le fichier est disponible tout de suite, avec le corrigé si tu l'as choisi.</li>
+    </ol>
+  </section>
+
+  <section id="faq">
+    <h2>Questions fréquentes</h2>
+    <details><summary>Comment je reçois mon PDF ?</summary><p>Après le paiement, tu télécharges le fichier immédiatement. Si tu as un souci, écris-nous sur WhatsApp.</p></details>
+    <details><summary>Quelles séries et quelles années ?</summary><p>Du BEPC au BAC, séries A, C, D, F4BA, F4BE, GT et MHB, pour les années 2012 à 2026.</p></details>
+    <details><summary>Comment payer ?</summary><p>Avec Orange Money ou MTN MoMo, depuis ton téléphone. Le paiement est sécurisé.</p></details>
+    <details><summary>Je ne trouve pas mon sujet.</summary><p>Utilise le formulaire « Trouve ton sujet » : ta demande arrive sur WhatsApp et on te répond.</p></details>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>Archive.Sujets, Bonaberi, Douala, Cameroun.</p>
+    <p>Une question ou un PDF à récupérer après achat ? <a data-wa="Bonjour, j'ai besoin d'aide pour mon PDF." href="#">Écris-nous sur WhatsApp</a>.</p>
+  </div>
+</footer>
+<button class="btn cartbtn" id="cartbtn" type="button" hidden></button>
+<dialog id="cart" aria-label="Panier">
+  <h2>Ton panier</h2>
+  <ul id="items"></ul>
+  <p class="tarif" id="total"></p>
+  <div class="cta" style="margin-top:12px"><a class="btn" id="order" href="#" target="_blank" rel="noopener">Commander sur WhatsApp</a><button class="btn alt" type="button" onclick="document.getElementById('cart').close()">Continuer mes achats</button></div>
+</dialog>
+<a class="btn float" data-wa="Bonjour, j'ai une question sur Archive.Sujets." href="#" aria-label="Écrire sur WhatsApp">WhatsApp</a>
+
+<script src="sujets.js"></script>
+<script>
+/* Pour ajouter un lien de paiement à un produit, remplis son champ pay avec l'adresse de paiement. */
+const WA="237673045034";
+const wa=t=>"https://wa.me/"+WA+"?text="+encodeURIComponent(t);
+const P=[
+{t:"Décryptage F4BE et F4BA",d:"La structure de chaque épreuve, matière par matière, pour réviser avec méthode.",p:2000,f:["F4BE","F4BA"],n:["Probatoire","BAC"],pay:"https://camerpay.biz/l/ccpumvbrxv"},
+{t:"Recueil Exploitation des chantiers",d:"1ère F4BE et F4BA, nouveau programme OBC.",p:2000,f:["F4BE","F4BA"],n:["Probatoire"],pay:""},
+{t:"Recueil Métré",d:"1ère F4BE et F4BA, nouveau programme OBC.",p:2000,f:["F4BE","F4BA"],n:["Probatoire"],pay:""},
+{t:"Recueil Topographie",d:"1ère F4BE et F4BA, nouveau programme OBC.",p:2000,f:["F4BE","F4BA"],n:["Probatoire"],pay:""},
+{t:"Guide BAC D",d:"Un guide complet pour transformer tes révisions en armes le jour de l'épreuve.",p:2000,f:["D"],n:["BAC"],pay:""},
+{t:"Guide BAC C",d:"La méthode pour aborder le BAC C avec confiance, matière par matière.",p:2000,f:["C"],n:["BAC"],pay:""},
+{t:"Guide BAC A",d:"Le guide qui structure ta réussite en série littéraire, du texte à la note.",p:2000,f:["A"],n:["BAC"],pay:""},
+{t:"Guide Probatoire D",d:"Le guide pour aborder le Probatoire D avec méthode, matière par matière.",p:2000,f:["D"],n:["Probatoire"],pay:""},
+{t:"Guide Probatoire C",d:"La méthode pour réussir le Probatoire C, des exercices types à la rédaction.",p:2000,f:["C"],n:["Probatoire"],pay:""},
+{t:"Guide Probatoire A",d:"Le guide qui structure ta réussite au Probatoire A, du texte à la note.",p:2000,f:["A"],n:["Probatoire"],pay:""}
+];
+const grid=document.getElementById("grid"),chips=document.getElementById("chips");
+let fs="Tous",fn="Tous";
+function show(){
+  const L=P.filter(p=>(fs==="Tous"||p.f.includes(fs))&&(fn==="Tous"||p.n.includes(fn)));
+  grid.innerHTML=L.length?L.map(p=>{
+    const href=p.pay||wa("Bonjour, je veux commander : "+p.t);
+    const i=P.indexOf(p);
+    return '<article class="fiche"><h3>'+p.t+'</h3><p class="sub">'+p.d+'</p><p class="prix">'+p.p.toLocaleString("fr-FR")+' FCFA</p><button class="btn" type="button" onclick="add('+i+')">Ajouter au panier</button>'+(p.pay?'<a class="btn alt" href="'+p.pay+'" target="_blank" rel="noopener">Payer maintenant</a>':'')+'<p class="mini"><a href="#" data-wa="Bonjour, je veux un aperçu gratuit de : '+p.t+'" onclick="return lien(this)">Aperçu gratuit</a><a href="#" onclick="return partage('+i+')">Partager</a></p></article>';
+  }).join(""):'<p class="intro">Aucun produit pour cette sélection. Écris-nous sur WhatsApp, on te répond.</p>';
+  document.querySelectorAll("#chips .chip").forEach(c=>c.setAttribute("aria-pressed",c.textContent===fs));
+  document.querySelectorAll("#niv .chip").forEach(c=>c.setAttribute("aria-pressed",c.textContent===fn));
+}
+const mk=(box,list,set)=>list.forEach(v=>{const b=document.createElement("button");b.className="chip";b.type="button";b.textContent=v;b.onclick=()=>{set(v);show()};box.appendChild(b)});
+mk(document.getElementById("niv"),["Tous","Probatoire","BAC"],v=>fn=v);
+mk(chips,["Tous","F4BE","F4BA","C","D","A"],v=>fs=v);
+show();
+const a=document.getElementById("a");
+for(let y=2026;y>=2012;y--)a.add(new Option(y,y));
+document.getElementById("go").onclick=()=>{
+  const v=id=>document.getElementById(id).value.trim();
+  window.open(wa("Bonjour, je cherche le sujet de "+(v("m")||"(matière)")+", série "+v("s")+", niveau "+v("n")+", année "+v("a")+"."),"_blank","noopener");
+};
+document.querySelectorAll("[data-wa]").forEach(el=>{el.href=wa(el.dataset.wa);el.target="_blank";el.rel="noopener";});
+/* Réglages à modifier */
+const PRIX_SUJET=500; /* prix d'un sujet à l'unité, en FCFA */
+const PACKS=[{n:3,r:10},{n:5,r:15},{n:10,r:25}]; /* n sujets, r % de réduction */
+const EXAMEN={nom:"BAC",date:""}; /* ex. date:"2027-06-01" pour afficher le compte à rebours */
+const AVIS=[]; /* ex. {nom:"Prénom",serie:"Terminale D",texte:"Avis de l'élève"} */
+const fcfa=n=>Math.round(n).toLocaleString("fr-FR")+" FCFA";
+const lien=el=>{window.open(wa(el.dataset.wa),"_blank","noopener");return false};
+const partage=i=>{const t="Regarde « "+P[i].t+" » sur Archive.Sujets",u=location.href.split("#")[0];if(navigator.share)navigator.share({title:t,url:u}).catch(()=>{});else window.open(wa(t+" : "+u),"_blank","noopener");return false};
+/* Panier */
+const dlg=document.getElementById("cart"),bar=document.getElementById("cartbtn");let cart=[];
+const draw=()=>{
+  const tot=cart.reduce((s,i)=>s+P[i].p,0);
+  document.getElementById("items").innerHTML=cart.map(i=>'<li><span>'+P[i].t+' ('+fcfa(P[i].p)+')</span><button type="button" onclick="del('+i+')">Retirer</button></li>').join("");
+  document.getElementById("total").textContent="Total : "+fcfa(tot);
+  document.getElementById("order").href=wa("Bonjour, je veux commander :\n"+cart.map(i=>"- "+P[i].t+" ("+fcfa(P[i].p)+")").join("\n")+"\nTotal : "+fcfa(tot));
+  bar.hidden=!cart.length;bar.textContent="Panier ("+cart.length+") : "+fcfa(tot);
+  if(!cart.length&&dlg.open)dlg.close();
+};
+const add=i=>{if(!cart.includes(i))cart.push(i);draw()};
+const del=i=>{cart=cart.filter(x=>x!==i);draw()};
+bar.onclick=()=>dlg.showModal();
+/* Packs */
+const pc=document.getElementById("packchips"),pi=document.getElementById("packinfo");let pk=PACKS[1];
+const prixPack=()=>pk.n*PRIX_SUJET*(1-pk.r/100);
+const drawPack=()=>{pi.textContent="Pack de "+pk.n+" sujets : "+fcfa(prixPack())+" au lieu de "+fcfa(pk.n*PRIX_SUJET)+" (moins "+pk.r+" %)";pc.querySelectorAll(".chip").forEach((c,k)=>c.setAttribute("aria-pressed",PACKS[k]===pk))};
+PACKS.forEach(x=>{const b=document.createElement("button");b.className="chip";b.type="button";b.textContent=x.n+" sujets";b.onclick=()=>{pk=x;drawPack()};pc.appendChild(b)});
+drawPack();
+document.getElementById("packgo").onclick=()=>window.open(wa("Bonjour, je veux un pack de "+pk.n+" sujets ("+fcfa(prixPack())+"). Ma série, mon niveau et mes matières : "),"_blank","noopener");
+/* Compte à rebours */
+if(EXAMEN.date){const j=Math.ceil((new Date(EXAMEN.date)-Date.now())/864e5);if(j>0){const el=document.getElementById("promo");el.hidden=false;el.innerHTML="Le "+EXAMEN.nom+" commence dans <b>"+j+" jours</b>. <a href=\"#packs\">Prépare-toi avec un pack de sujets</a>."}}
+/* Avis */
+if(AVIS.length){document.getElementById("avis").hidden=false;document.getElementById("avislist").innerHTML=AVIS.map(v=>'<blockquote><p>'+v.texte+'</p><cite>'+v.nom+', '+v.serie+'</cite></blockquote>').join("")}
+/* Mini-quiz */
+const Q=[["Une pièce mesure 4 m sur 5 m. Quelle est sa surface ?",["9 m²","20 m²","18 m²"],1],["Sur un plan à l'échelle 1/100, 3 cm représentent :",["30 cm","3 m","300 m"],1],["Quel est le volume d'une dalle de 5 m sur 4 m, épaisse de 0,10 m ?",["20 m³","2 m³","0,2 m³"],1],["Quel est le périmètre d'un terrain rectangulaire de 10 m sur 6 m ?",["60 m","32 m","16 m"],1],["Sur un plan à l'échelle 1/500, 4 cm représentent :",["2 m","20 m","200 m"],1]];
+let qi=0,sc=0;const qb=document.getElementById("qbox");
+const jouer=()=>{
+  if(qi>=Q.length){qb.innerHTML='<p class="tarif">Score : '+sc+' sur '+Q.length+'</p><div class="cta"><a class="btn" href="#" onclick="return pq()">Partager mon score</a><button class="btn alt" type="button" onclick="qi=0;sc=0;jouer()">Recommencer</button></div>';return}
+  const q=Q[qi];
+  qb.innerHTML='<p><b>Question '+(qi+1)+' sur '+Q.length+'</b></p><p>'+q[0]+'</p><div class="opts">'+q[1].map((o,k)=>'<button class="chip" type="button" onclick="rep('+k+')">'+o+'</button>').join("")+'</div><p id="fb" aria-live="polite"></p>';
+};
+const rep=k=>{const ok=k===Q[qi][2];if(ok)sc++;qb.querySelectorAll(".chip").forEach((c,j)=>{c.disabled=true;if(j===Q[qi][2])c.style.background="#CDEFD9"});document.getElementById("fb").innerHTML=(ok?"Bonne réponse. ":"Mauvaise réponse. La bonne réponse est : "+Q[qi][1][Q[qi][2]]+". ")+'<button class="btn" type="button" onclick="qi++;jouer()">Suite</button>'};
+const pq=()=>{window.open(wa("J'ai eu "+sc+" sur "+Q.length+" au mini-quiz de métré d'Archive.Sujets : "+location.href.split("#")[0]),"_blank","noopener");return false};
+jouer();
+/* Catalogue des sujets (les données sont dans sujets.js) */
+const SJ=typeof SUJETS!=="undefined"?SUJETS:[];
+const sres=document.getElementById("sres"),acc=document.getElementById("acces");
+const AC=["Tous les sujets","Gratuits seulement"];let ac=AC[0],lim=30;
+const uniq=k=>[...new Set(SJ.map(x=>x[k]))].filter(Boolean).sort((p,q)=>String(p).localeCompare(String(q),"fr",{numeric:true}));
+const fill=(id,k,tout)=>{const e=document.getElementById(id);e.innerHTML="";e.add(new Option(tout,""));(k==="annee"?uniq(k).reverse():uniq(k)).forEach(x=>e.add(new Option(x,x)));e.onchange=()=>{lim=30;drawS()}};
+fill("sc","classe","Toutes les classes");fill("ss","serie","Toutes les séries");fill("sm","matiere","Toutes les matières");fill("sy","annee","Toutes les années");
+const setAc=v=>{ac=v;lim=30;acc.querySelectorAll(".chip").forEach(c=>c.setAttribute("aria-pressed",c.textContent===ac));drawS()};
+AC.forEach(v=>{const b=document.createElement("button");b.className="chip";b.type="button";b.textContent=v;b.onclick=()=>setAc(v);acc.appendChild(b)});
+document.querySelectorAll("[data-g]").forEach(el=>el.addEventListener("click",()=>setAc(AC[1])));
+function drawS(){
+  if(!SJ.length){sres.innerHTML='<p class="intro">Le catalogue des sujets arrive bientôt. En attendant, demande ton sujet avec le formulaire « Trouve ton sujet » ci-dessous.</p>';return}
+  const v=id=>document.getElementById(id).value;
+  const L=SJ.filter(x=>(ac===AC[0]||x.acces==="gratuit")&&(!v("sc")||x.classe===v("sc"))&&(!v("ss")||x.serie===v("ss"))&&(!v("sm")||x.matiere===v("sm"))&&(!v("sy")||String(x.annee)===v("sy")));
+  if(!L.length){sres.innerHTML='<p class="intro">Aucun sujet pour cette sélection. Écris-nous sur WhatsApp, on te répond.</p>';return}
+  sres.innerHTML=L.slice(0,lim).map(x=>{
+    const g=x.acces==="gratuit",t=x.matiere+" "+x.annee+", "+x.classe+(x.serie?" "+x.serie:"");
+    return '<div class="sujet"><div><b>'+x.matiere+' '+x.annee+'</b>'+(g?'<span class="tag">Gratuit</span>':'')+'<small>'+x.classe+(x.serie?', série '+x.serie:'')+'</small></div>'+(g?'<a class="btn" href="'+x.lien+'" target="_blank" rel="noopener">Télécharger</a>':'<a class="btn alt" href="'+wa("Bonjour, je veux le sujet : "+t)+'" target="_blank" rel="noopener">Obtenir</a>')+'</div>';
+  }).join("")+(L.length>lim?'<button class="btn alt" type="button" onclick="lim+=30;drawS()">Voir plus ('+(L.length-lim)+')</button>':'');
+}
+setAc(AC[0]);
+/* Mode hors-ligne */
+if("serviceWorker" in navigator)navigator.serviceWorker.register("sw.js").catch(()=>{});
+</script>
+</body>
+</html>
