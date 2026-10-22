@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Archive.Sujets : sujets d'examen BEPC et BAC au Cameroun, 2012 à 2026</title>
+<meta name="description" content="Sujets et fiches du BEPC au BAC (séries A, C, D, F4BA, F4BE, GT, MHB), années 2012 à 2026. Paiement Orange Money ou MTN MoMo, PDF tout de suite. Bonaberi, Douala.">
+<meta property="og:title" content="Archive.Sujets : toutes tes années d'examen au même endroit">
+<meta property="og:description" content="Du BEPC au BAC, sujets et fiches classés par filière, niveau et année.">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#1B2559">
+<style>
+:root{--paper:#F2F5FA;--ink:#1B2559;--muted:#48537F;--red:#CF2E2E;--green:#0F7B4B;--hi:#FFD84D;--line:#C9D3E8;--white:#fff}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth;scroll-padding-top:100px}
+body{font:16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;color:var(--ink);background:var(--paper)}
+a{color:inherit}
+h1,h2,h3{font-family:Georgia,"Times New Roman",serif;line-height:1.15;font-weight:700}
+.wrap{max-width:960px;margin:0 auto;padding:0 18px}
+header{position:sticky;top:0;z-index:5;background:var(--ink);color:#fff}
+header .wrap{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:4px 12px;min-height:56px}
+.logo{font:700 1.15rem Georgia,serif;text-decoration:none}
+.logo b{color:var(--hi)}
+nav{display:flex;order:3;width:100%;overflow-x:auto;gap:18px;font-size:.95rem;padding:0 0 10px;white-space:nowrap}
+nav a{text-decoration:none;opacity:.9}
+@media(min-width:760px){nav{order:0;width:auto;padding:0;overflow:visible}}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:0 18px;border-radius:6px;background:var(--green);color:#fff;font-weight:600;text-decoration:none;border:2px solid var(--green);cursor:pointer;font-size:1rem}
+.btn.alt{background:transparent;color:var(--ink);border-color:var(--ink)}
+.btn:focus-visible,select:focus-visible,input:focus-visible,summary:focus-visible,.chip:focus-visible{outline:3px solid var(--hi);outline-offset:2px}
+header .btn{min-height:38px;padding:0 14px;font-size:.9rem}
+.hero{padding:24px 0 8px}
+.sheet{position:relative;background:var(--white) repeating-linear-gradient(transparent 0 35px,var(--line) 35px 36px);border:1px solid var(--line);padding:30px 18px 30px 58px;box-shadow:0 1px 0 var(--line)}
+.sheet::before{content:"";position:absolute;left:40px;top:0;bottom:0;width:2px;background:var(--red);opacity:.7}
+.sheet h1{font-size:clamp(2rem,7vw,3.3rem);max-width:15em;margin-bottom:16px;background:var(--white);display:inline;box-decoration-break:clone;-webkit-box-decoration-break:clone;padding:2px 6px 2px 0;line-height:1.3}
+.sheet p.lead{margin:18px 0;max-width:34em;background:var(--white);display:inline-block;padding:2px 0}
+.cta{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px}
+.stamp{position:absolute;right:14px;top:-14px;transform:rotate(6deg);border:2px solid var(--red);color:var(--red);border-radius:50%;padding:12px 10px;font:700 .8rem/1.2 Georgia,serif;text-align:center;background:var(--white)}
+.facts{display:flex;flex-wrap:wrap;gap:8px 22px;list-style:none;padding:16px 0 0;font-size:.95rem;color:var(--muted)}
+.facts li{padding-left:16px;position:relative}
+.facts li::before{content:"";position:absolute;left:0;top:.6em;width:8px;height:8px;background:var(--hi);border:1px solid var(--ink)}
+section{padding:36px 0 8px}
+h2{font-size:clamp(1.5rem,4.5vw,2.1rem);margin-bottom:6px}
+.intro{color:var(--muted);margin-bottom:18px;max-width:38em}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px}
+.chip{min-height:40px;padding:0 16px;border:2px solid var(--ink);border-radius:20px;background:var(--white);color:var(--ink);font:600 .95rem system-ui;cursor:pointer}
+.chip[aria-pressed=true]{background:var(--ink);color:#fff}
+.grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fill,minmax(250px,1fr))}
+.fiche{background:var(--white);border:1px solid var(--line);border-left:5px solid var(--red);padding:16px;display:flex;flex-direction:column;gap:6px}
+.fiche h3{font-size:1.2rem}
+.fiche .sub{color:var(--muted);font-size:.95rem;flex:1}
+.fiche .prix{font-weight:700;font-size:1.15rem;background:linear-gradient(transparent 55%,var(--hi) 55%);align-self:flex-start;padding:0 4px}
+.find{background:var(--white);border:1px solid var(--line);padding:18px;display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(170px,1fr))}
+label{display:grid;gap:4px;font-weight:600;font-size:.92rem}
+select,input{min-height:44px;border:2px solid var(--line);border-radius:6px;padding:0 10px;font:1rem system-ui;background:var(--white);color:var(--ink)}
+.find .btn{align-self:end}
+ol.steps{list-style:none;padding:0;display:grid;gap:12px;counter-reset:s}
+ol.steps li{counter-increment:s;background:var(--white);border:1px solid var(--line);padding:14px 16px 14px 56px;position:relative}
+ol.steps li::before{content:counter(s);position:absolute;left:14px;top:12px;width:30px;height:30px;border-radius:50%;background:var(--ink);color:#fff;display:grid;place-items:center;font-weight:700}
+ol.steps strong{display:block;font-family:Georgia,serif;font-size:1.1rem}
+details{background:var(--white);border:1px solid var(--line);margin-bottom:8px}
+summary{padding:14px 16px;font-weight:600;cursor:pointer;min-height:48px}
+details p{padding:0 16px 14px;color:var(--muted)}
+footer{margin-top:40px;background:var(--ink);color:#fff;padding:26px 0 90px;font-size:.95rem}
+footer a{color:var(--hi)}
+.float{position:fixed;right:14px;bottom:calc(14px + env(safe-area-inset-bottom,0px));z-index:6;box-shadow:0 4px 14px rgba(0,0,0,.25)}
+.fiche .btn{width:100%}
+.mini{display:flex;gap:18px;font-size:.9rem}
+.mini a{min-height:32px;display:inline-flex;align-items:center}
+.tarif{font-weight:700;font-size:1.15rem;background:linear-gradient(transparent 55%,var(--hi) 55%);padding:0 4px}
+.promo{background:var(--hi);color:var(--ink);text-align:center;padding:10px 18px;font-weight:600}
+.promo[hidden],.cartbtn[hidden]{display:none}
+.cartbtn{position:fixed;left:14px;bottom:calc(14px + env(safe-area-inset-bottom,0px));z-index:6;box-shadow:0 4px 14px rgba(0,0,0,.25);background:var(--ink);border-color:var(--ink)}
+dialog{border:2px solid var(--ink);padding:18px;max-width:92vw;width:460px;color:var(--ink);background:var(--white)}
+dialog::backdrop{background:rgba(27,37,89,.5)}
+dialog ul{list-style:none;padding:0;margin:12px 0;display:grid;gap:8px}
+dialog li{display:flex;justify-content:space-between;gap:10px;align-items:center;border-bottom:1px solid var(--line);padding-bottom:8px}
+dialog li button{background:none;border:0;text-decoration:underline;color:var(--red);font:inherit;cursor:pointer;min-height:44px}
+.box{background:var(--white);border:1px solid var(--line);padding:18px;display:grid;gap:12px;justify-items:start}
+.opts{display:flex;flex-wrap:wrap;gap:8px}
+.chip:disabled{cursor:default;opacity:.9}
+blockquote{background:var(--white);border-left:5px solid var(--hi);padding:14px 16px;margin-bottom:10px}
+blockquote cite{display:block;margin-top:6px;color:var(--muted);font-size:.9rem;font-style:normal}
+.sujet{display:flex;justify-content:space-between;align-items:center;gap:12px;background:var(--white);border:1px solid var(--line);border-left:5px solid var(--hi);padding:12px 14px;margin-bottom:8px}
+.sujet small{color:var(--muted);display:block}
+.sujet .btn{min-height:40px;padding:0 14px;font-size:.9rem;white-space:nowrap}
+.tag{background:var(--green);color:#fff;font-size:.75rem;padding:1px 8px;border-radius:10px;margin-left:6px;font-weight:600}
+.vedettes{background:var(--ink);color:#fff;padding:24px 18px;margin-top:30px;border-top:6px solid var(--hi)}
+.vedettes h2{color:#fff}
+.vedettes .intro{color:#D5DBF2}
+.vedettes .fiche{color:var(--ink)}
+.mem{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;width:100%;max-width:360px}
+.mc{aspect-ratio:1;min-height:64px;font-size:1.8rem;border:2px solid var(--ink);background:var(--ink);color:#fff;border-radius:6px;cursor:pointer}
+.mc.open{background:var(--white);color:var(--ink)}
+.mc.ok{background:#CDEFD9;color:var(--ink);border-color:var(--green)}
+.mc:focus-visible{outline:3px solid var(--hi);outline-offset:2px}
+.gal{display:grid;gap:14px;grid-template-columns:repeat(auto-fill,minmax(220px,1fr))}
+.gal a{display:block;background:var(--white);border:1px solid var(--line);border-left:5px solid var(--red);padding:10px;text-decoration:none}
+.gal b{display:block;font-family:Georgia,serif}
+.gal small{display:block;color:var(--muted);margin-bottom:8px}
+.gal img{width:100%;height:auto;display:block}
+.fd summary small{display:block;font-weight:400;color:var(--muted)}
+.fd .corps{padding:0 16px 14px}
+.fd ul,.fd ol{padding-left:20px;margin:6px 0}
+.fd li{margin-bottom:5px}
+.fd code{background:#EAF0FB;padding:1px 6px;border-radius:4px;font-size:.95em}
+.fd p{padding:0;margin:6px 0;color:var(--ink)}
+.btn[hidden]{display:none}
+.rep{background:#EAF0FB;padding:10px 12px;border-left:5px solid var(--green);margin:10px 0}
+#qrbox ul{padding-left:20px;margin:6px 0}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <a class="logo" href="#">Archive<b>.</b>Sujets</a>
+    <nav aria-label="Navigation">
+      <a href="#sujets">Sujets</a>
+      <a href="#sujets" data-g>Sujets gratuits</a>
+      <a href="#catalogue">Guides</a>
+      <a href="#fiches">Fiches</a>
+      <a href="#documents">Documents</a>
+      <a href="#trouver">Trouver un sujet</a>
+      <a href="#fonctionnement">Comment ça marche</a>
+      <a href="#faq">Questions</a>
+    </nav>
+    <a class="btn" data-wa="Bonjour, j'ai une question sur Archive.Sujets." href="#">WhatsApp</a>
+  </div>
+</header>
+<div id="promo" class="promo" hidden></div>
+
+<main class="wrap">
+  <div class="hero">
+    <div class="sheet">
+      <div class="stamp">Bonaberi<br>Douala</div>
+      <h1>Toutes tes années d'examen au même endroit.</h1>
+      <p class="lead">Du BEPC au BAC, séries A, C, D, F4BA, F4BE, GT et MHB, années 2012 à 2026. Sujets et fiches classés par filière, niveau et année. Tu paies par Mobile Money et tu reçois ton PDF tout de suite. Nos sujets commencent à 200 FCFA, pour t'accompagner pendant toute ta scolarité.</p>
+      <div class="cta">
+        <a class="btn" href="#catalogue">Voir le catalogue</a>
+        <a class="btn alt" href="#trouver" style="background:var(--white)">Trouver mon sujet</a>
+      </div>
+    </div>
+    <ul class="facts">
+      <li>Années 2012 à 2026</li>
+      <li>Du BEPC au BAC</li>
+      <li>Orange Money et MTN MoMo</li>
+      <li>PDF disponible tout de suite</li>
+    </ul>
+  </div>
+
+  <section id="catalogue">
+    <h2>Guides et recueils</h2>
+    <p class="intro">Les guides du nouveau programme de l'Office du Baccalauréat du Cameroun (OBC) pour le Probatoire et le BAC, et les recueils pour la 1ère F4BE et F4BA.</p>
+    <div class="chips" id="niv" role="group" aria-label="Filtrer par niveau"></div>
+    <div class="chips" id="chips" role="group" aria-label="Filtrer par filière"></div>
+    <div class="grid" id="grid" aria-live="polite"></div>
+  </section>
+
+  <section id="vedettes" class="vedettes">
+    <h2>Les grands recueils F4BA et F4BE</h2>
+    <p class="intro">Tous les sujets d'examen de la 1ère et de la Terminale, de 2010 à 2026, et leurs corrigés. Une préparation complète à un prix abordable.</p>
+    <div class="grid" id="vgrid"></div>
+  </section>
+
+  <section id="gratuits" hidden>
+    <h2>Télécharge gratuitement</h2>
+    <p class="intro">Quelques recueils F4 offerts, pour que tu juges la qualité avant d'acheter.</p>
+    <div class="grid" id="ggrid"></div>
+  </section>
+
+  <section id="sujets">
+    <h2>Catalogue des sujets d'examen</h2>
+    <p class="intro">Retrouve les sujets par classe, série, matière et année. Les sujets gratuits se téléchargent directement.</p>
+    <div class="chips" id="acces" role="group" aria-label="Type de sujets"></div>
+    <div class="find" style="margin-bottom:14px">
+      <label>Classe<select id="sc"></select></label>
+      <label>Série<select id="ss"></select></label>
+      <label>Matière<select id="sm"></select></label>
+      <label>Année<select id="sy"></select></label>
+    </div>
+    <div id="sres" aria-live="polite"></div>
+  </section>
+
+  <section id="packs">
+    <h2>Packs de sujets</h2>
+    <p class="intro">Plus tu prends de sujets, moins chacun coûte. Choisis ton pack, puis dis-nous tes matières sur WhatsApp.</p>
+    <div class="box">
+      <div class="chips" id="packchips" role="group" aria-label="Taille du pack"></div>
+      <p class="tarif" id="packinfo" aria-live="polite"></p>
+      <button class="btn" id="packgo" type="button">Demander ce pack sur WhatsApp</button>
+    </div>
+  </section>
+
+  <section id="trouver">
+    <h2>Trouve ton sujet</h2>
+    <p class="intro">Choisis ta série, ton niveau et l'année. Ta demande part sur WhatsApp et on te répond avec le sujet et son prix.</p>
+    <div class="find">
+      <label>Série
+        <select id="s"><option>3ème (BEPC)</option><option>A</option><option>C</option><option>D</option><option>F4BA</option><option>F4BE</option><option>GT</option><option>MHB</option></select>
+      </label>
+      <label>Niveau
+        <select id="n"><option>Terminale</option><option>1ère</option><option>2nde</option><option>3ème</option></select>
+      </label>
+      <label>Année
+        <select id="a"></select>
+      </label>
+      <label>Matière
+        <input id="m" placeholder="Ex. Mathématiques">
+      </label>
+      <button class="btn" id="go" type="button">Demander sur WhatsApp</button>
+    </div>
+  </section>
+
+  <section id="jeu">
+    <h2>Mini-quiz gratuit : métré et topographie</h2>
+    <p class="intro">Cinq questions pour tester tes réflexes de calcul. Partage ton score avec tes camarades.</p>
+    <div class="box" id="qbox"></div>
+  </section>
+
+  <section id="fiches">
+    <h2>Fiches de révision</h2>
+    <p class="intro">Des fiches illustrées pour réviser les notions clés. Touche une fiche pour l'ouvrir en grand, puis zoome avec deux doigts.</p>
+    <div class="chips" id="fchips" role="group" aria-label="Filtrer par matière"></div>
+    <div id="flist"></div>
+  </section>
+
+  <section id="documents">
+    <h2>Cours et documents gratuits</h2>
+    <p class="intro">Des cours, des exercices corrigés et des plans à télécharger gratuitement, classés par matière.</p>
+    <div id="dlist"></div>
+  </section>
+
+  <section id="detente">
+    <h2>Pause détente : jeu de mémoire</h2>
+    <p class="intro">Un petit jeu gratuit pour souffler entre deux séances de révision. Retrouve les paires avec le moins de coups possible.</p>
+    <div class="box">
+      <div class="mem" id="mem"></div>
+      <p id="meminfo" aria-live="polite"></p>
+      <button class="btn alt" id="memreset" type="button">Rejouer</button>
+    </div>
+  </section>
+
+  <section id="revision">
+    <h2>Jeu de révision : le terrassement</h2>
+    <p class="intro">Dix questions tirées au hasard. Lis la question, devine la réponse, puis vérifie. Pas de stress : c'est pour apprendre en s'amusant.</p>
+    <div class="box" id="qrbox"></div>
+    <p style="margin-top:12px"><a class="btn alt" href="qcm-batiments-terrassement.pdf" download>Télécharger la version PDF (questions et réponses)</a></p>
+  </section>
+
+  <section id="conseils">
+    <h2>Réviser avec les anciens sujets</h2>
+    <details><summary>Fais un sujet en conditions réelles</summary><p>Chronomètre-toi, travaille sans cours ni téléphone, puis corrige seulement à la fin.</p></details>
+    <details><summary>Classe tes erreurs par chapitre</summary><p>Après chaque correction, note le chapitre concerné. Tu vois vite où tu perds des points.</p></details>
+    <details><summary>Reviens sur les chapitres qui bloquent</summary><p>Refais les exercices ratés une semaine plus tard, puis cherche la même notion dans d'autres années.</p></details>
+  </section>
+
+  <section id="avis" hidden>
+    <h2>Ce que disent les élèves</h2>
+    <div id="avislist"></div>
+  </section>
+
+  <section id="fonctionnement">
+    <h2>Trois étapes, un PDF entre les mains</h2>
+    <ol class="steps">
+      <li><strong>Choisis ta filière</strong>Parcours le catalogue ou demande ton sujet par série, matière et année.</li>
+      <li><strong>Paie en Mobile Money</strong>Orange Money ou MTN MoMo, directement depuis ton téléphone.</li>
+      <li><strong>Télécharge le PDF</strong>Le fichier est disponible tout de suite, avec le corrigé si tu l'as choisi.</li>
+    </ol>
+  </section>
+
+  <section id="faq">
+    <h2>Questions fréquentes</h2>
+    <details><summary>Comment je reçois mon PDF ?</summary><p>Après le paiement, tu télécharges le fichier immédiatement. Si tu as un souci, écris-nous sur WhatsApp.</p></details>
+    <details><summary>Quelles séries et quelles années ?</summary><p>Du BEPC au BAC, séries A, C, D, F4BA, F4BE, GT et MHB, pour les années 2012 à 2026.</p></details>
+    <details><summary>Comment payer ?</summary><p>Avec Orange Money ou MTN MoMo, depuis ton téléphone. Le paiement est sécurisé.</p></details>
+    <details><summary>Je ne trouve pas mon sujet.</summary><p>Utilise le formulaire « Trouve ton sujet » : ta demande arrive sur WhatsApp et on te répond.</p></details>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>Archive.Sujets, Bonaberi, Douala, Cameroun.</p>
+    <p>Une question ou un PDF à récupérer après achat ? <a data-wa="Bonjour, j'ai besoin d'aide pour mon PDF." href="#">Écris-nous sur WhatsApp</a>.</p>
+  </div>
+</footer>
+<button class="btn cartbtn" id="cartbtn" type="button" hidden></button>
+<dialog id="cart" aria-label="Panier">
+  <h2>Ton panier</h2>
+  <ul id="items"></ul>
+  <p class="tarif" id="total"></p>
+  <div class="cta" style="margin-top:12px"><a class="btn" id="order" href="#" target="_blank" rel="noopener">Commander sur WhatsApp</a><button class="btn alt" type="button" onclick="document.getElementById('cart').close()">Continuer mes achats</button></div>
+</dialog>
+<a class="btn float" data-wa="Bonjour, j'ai une question sur Archive.Sujets." href="#" aria-label="Écrire sur WhatsApp">WhatsApp</a>
+
+<script src="sujets.js"></script>
+<script>
+/* Pour ajouter un lien de paiement à un produit, remplis son champ pay avec l'adresse de paiement. */
+const WA="237673045034";
+const wa=t=>"https://wa.me/"+WA+"?text="+encodeURIComponent(t);
+const P=[
+{t:"Décryptage F4BE et F4BA",d:"La structure de chaque épreuve, matière par matière, pour réviser avec méthode.",p:2000,f:["F4BE","F4BA"],n:["Probatoire","BAC"],pay:"https://camerpay.biz/l/ccpumvbrxv"},
+{t:"Recueil Exploitation des chantiers",d:"1ère F4BE et F4BA, nouveau programme OBC.",p:1000,f:["F4BE","F4BA"],n:["Probatoire"],pay:""},
+{t:"Recueil Métré",d:"1ère F4BE et F4BA, nouveau programme OBC.",p:1000,f:["F4BE","F4BA"],n:["Probatoire"],pay:""},
+{t:"Recueil Topographie",d:"1ère F4BE et F4BA, nouveau programme OBC.",p:1000,f:["F4BE","F4BA"],n:["Probatoire"],pay:""},
+{t:"Guide BAC D",d:"Un guide complet pour transformer tes révisions en armes le jour de l'épreuve.",p:2000,f:["D"],n:["BAC"],pay:""},
+{t:"Guide BAC C",d:"La méthode pour aborder le BAC C avec confiance, matière par matière.",p:2000,f:["C"],n:["BAC"],pay:""},
+{t:"Guide BAC A",d:"Le guide qui structure ta réussite en série littéraire, du texte à la note.",p:2000,f:["A"],n:["BAC"],pay:""},
+{t:"Recueil des sujets F4BA et F4BE (1ère et Tle, 2010 à 2026)",d:"Tous les sujets d'examen de chaque matière, de 2010 à 2026, pour la 1ère et la Terminale F4BA et F4BE.",p:4000,f:["F4BE","F4BA"],n:["Probatoire","BAC"],pay:"",v:1},
+{t:"Recueil des corrigés F4BA et F4BE (1ère et Tle, 2010 à 2026)",d:"Les corrigés de tous ces sujets, matière par matière, pour vérifier ton travail et comprendre chaque méthode.",p:5000,f:["F4BE","F4BA"],n:["Probatoire","BAC"],pay:"",v:1},
+{t:"Guide Probatoire D",d:"Le guide pour aborder le Probatoire D avec méthode, matière par matière.",p:2000,f:["D"],n:["Probatoire"],pay:""},
+{t:"Guide Probatoire C",d:"La méthode pour réussir le Probatoire C, des exercices types à la rédaction.",p:2000,f:["C"],n:["Probatoire"],pay:""},
+{t:"Guide Probatoire A",d:"Le guide qui structure ta réussite au Probatoire A, du texte à la note.",p:2000,f:["A"],n:["Probatoire"],pay:""}
+];
+const grid=document.getElementById("grid"),chips=document.getElementById("chips");
+const carte=p=>{
+    const href=p.pay||wa("Bonjour, je veux commander : "+p.t);
+    const i=P.indexOf(p);
+    return '<article class="fiche"><h3>'+p.t+'</h3><p class="sub">'+p.d+'</p><p class="prix">'+p.p.toLocaleString("fr-FR")+' FCFA</p><button class="btn" type="button" onclick="add('+i+')">Ajouter au panier</button>'+(p.pay?'<a class="btn alt" href="'+p.pay+'" target="_blank" rel="noopener">Payer maintenant</a>':'')+'<p class="mini"><a href="#" data-wa="Bonjour, je veux un aperçu gratuit de : '+p.t+'" onclick="return lien(this)">Aperçu gratuit</a><a href="#" onclick="return partage('+i+')">Partager</a></p></article>';
+  };
+let fs="Tous",fn="Tous";
+function show(){
+  const L=P.filter(p=>(fs==="Tous"||p.f.includes(fs))&&(fn==="Tous"||p.n.includes(fn)));
+  grid.innerHTML=L.length?L.map(carte).join(""):'<p class="intro">Aucun produit pour cette sélection. Écris-nous sur WhatsApp, on te répond.</p>';
+  document.querySelectorAll("#chips .chip").forEach(c=>c.setAttribute("aria-pressed",c.textContent===fs));
+  document.querySelectorAll("#niv .chip").forEach(c=>c.setAttribute("aria-pressed",c.textContent===fn));
+}
+const mk=(box,list,set)=>list.forEach(v=>{const b=document.createElement("button");b.className="chip";b.type="button";b.textContent=v;b.onclick=()=>{set(v);show()};box.appendChild(b)});
+mk(document.getElementById("niv"),["Tous","Probatoire","BAC"],v=>fn=v);
+mk(chips,["Tous","F4BE","F4BA","C","D","A"],v=>fs=v);
+show();
+document.getElementById("vgrid").innerHTML=P.filter(p=>p.v).map(carte).join("");
+const a=document.getElementById("a");
+for(let y=2026;y>=2012;y--)a.add(new Option(y,y));
+document.getElementById("go").onclick=()=>{
+  const v=id=>document.getElementById(id).value.trim();
+  window.open(wa("Bonjour, je cherche le sujet de "+(v("m")||"(matière)")+", série "+v("s")+", niveau "+v("n")+", année "+v("a")+"."),"_blank","noopener");
+};
+document.querySelectorAll("[data-wa]").forEach(el=>{el.href=wa(el.dataset.wa);el.target="_blank";el.rel="noopener";});
+/* Réglages à modifier */
+const PRIX_SUJET=200; /* prix d'un sujet à l'unité, en FCFA */
+const PACKS=[{n:3,p:500},{n:5,p:700},{n:10,p:1200}]; /* n sujets, p prix du pack en FCFA */
+const EXAMEN={nom:"BAC",date:""}; /* ex. date:"2027-06-01" pour afficher le compte à rebours */
+const AVIS=[]; /* ex. {nom:"Prénom",serie:"Terminale D",texte:"Avis de l'élève"} */
+const fcfa=n=>Math.round(n).toLocaleString("fr-FR")+" FCFA";
+const lien=el=>{window.open(wa(el.dataset.wa),"_blank","noopener");return false};
+const partage=i=>{const t="Regarde « "+P[i].t+" » sur Archive.Sujets",u=location.href.split("#")[0];if(navigator.share)navigator.share({title:t,url:u}).catch(()=>{});else window.open(wa(t+" : "+u),"_blank","noopener");return false};
+/* Panier */
+const dlg=document.getElementById("cart"),bar=document.getElementById("cartbtn");let cart=[];
+const draw=()=>{
+  const tot=cart.reduce((s,i)=>s+P[i].p,0);
+  document.getElementById("items").innerHTML=cart.map(i=>'<li><span>'+P[i].t+' ('+fcfa(P[i].p)+')</span><button type="button" onclick="del('+i+')">Retirer</button></li>').join("");
+  document.getElementById("total").textContent="Total : "+fcfa(tot);
+  document.getElementById("order").href=wa("Bonjour, je veux commander :\n"+cart.map(i=>"- "+P[i].t+" ("+fcfa(P[i].p)+")").join("\n")+"\nTotal : "+fcfa(tot));
+  bar.hidden=!cart.length;bar.textContent="Panier ("+cart.length+") : "+fcfa(tot);
+  if(!cart.length&&dlg.open)dlg.close();
+};
+const add=i=>{if(!cart.includes(i))cart.push(i);draw()};
+const del=i=>{cart=cart.filter(x=>x!==i);draw()};
+bar.onclick=()=>dlg.showModal();
+/* Packs */
+const pc=document.getElementById("packchips"),pi=document.getElementById("packinfo");let pk=PACKS[1];
+const prixPack=()=>pk.p;
+const drawPack=()=>{pi.textContent="Pack de "+pk.n+" sujets : "+fcfa(prixPack())+" au lieu de "+fcfa(pk.n*PRIX_SUJET)+" (économie de "+fcfa(pk.n*PRIX_SUJET-pk.p)+")";pc.querySelectorAll(".chip").forEach((c,k)=>c.setAttribute("aria-pressed",PACKS[k]===pk))};
+PACKS.forEach(x=>{const b=document.createElement("button");b.className="chip";b.type="button";b.textContent=x.n+" sujets";b.onclick=()=>{pk=x;drawPack()};pc.appendChild(b)});
+drawPack();
+document.getElementById("packgo").onclick=()=>window.open(wa("Bonjour, je veux un pack de "+pk.n+" sujets ("+fcfa(prixPack())+"). Ma série, mon niveau et mes matières : "),"_blank","noopener");
+/* Compte à rebours */
+if(EXAMEN.date){const j=Math.ceil((new Date(EXAMEN.date)-Date.now())/864e5);if(j>0){const el=document.getElementById("promo");el.hidden=false;el.innerHTML="Le "+EXAMEN.nom+" commence dans <b>"+j+" jours</b>. <a href=\"#packs\">Prépare-toi avec un pack de sujets</a>."}}
+/* Avis */
+if(AVIS.length){document.getElementById("avis").hidden=false;document.getElementById("avislist").innerHTML=AVIS.map(v=>'<blockquote><p>'+v.texte+'</p><cite>'+v.nom+', '+v.serie+'</cite></blockquote>').join("")}
+/* Mini-quiz */
+const Q=[["Une pièce mesure 4 m sur 5 m. Quelle est sa surface ?",["9 m²","20 m²","18 m²"],1],["Sur un plan à l'échelle 1/100, 3 cm représentent :",["30 cm","3 m","300 m"],1],["Quel est le volume d'une dalle de 5 m sur 4 m, épaisse de 0,10 m ?",["20 m³","2 m³","0,2 m³"],1],["Quel est le périmètre d'un terrain rectangulaire de 10 m sur 6 m ?",["60 m","32 m","16 m"],1],["Sur un plan à l'échelle 1/500, 4 cm représentent :",["2 m","20 m","200 m"],1]];
+let qi=0,sc=0;const qb=document.getElementById("qbox");
+const jouer=()=>{
+  if(qi>=Q.length){qb.innerHTML='<p class="tarif">Score : '+sc+' sur '+Q.length+'</p><div class="cta"><a class="btn" href="#" onclick="return pq()">Partager mon score</a><button class="btn alt" type="button" onclick="qi=0;sc=0;jouer()">Recommencer</button></div>';return}
+  const q=Q[qi];
+  qb.innerHTML='<p><b>Question '+(qi+1)+' sur '+Q.length+'</b></p><p>'+q[0]+'</p><div class="opts">'+q[1].map((o,k)=>'<button class="chip" type="button" onclick="rep('+k+')">'+o+'</button>').join("")+'</div><p id="fb" aria-live="polite"></p>';
+};
+const rep=k=>{const ok=k===Q[qi][2];if(ok)sc++;qb.querySelectorAll(".chip").forEach((c,j)=>{c.disabled=true;if(j===Q[qi][2])c.style.background="#CDEFD9"});document.getElementById("fb").innerHTML=(ok?"Bonne réponse. ":"Mauvaise réponse. La bonne réponse est : "+Q[qi][1][Q[qi][2]]+". ")+'<button class="btn" type="button" onclick="qi++;jouer()">Suite</button>'};
+const pq=()=>{window.open(wa("J'ai eu "+sc+" sur "+Q.length+" au mini-quiz de métré d'Archive.Sujets : "+location.href.split("#")[0]),"_blank","noopener");return false};
+jouer();
+/* Catalogue des sujets (les données sont dans sujets.js) */
+const SJ=typeof SUJETS!=="undefined"?SUJETS:[];
+const sres=document.getElementById("sres"),acc=document.getElementById("acces");
+const AC=["Tous les sujets","Gratuits seulement"];let ac=AC[0],lim=10;
+const uniq=k=>[...new Set(SJ.map(x=>x[k]))].filter(Boolean).sort((p,q)=>String(p).localeCompare(String(q),"fr",{numeric:true}));
+const fill=(id,k,tout)=>{const e=document.getElementById(id);e.innerHTML="";e.add(new Option(tout,""));(k==="annee"?uniq(k).reverse():uniq(k)).forEach(x=>e.add(new Option(x,x)));e.onchange=()=>{lim=10;drawS()}};
+fill("sc","classe","Toutes les classes");fill("ss","serie","Toutes les séries");fill("sm","matiere","Toutes les matières");fill("sy","annee","Toutes les années");
+const setAc=v=>{ac=v;lim=10;acc.querySelectorAll(".chip").forEach(c=>c.setAttribute("aria-pressed",c.textContent===ac));drawS()};
+AC.forEach(v=>{const b=document.createElement("button");b.className="chip";b.type="button";b.textContent=v;b.onclick=()=>setAc(v);acc.appendChild(b)});
+document.querySelectorAll("[data-g]").forEach(el=>el.addEventListener("click",()=>setAc(AC[1])));
+function drawS(){
+  if(!SJ.length){sres.innerHTML='<p class="intro">Le catalogue des sujets arrive bientôt. En attendant, demande ton sujet avec le formulaire « Trouve ton sujet » ci-dessous.</p>';return}
+  const v=id=>document.getElementById(id).value;
+  if(ac===AC[0]&&!v("sc")&&!v("ss")&&!v("sm")&&!v("sy")){sres.innerHTML='<p class="intro">Choisis ta classe, ta série, une matière ou une année pour voir les sujets.</p>';return}
+  const L=SJ.filter(x=>(ac===AC[0]||x.acces==="gratuit")&&(!v("sc")||x.classe===v("sc"))&&(!v("ss")||x.serie===v("ss"))&&(!v("sm")||x.matiere===v("sm"))&&(!v("sy")||String(x.annee)===v("sy"))).sort((p,q)=>(q.acces==="gratuit")-(p.acces==="gratuit"));
+  if(!L.length){sres.innerHTML='<p class="intro">Aucun sujet pour cette sélection. Écris-nous sur WhatsApp, on te répond.</p>';return}
+  sres.innerHTML=L.slice(0,lim).map(x=>{
+    const g=x.acces==="gratuit",t=x.matiere+" "+x.annee+", "+x.classe+(x.serie?" "+x.serie:"");
+    return '<div class="sujet"><div><b>'+x.matiere+' '+x.annee+'</b>'+(g?'<span class="tag">Gratuit</span>':'<span class="tag" style="background:var(--ink)">'+fcfa(PRIX_SUJET)+'</span>')+'<small>'+x.classe+(x.serie?', série '+x.serie:'')+'</small></div>'+(g?'<a class="btn" href="'+x.lien+'" target="_blank" rel="noopener">Télécharger</a>':'<a class="btn alt" href="'+wa("Bonjour, je veux le sujet : "+t)+'" target="_blank" rel="noopener">Obtenir</a>')+'</div>';
+  }).join("")+(L.length>lim?'<button class="btn alt" type="button" onclick="lim+=10;drawS()">Voir plus ('+(L.length-lim)+')</button>':'');
+}
+setAc(AC[0]);
+/* Recueils gratuits de l'accueil (liste GRATUITS dans sujets.js) */
+const GR=typeof GRATUITS!=="undefined"?GRATUITS:[];
+if(GR.length){document.getElementById("gratuits").hidden=false;document.getElementById("ggrid").innerHTML=GR.map(g=>'<article class="fiche"><h3>'+g.t+'<span class="tag">Gratuit</span></h3><p class="sub">'+g.d+'</p><a class="btn" href="'+g.lien+'" target="_blank" rel="noopener">Télécharger gratuitement</a></article>').join("")}
+/* Jeu de mémoire */
+(()=>{
+const E=["📐","✏️","📚","🧮","🏗️","🎓"],box=document.getElementById("mem"),info=document.getElementById("meminfo");
+let cartes,ouv,coups,fait,verrou;
+const nouveau=()=>{
+  cartes=[...E,...E].sort(()=>Math.random()-.5);ouv=[];coups=0;fait=0;verrou=false;
+  box.innerHTML=cartes.map((e,i)=>'<button type="button" class="mc" data-i="'+i+'" aria-label="Carte cachée">?</button>').join("");
+  info.textContent="Trouve les 6 paires. Coups : 0";
+};
+box.addEventListener("click",e=>{
+  const b=e.target.closest(".mc");if(!b||verrou||b.classList.contains("open")||b.classList.contains("ok"))return;
+  b.textContent=cartes[b.dataset.i];b.classList.add("open");b.setAttribute("aria-label","Carte "+cartes[b.dataset.i]);ouv.push(b);
+  if(ouv.length<2)return;
+  coups++;info.textContent="Trouve les 6 paires. Coups : "+coups;
+  const x=ouv[0],y=ouv[1];
+  if(cartes[x.dataset.i]===cartes[y.dataset.i]){
+    x.classList.replace("open","ok");y.classList.replace("open","ok");ouv=[];fait++;
+    if(fait===6)info.innerHTML='Bravo, tu as gagné en '+coups+' coups ! <a href="#" id="memshare">Partager mon score</a>';
+  }else{
+    verrou=true;
+    setTimeout(()=>{[x,y].forEach(c=>{c.classList.remove("open");c.textContent="?";c.setAttribute("aria-label","Carte cachée")});ouv=[];verrou=false},800);
+  }
+});
+document.getElementById("memreset").onclick=nouveau;
+info.addEventListener("click",e=>{if(e.target.id==="memshare"){e.preventDefault();window.open(wa("Je viens de gagner au jeu de mémoire d'Archive.Sujets en "+coups+" coups ! "+location.href.split("#")[0]),"_blank","noopener")}});
+nouveau();
+})();
+/* Fiches de révision en images (fichiers à la racine du dépôt) */
+const FICHES=[
+{m:"Procédés de construction",t:"Les types de murs en génie civil",f:"fiche-murs.jpg",w:571,h:721},
+{m:"Mathématiques",t:"Les 20 formules d'aires et de volumes",f:"fiche-aires-volumes.jpg",w:406,h:721},
+{m:"Topographie",t:"Formules pour l'implantation d'un bâtiment",f:"fiche-topo-formules.jpg",w:402,h:721},
+{m:"Métré",t:"Calcul et dimensionnement d'un mur en maçonnerie",f:"fiche-mur-maconnerie.jpg",w:481,h:721},
+{m:"Procédés de construction",t:"Les différents types de ponts",f:"fiche-ponts.jpg",w:600,h:900},
+{m:"Laboratoire",t:"Essais de laboratoire du ciment",f:"fiche-ciment.jpg",w:720,h:720},
+{m:"Procédés de construction",t:"Les étapes de construction d'un bâtiment",f:"fiche-etapes.jpg",w:675,h:900},
+{m:"Procédés de construction",t:"Organigramme d'un projet de construction",f:"fiche-organigramme.jpg",w:505,h:588},
+{m:"Topographie",t:"Implantation et traçage du bâtiment",f:"fiche-implantation.jpg",w:710,h:900},
+/* Cette fiche contient un exemple numérique faux (erreur de fermeture de 454 m) : à retirer ou à corriger. */
+{m:"Topographie",t:"Levée par cheminement fermé",f:"fiche-cheminement.jpg",w:600,h:900},
+{m:"Laboratoire",t:"Analyse granulométrique par tamisage",f:"fiche-tamisage.jpg",w:640,h:960}
+];
+const FM=["Toutes","Mathématiques","Topographie","Métré","Procédés de construction","Laboratoire"];
+(()=>{
+  const ch=document.getElementById("fchips"),li=document.getElementById("flist");let cur="Toutes";
+  li.className="gal";
+  const draw=()=>{
+    li.innerHTML=FICHES.filter(f=>cur==="Toutes"||f.m===cur).map(f=>'<a href="'+f.f+'" target="_blank" rel="noopener"><b>'+f.t+'</b><small>'+f.m+'</small><img loading="lazy" src="'+f.f+'" width="'+f.w+'" height="'+f.h+'" alt="Fiche : '+f.t+'"></a>').join("");
+    ch.querySelectorAll(".chip").forEach(c=>c.setAttribute("aria-pressed",c.textContent===cur));
+  };
+  FM.forEach(v=>{const b=document.createElement("button");b.className="chip";b.type="button";b.textContent=v;b.onclick=()=>{cur=v;draw()};ch.appendChild(b)});
+  draw();
+})();
+/* Cours et documents gratuits (fichiers PDF à la racine du dépôt) */
+const DOCS=[
+{m:"Dessin et lecture de plan",t:"Cours : lecture de plan de bâtiment",d:"Plan de situation et de masse, plans, coupes, façades, dessins de coffrage et d'armatures.",f:"cours-lecture-plan-batiment.pdf",mo:5.6},
+{m:"Dessin et lecture de plan",t:"Exercices de lecture de plan, avec correction",d:"Des exercices pour apprendre à lire plans, cotations et façades, corrigés.",f:"exercices-lecture-plan-correction.pdf",mo:2.4},
+{m:"Dessin et lecture de plan",t:"Conventions du dessin d'architecture",d:"Les principes du dessin d'architecture : formats, traits, cotation, représentation.",f:"conventions-dessin-architecture.pdf",mo:1.2},
+{m:"Dessin et lecture de plan",t:"60 plans de maison",d:"Un recueil de plans de maison pour t'entraîner à lire et à interpréter des plans.",f:"plans-de-maison-60.pdf",mo:5.2},
+{m:"Métré",t:"Exercices de métré corrigés",d:"Six travaux pratiques d'avant-métré avec leur solution : mur de clôture, sous-sol, garage, fondations.",f:"exercices-metre-corriges.pdf",mo:0.4},
+{m:"Topographie",t:"Implantation des ouvrages",d:"Résumé théorique et guide de travaux pratiques sur l'implantation d'un ouvrage.",f:"implantation-des-ouvrages.pdf",mo:2.4},
+{m:"Procédés de construction",t:"Questions et réponses sur le terrassement",d:"Une soixantaine de questions et réponses sur les terrassements, fouilles, talus, remblais et implantation.",f:"qcm-batiments-terrassement.pdf",mo:0.2},
+{m:"Mathématiques",t:"Sujets de baccalauréat corrigés, Terminales C et E",d:"Sujets de mathématiques corrigés, avec schémas et exercices corrigés.",s:"BAC C",f:"maths-tle-c-e-sujets-corriges.pdf",mo:1.4},
+{m:"Mathématiques",t:"Exercices de mathématiques, Terminale D",d:"Un grand recueil d'exercices et de devoirs de mathématiques pour s'entraîner.",s:"BAC D",f:"maths-tle-d-exercices.pdf",mo:10.1},
+{m:"Mathématiques",t:"178 exercices de mathématiques, avec corrigés",d:"Des exercices d'un programme français de Terminale S : utiles pour s'entraîner, mais le programme peut différer du vôtre.",s:"BAC C et D",f:"maths-178-exercices-corriges.pdf",mo:2.4},
+{m:"Physique",t:"TD de physique : mesures et incertitudes",d:"Travaux dirigés de physique sur les mesures et les incertitudes.",s:"BAC C et D",f:"physique-tle-c-d-mesures-incertitudes.pdf",mo:2.0},
+{m:"Histoire et géographie",t:"Cours d'histoire : le monde contemporain de 1939 à nos jours",d:"Un cours complet d'histoire, des relations internationales des années 1930 à nos jours.",s:"BAC A à E",f:"histoire-tle-cours-1939-a-nos-jours.pdf",mo:1.2},
+{m:"Histoire et géographie",t:"Cours d'histoire-géographie : méthodologie, cours et exercices",d:"Méthodologie, cours et exercices pour la Terminale (document scanné).",s:"BAC C et D",f:"histoire-geo-tle-cours-exercices.pdf",mo:7.5},
+{m:"Philosophie",t:"Les citations de philosophes à connaître",d:"Les citations de Socrate, Platon et d'autres philosophes à retenir pour l'épreuve.",s:"BAC C et D",f:"philosophie-citations-a-connaitre.pdf",mo:0.4},
+{m:"Français",t:"Fascicule de cours et d'exercices de français",d:"Les courants littéraires, les méthodes et des exercices pour la Terminale.",s:"BAC C et D",f:"francais-tle-fascicule-cours-exercices.pdf",mo:6.4},
+{m:"Français",t:"Support de français, Terminales L et S",d:"Thèmes et œuvres, grammaire et expression écrite, d'après un programme tchadien.",s:"BAC C et D",f:"francais-tle-support-complet.pdf",mo:3.6},
+{m:"Français",t:"Sujets de français du baccalauréat sénégalais",d:"Des sujets de résumé et de discussion pour s'entraîner à l'épreuve (document scanné).",s:"BAC C et D",f:"francais-sujets-bac-senegal.pdf",mo:2.7}
+];
+(()=>{
+  const box=document.getElementById("dlist");let h="",cur="";
+  DOCS.forEach(d=>{
+    if(d.m!==cur){if(cur)h+="</div>";cur=d.m;h+='<h3 style="margin:18px 0 8px;font-family:Georgia,serif">'+cur+'</h3><div class="grid">'}
+    h+='<article class="fiche"><h3>'+d.t+'<span class="tag">Gratuit</span></h3>'+(d.s?'<small style="color:var(--muted)">'+d.s+'</small>':'')+'<p class="sub">'+d.d+'</p><a class="btn" href="'+d.f+'" download>Télécharger le PDF ('+d.mo.toFixed(1).replace(".",",")+' Mo)</a></article>';
+  });
+  box.innerHTML=h+(cur?"</div>":"");
+})();
+/* Jeu de révision : le terrassement */
+const QR=[
+["Quelles sont les trois catégories de déplacements de terre ?","Les déblais, les remblais et les mouvements de terres."],
+["Qu'est-ce qu'un déblai ?","Une modification du relief par enlèvement de terre."],
+["Qu'est-ce qu'un remblai ?","Une modification du relief par apport de terres complémentaires."],
+["Citez les cinq opérations principales de terrassement.","Fouilles, chargement et transport, mise en dépôt, évacuation, reprise."],
+["Que conseille-t-on de faire avant un terrassement, et pourquoi ?","Faire appel à un géologue et effectuer des sondages ou des carottages, pour connaître exactement la composition du sol."],
+["Que faut-il obtenir auprès des organismes concernés avant de creuser ?","Les informations sur les constructions souterraines, les réseaux de drainage et les conduites (eau, gaz, électricité, téléphone). En cas de doute, on fait des sondages à la main."],
+["Pourquoi faut-il connaître la nature du terrain où l'on fait des fouilles ?","Pour adapter les fondations du futur bâtiment et définir des solutions pour les terrassements."],
+["Citez les quatre types de terrains.","Les terrains ordinaires, semi-compacts, compacts, et les roches."],
+["Comment attaque-t-on chaque type de terrain ?","Ordinaire : pelle. Semi-compact : pioche et pic. Compact : marteau pneumatique. Roche très dure : marteau pneumatique ou explosif."],
+["Qu'est-ce qu'un décapage ?","Un terrassement de très faible profondeur (25 à 30 cm) sur une grande surface, pour enlever la terre végétale."],
+["Qu'est-ce que la terre végétale ?","La partie du sol riche en humus, où pousse la végétation."],
+["Que fait-on de la terre végétale décapée ?","On la garde à l'écart des autres matériaux, puis on la remet en place en fin de chantier comme couche finale des aménagements extérieurs."],
+["Qu'est-ce qu'une fouille ?","Un terrassement en profondeur."],
+["De quoi dépend le mode d'ouverture d'une fouille ?","Des caractéristiques du sol et de l'environnement du terrassement (place disponible)."],
+["Quelles sont les deux façons d'ouvrir une fouille ?","La fouille talutée (parois en talus naturel) et la fouille verticale (parois instables blindées)."],
+["Citez les cinq types de fouilles.","Fouille en pleine masse, en tranchée, en rigole, en puits et en galerie."],
+["Qu'est-ce qu'une fouille en pleine masse ?","Le terrassement général correspondant à l'emprise du futur bâtiment."],
+["Qu'est-ce qu'une fouille en tranchée, et à partir de quelle profondeur faut-il l'étayer ?","Une fouille longue, plus profonde que large, pour le passage des canalisations. On l'étaie à partir de 1,50 m."],
+["Qu'est-ce qu'une fouille en rigole ?","Une tranchée d'au moins 40 cm de large, destinée aux semelles de fondation et aux canalisations internes du bâtiment."],
+["Qu'est-ce qu'une fouille en puits ?","Un terrassement de petite surface et de grande profondeur (fondations de piliers, fosses d'ascenseur). On l'étaie : c'est le blindage."],
+["Qu'est-ce qu'une fouille en galerie ?","Une fouille souterraine (tunnel), qui demande un étayage des parois et du plafond. Elle sert en génie civil."],
+["Comment exécute-t-on les fouilles pour gagner du temps ?","De manière mécanique, avec des engins."],
+["Quel est le rendement journalier d'une machine moyenne en conditions normales ?","Environ 400 m³ de fouille."],
+["Quels risques augmentent avec la présence d'eau dans une fouille ?","Les risques d'éboulement et d'accident. Il faut assécher la fouille."],
+["Que place-t-on en point bas de la fouille pour évacuer l'eau ?","Un puisard, alimenté par de petites rigoles. L'eau est ensuite évacuée par pompage."],
+["Qu'est-ce qu'un talus ?","L'inclinaison naturelle du bord d'une fouille."],
+["De quoi dépend l'inclinaison d'un talus ?","De la nature du terrain : plus il est dur et compact, plus le talus peut se rapprocher de la verticale."],
+["Quelles pentes admet-on généralement au projet pour le remblai et le déblai ?","2/3 pour le remblai et 1/1 pour le déblai."],
+["À quoi sont exposés les talus d'une fouille laissée ouverte ?","À la pluie, à la neige, au gel, aux chocs et aux pressions. Il faut prévoir des protections de talus."],
+["Que faut-il faire malgré les protections de talus ?","Les surveiller et les entretenir régulièrement, car elles n'améliorent pas la stabilité."],
+["Qu'est-ce que le gunitage ?","Un revêtement au mortier de ciment appliqué pneumatiquement."],
+["Qu'est-ce que le clouage ?","La mise en place de tirants courts, les clous, par forage et injection."],
+["Comment protège-t-on le fond d'une fouille dans un terrain mou ?","On laisse une dernière couche d'environ 50 cm. Dès qu'on l'enlève, on pose une protection en béton maigre ou en gravier concassé compacté."],
+["À partir de quelle profondeur étaie-t-on une fouille creusée à la main ?","Dès qu'on dépasse 1,50 m de profondeur."],
+["Dans un sol ébouleux ou fluent, jusqu'à quelle profondeur peut-on ne pas boiser ?","Jusqu'à 1,20 m. Au-delà, on met un boisage continu du bord supérieur jusqu'au fond."],
+["De combien le boisage doit-il dépasser le bord supérieur de la fouille ?","D'au moins 5 cm."],
+["Que désignent les termes boisage, étayage et blindage ?","Les protections qui préviennent les éboulements et les accidents dans les fouilles profondes."],
+["Quels sont les éléments d'un boisage de fouille ?","Des plateaux en bois de 4 à 5 cm d'épaisseur, des étrésillons en bois rond, des traverses et des appuis."],
+["Par quoi remplace-t-on souvent le bois dans les boisages ?","Par des panneaux préfabriqués et des éléments métalliques (pointelles)."],
+["Que fait-on des terres issues des fouilles et des surplus ?","Elles sont stockées sur le site pour un usage ultérieur. Les surplus partent à la décharge ou sur d'autres chantiers comme terres de remblai."],
+["Citez les trois facteurs qui décident de la destination des terres.","La qualité des terres, la place disponible pour le dépôt sur le chantier et les quantités nécessaires au remblayage."],
+["Qu'est-ce que le foisonnement ?","L'augmentation du volume des terres une fois ameublies par les fouilles."],
+["Quel est le foisonnement de la terre végétale, du sable et du gravier ?","De 10 à 20 %."],
+["Quel est le foisonnement de la terre argileuse, de l'argile et de la marne ?","De 25 à 40 %."],
+["Quel est le foisonnement des roches tendres ?","De 30 à 40 %."],
+["Quel est le foisonnement des roches compactes ?","De 40 à 60 %."],
+["Qu'est-ce qui diminue beaucoup le foisonnement ?","Une forte teneur en eau du terrain."],
+["Pourquoi tient-on compte du foisonnement ?","Pour déterminer le nombre et la capacité des véhicules de transport, et pour la mise en dépôt dans les décharges."],
+["À partir de quel cubage calcule-t-on les déplacements de terre dans un avant-métré ?","À partir d'un cubage « terre en place »."],
+["Qu'est-ce qu'un remblayage ?","Une masse de terre rapportée, pour surélever une partie de terrain ou combler une fouille."],
+["Que ne doit pas contenir la terre de remblai ?","Des éléments d'origine végétale, des restes de chantier ni des terres de mauvaise qualité."],
+["Comment met-on en place un remblai ?","Par couches horizontales successives de 20 à 40 cm, en commençant par le bas. Chaque couche est compactée mécaniquement."],
+["Que vérifie-t-on avant de remblayer contre une construction ?","Que les maçonneries ont acquis une résistance suffisante, et que les étanchéités et les drainages sont en place."],
+["Qu'est-ce que le compactage ?","L'ensemble des opérations mécaniques qui augmentent la densité d'un sol en réduisant le volume des vides."],
+["Que permet le compactage ?","Une plus grande compacité du terrain, une meilleure capacité portante du sol et moins de risques de déformation."],
+["Avec quoi compacte-t-on les petites et les grandes surfaces ?","Petites surfaces : dames à main ou dames mécaniques. Grandes surfaces : rouleaux compresseurs (à pneus, vibrants)."],
+["Qui définit un terrassement et établit le plan de terrassement ?","L'architecte et l'ingénieur civil."],
+["Citez cinq éléments d'un plan de terrassement.","Les courbes de niveau, les niveaux du terrain naturel et du fond de fouille, le niveau de référence, les emprises (construction, fond de fouille, talus), les dimensions et les cotes."],
+["En quoi consiste l'implantation ?","À tracer sur le terrain la position exacte de l'emprise des fouilles."],
+["Que permet le piquetage ?","Marquer les points importants du tracé en plantant des piquets."],
+["Quels sont les points de référence de l'implantation ?","Des bornes existantes qui fixent les limites du terrain, des repères métalliques sur des constructions existantes, des angles de constructions déjà cadastrées."],
+["Qui effectue l'implantation ?","Le géomètre, ou les techniciens des entreprises de terrassement ou de maçonnerie."],
+["Qu'est-ce que la mire ?","Une règle graduée qui, avec un niveau, permet de mesurer des différences d'altitude."],
+["Citez des instruments nécessaires à l'implantation et au piquetage.","Le théodolite, les piquets, les fils à plomb, les jalons, la chevillière et la règle à niveler."]
+];
+(()=>{
+  const box=document.getElementById("qrbox"),NB=10;let ord,i,ok,rev;
+  const show=()=>{
+    if(i>=ord.length){
+      box.innerHTML='<p class="tarif">Score : '+ok+' sur '+ord.length+'</p>'+(rev.length?'<p>À revoir :</p><ul>'+rev.map(k=>'<li>'+QR[k][0]+'</li>').join("")+'</ul>':'<p>Bravo, tout était bon !</p>')+'<div class="cta"><a class="btn" href="#" id="qrshare">Partager mon score</a><button class="btn alt" type="button" id="qragain">Nouvelle série</button></div>';
+      return;
+    }
+    const k=ord[i];
+    box.innerHTML='<p><b>Question '+(i+1)+' sur '+ord.length+'</b></p><p>'+QR[k][0]+'</p><button class="btn alt" type="button" id="qrshow">Voir la réponse</button><div id="qrans" hidden><p class="rep">'+QR[k][1]+'</p><div class="cta"><button class="btn" type="button" data-r="1">Je le savais</button><button class="btn alt" type="button" data-r="0">À revoir</button></div></div>';
+  };
+  const start=()=>{ord=[...QR.keys()].sort(()=>Math.random()-.5).slice(0,NB);i=0;ok=0;rev=[];show()};
+  box.addEventListener("click",e=>{
+    const t=e.target;
+    if(t.id==="qrshow"){document.getElementById("qrans").hidden=false;t.hidden=true}
+    else if(t.dataset.r!==undefined){if(t.dataset.r==="1")ok++;else rev.push(ord[i]);i++;show()}
+    else if(t.id==="qragain")start();
+    else if(t.id==="qrshare"){e.preventDefault();window.open(wa("J'ai eu "+ok+" sur "+ord.length+" au jeu de révision sur le terrassement d'Archive.Sujets : "+location.href.split("#")[0]),"_blank","noopener")}
+  });
+  start();
+})();
+/* Mode hors-ligne */
+if("serviceWorker" in navigator)navigator.serviceWorker.register("sw.js").catch(()=>{});
+</script>
+</body>
+</html>
