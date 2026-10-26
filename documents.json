@@ -1,6 +1,20 @@
 {
  "docs": [
   {
+   "f": "C-D_BAC_mathematiques_Correction-DS-01-modele-5-limites-et-derivabilite.pdf",
+   "t": "Correction DS 01 modele 5 limites et derivabilite",
+   "m": "Mathématiques",
+   "sr": [
+    "C",
+    "D"
+   ],
+   "ex": [
+    "BAC"
+   ],
+   "size": 640818,
+   "date": 1793044154
+  },
+  {
    "f": "C-D_BAC_mathematiques_Derivabilite-cours.pdf",
    "t": "Derivabilite cours",
    "m": "Mathématiques",
@@ -43,6 +57,47 @@
    "date": 1792992210
   },
   {
+   "f": "C-D_BAC_mathematiques_Etude-de-fonctions-exercices-18-et-19-corrige.pdf",
+   "t": "Etude de fonctions exercices 18 et 19 corrige",
+   "m": "Mathématiques",
+   "sr": [
+    "C",
+    "D"
+   ],
+   "ex": [
+    "BAC"
+   ],
+   "size": 89612,
+   "date": 1793044154
+  },
+  {
+   "f": "C-D_BAC_mathematiques_Etude-de-fonctions-exercices-18-et-19-sujet.pdf",
+   "t": "Etude de fonctions exercices 18 et 19 sujet",
+   "m": "Mathématiques",
+   "sr": [
+    "C",
+    "D"
+   ],
+   "ex": [
+    "BAC"
+   ],
+   "size": 73085,
+   "date": 1793044154
+  },
+  {
+   "f": "C_BAC_mathematiques_Devoir-de-controle-01-continuite-et-limites.pdf",
+   "t": "Devoir de controle 01 continuite et limites",
+   "m": "Mathématiques",
+   "sr": [
+    "C"
+   ],
+   "ex": [
+    "BAC"
+   ],
+   "size": 138450,
+   "date": 1793044154
+  },
+  {
    "f": "C_BAC_mathematiques_Nombres-complexes-serie-3.pdf",
    "t": "Nombres complexes serie 3",
    "m": "Mathématiques",
@@ -54,6 +109,40 @@
    ],
    "size": 159340,
    "date": 1792992210
+  },
+  {
+   "f": "TOUTES_BEPC_mathematiques_Racines-carrees-corrige-exercices-1-et-2.pdf",
+   "t": "Racines carrees corrige exercices 1 et 2",
+   "m": "Mathématiques",
+   "sr": [
+    "A",
+    "C",
+    "D",
+    "F4BE",
+    "F4BA"
+   ],
+   "ex": [
+    "BEPC"
+   ],
+   "size": 103763,
+   "date": 1793044154
+  },
+  {
+   "f": "TOUTES_BEPC_mathematiques_Racines-carrees-exercices.pdf",
+   "t": "Racines carrees exercices",
+   "m": "Mathématiques",
+   "sr": [
+    "A",
+    "C",
+    "D",
+    "F4BE",
+    "F4BA"
+   ],
+   "ex": [
+    "BEPC"
+   ],
+   "size": 79253,
+   "date": 1793044154
   }
  ],
  "fiches": [],
