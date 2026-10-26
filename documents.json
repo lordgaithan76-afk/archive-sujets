@@ -1,5 +1,61 @@
 {
- "docs": [],
+ "docs": [
+  {
+   "f": "C-D_BAC_mathematiques_Derivabilite-cours.pdf",
+   "t": "Derivabilite cours",
+   "m": "Mathématiques",
+   "sr": [
+    "C",
+    "D"
+   ],
+   "ex": [
+    "BAC"
+   ],
+   "size": 619231,
+   "date": 1792992210
+  },
+  {
+   "f": "C-D_BAC_mathematiques_Devoir-01-modele-10-corrige.pdf",
+   "t": "Devoir 01 modele 10 corrige",
+   "m": "Mathématiques",
+   "sr": [
+    "C",
+    "D"
+   ],
+   "ex": [
+    "BAC"
+   ],
+   "size": 475652,
+   "date": 1792992210
+  },
+  {
+   "f": "C-D_BAC_mathematiques_Devoir-01-modele-10-sujet.pdf",
+   "t": "Devoir 01 modele 10 sujet",
+   "m": "Mathématiques",
+   "sr": [
+    "C",
+    "D"
+   ],
+   "ex": [
+    "BAC"
+   ],
+   "size": 87094,
+   "date": 1792992210
+  },
+  {
+   "f": "C_BAC_mathematiques_Nombres-complexes-serie-3.pdf",
+   "t": "Nombres complexes serie 3",
+   "m": "Mathématiques",
+   "sr": [
+    "C"
+   ],
+   "ex": [
+    "BAC"
+   ],
+   "size": 159340,
+   "date": 1792992210
+  }
+ ],
  "fiches": [],
  "rejets": []
 }
