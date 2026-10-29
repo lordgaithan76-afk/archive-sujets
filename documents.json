@@ -31,6 +31,19 @@
    "date": 1793254831
   },
   {
+   "f": "A_BAC_francais_Litterature-culture-generale-BAC-A.pdf",
+   "t": "Litterature culture generale BAC A",
+   "m": "Français",
+   "sr": [
+    "A"
+   ],
+   "ex": [
+    "BAC"
+   ],
+   "size": 324318,
+   "date": 1793255279
+  },
+  {
    "f": "A_BAC_francais_Sequence-1-Litterature-Mongo-Beti-2026.pdf",
    "t": "Sequence 1 Litterature Mongo Beti 2026",
    "m": "Français",
@@ -81,6 +94,58 @@
    ],
    "size": 422888,
    "date": 1793254831
+  },
+  {
+   "f": "A_PROBATOIRE_allemand_Sequence-3-Montesquieu-2023-2024.pdf",
+   "t": "Sequence 3 Montesquieu 2023 2024",
+   "m": "Allemand",
+   "sr": [
+    "A"
+   ],
+   "ex": [
+    "Probatoire"
+   ],
+   "size": 279218,
+   "date": 1793255279
+  },
+  {
+   "f": "A_PROBATOIRE_francais_Evaluation-harmonisee-1-Archidiocese-Yaounde.pdf",
+   "t": "Evaluation harmonisee 1 Archidiocese Yaounde",
+   "m": "Français",
+   "sr": [
+    "A"
+   ],
+   "ex": [
+    "Probatoire"
+   ],
+   "size": 302348,
+   "date": 1793255279
+  },
+  {
+   "f": "A_PROBATOIRE_mathematiques_Sequence-1-Log-Mbei-octobre-2026.pdf",
+   "t": "Sequence 1 Log Mbei octobre 2026",
+   "m": "Mathématiques",
+   "sr": [
+    "A"
+   ],
+   "ex": [
+    "Probatoire"
+   ],
+   "size": 793902,
+   "date": 1793255279
+  },
+  {
+   "f": "A_PROBATOIRE_philosophie_Evaluation-1-Galop-d-essai-Retraite-2020-2021.pdf",
+   "t": "Evaluation 1 Galop d essai Retraite 2020 2021",
+   "m": "Philosophie",
+   "sr": [
+    "A"
+   ],
+   "ex": [
+    "Probatoire"
+   ],
+   "size": 831152,
+   "date": 1793255279
   },
   {
    "f": "C-D_BAC_chimie_Corrige-harmonise-national-BAC-2021-chimie-theorique.pdf",
@@ -251,6 +316,20 @@
    "date": 1793254831
   },
   {
+   "f": "C-D_PROBATOIRE_physique_Examen-blanc-2-Toumpe-Intellectual-Groups-mars-2021.pdf",
+   "t": "Examen blanc 2 Toumpe Intellectual Groups mars 2021",
+   "m": "Physique",
+   "sr": [
+    "C",
+    "D"
+   ],
+   "ex": [
+    "Probatoire"
+   ],
+   "size": 1120315,
+   "date": 1793255279
+  },
+  {
    "f": "C_BAC_mathematiques_Devoir-de-controle-01-continuite-et-limites.pdf",
    "t": "Devoir de controle 01 continuite et limites",
    "m": "Mathématiques",
@@ -342,6 +421,71 @@
    "date": 1793254831
   },
   {
+   "f": "C_PROBATOIRE_physique_Sequence-5-Mongo-Beti-2021-2022.pdf",
+   "t": "Sequence 5 Mongo Beti 2021 2022",
+   "m": "Physique",
+   "sr": [
+    "C"
+   ],
+   "ex": [
+    "Probatoire"
+   ],
+   "size": 386787,
+   "date": 1793255279
+  },
+  {
+   "f": "C_PROBATOIRE_svt_Sequence-1-Pharaons-2022-2023.pdf",
+   "t": "Sequence 1 Pharaons 2022 2023",
+   "m": "Sciences de la vie et de la Terre",
+   "sr": [
+    "C"
+   ],
+   "ex": [
+    "Probatoire"
+   ],
+   "size": 96747,
+   "date": 1793255279
+  },
+  {
+   "f": "D_BAC_mathematiques_Bac-blanc-2026-Series-D-TI.pdf",
+   "t": "Bac blanc 2026 Series D TI",
+   "m": "Mathématiques",
+   "sr": [
+    "D"
+   ],
+   "ex": [
+    "BAC"
+   ],
+   "size": 667965,
+   "date": 1793255279
+  },
+  {
+   "f": "D_BAC_mathematiques_Controle-1-Tle-D-College-Vogt-sept-2026.pdf",
+   "t": "Controle 1 Tle D College Vogt sept 2026",
+   "m": "Mathématiques",
+   "sr": [
+    "D"
+   ],
+   "ex": [
+    "BAC"
+   ],
+   "size": 1011743,
+   "date": 1793255279
+  },
+  {
+   "f": "D_BAC_svt_Livret-54-sujets-corriges-Collection-Robotisateur.pdf",
+   "t": "Livret 54 sujets corriges Collection Robotisateur",
+   "m": "Sciences de la vie et de la Terre",
+   "sr": [
+    "D"
+   ],
+   "ex": [
+    "BAC"
+   ],
+   "size": 5560747,
+   "date": 1793255279
+  },
+  {
    "f": "D_BAC_svt_Sequence-3-Terminale-D.pdf",
    "t": "Sequence 3 Terminale D",
    "m": "Sciences de la vie et de la Terre",
@@ -368,6 +512,32 @@
    "date": 1793254831
   },
   {
+   "f": "D_PROBATOIRE_mathematiques_Epreuve-zero-regionale-Sequence-4-Ouest-fevrier-2026.pdf",
+   "t": "Epreuve zero regionale Sequence 4 Ouest fevrier 2026",
+   "m": "Mathématiques",
+   "sr": [
+    "D"
+   ],
+   "ex": [
+    "Probatoire"
+   ],
+   "size": 781450,
+   "date": 1793255279
+  },
+  {
+   "f": "D_PROBATOIRE_mathematiques_Trigonometrie-cours-et-exercices-corriges-Premiere-D-2.pdf",
+   "t": "Trigonometrie cours et exercices corriges Premiere D 2",
+   "m": "Mathématiques",
+   "sr": [
+    "D"
+   ],
+   "ex": [
+    "Probatoire"
+   ],
+   "size": 1570179,
+   "date": 1793255279
+  },
+  {
    "f": "D_PROBATOIRE_mathematiques_Trigonometrie-cours-et-exercices-corriges-Premiere-D.pdf",
    "t": "Trigonometrie cours et exercices corriges Premiere D",
    "m": "Mathématiques",
@@ -379,6 +549,110 @@
    ],
    "size": 1570179,
    "date": 1793048046
+  },
+  {
+   "f": "D_PROBATOIRE_physique_Sequence-1-Intelexi-octobre-2026.pdf",
+   "t": "Sequence 1 Intelexi octobre 2026",
+   "m": "Physique",
+   "sr": [
+    "D"
+   ],
+   "ex": [
+    "Probatoire"
+   ],
+   "size": 490725,
+   "date": 1793255279
+  },
+  {
+   "f": "D_PROBATOIRE_physique_Sequence-5-African-Intelligentsia-Institute-2022-2023.pdf",
+   "t": "Sequence 5 African Intelligentsia Institute 2022 2023",
+   "m": "Physique",
+   "sr": [
+    "D"
+   ],
+   "ex": [
+    "Probatoire"
+   ],
+   "size": 680509,
+   "date": 1793255279
+  },
+  {
+   "f": "D_PROBATOIRE_svt_Evaluation-4-College-Shakespeare-2024-2025.pdf",
+   "t": "Evaluation 4 College Shakespeare 2024 2025",
+   "m": "Sciences de la vie et de la Terre",
+   "sr": [
+    "D"
+   ],
+   "ex": [
+    "Probatoire"
+   ],
+   "size": 515905,
+   "date": 1793255279
+  },
+  {
+   "f": "D_PROBATOIRE_svt_Evaluation-4-Montesquieu-2020-2021.pdf",
+   "t": "Evaluation 4 Montesquieu 2020 2021",
+   "m": "Sciences de la vie et de la Terre",
+   "sr": [
+    "D"
+   ],
+   "ex": [
+    "Probatoire"
+   ],
+   "size": 1725302,
+   "date": 1793255279
+  },
+  {
+   "f": "D_PROBATOIRE_svt_Livret-45-sujets-corriges-Collection-Robotisateur.pdf",
+   "t": "Livret 45 sujets corriges Collection Robotisateur",
+   "m": "Sciences de la vie et de la Terre",
+   "sr": [
+    "D"
+   ],
+   "ex": [
+    "Probatoire"
+   ],
+   "size": 5404845,
+   "date": 1793255279
+  },
+  {
+   "f": "D_PROBATOIRE_svt_Sequence-1-Collection-Robotisateur-2026-2027-1.pdf",
+   "t": "Sequence 1 Collection Robotisateur 2026 2027 1",
+   "m": "Sciences de la vie et de la Terre",
+   "sr": [
+    "D"
+   ],
+   "ex": [
+    "Probatoire"
+   ],
+   "size": 1061654,
+   "date": 1793255279
+  },
+  {
+   "f": "D_PROBATOIRE_svt_Sequence-1-Collection-Robotisateur-2026-2027.pdf",
+   "t": "Sequence 1 Collection Robotisateur 2026 2027",
+   "m": "Sciences de la vie et de la Terre",
+   "sr": [
+    "D"
+   ],
+   "ex": [
+    "Probatoire"
+   ],
+   "size": 1061654,
+   "date": 1793255279
+  },
+  {
+   "f": "D_PROBATOIRE_svt_Sequence-4-proposition-de-sujet.pdf",
+   "t": "Sequence 4 proposition de sujet",
+   "m": "Sciences de la vie et de la Terre",
+   "sr": [
+    "D"
+   ],
+   "ex": [
+    "Probatoire"
+   ],
+   "size": 619528,
+   "date": 1793255279
   },
   {
    "f": "F4BE-F4BA_PROBATOIRE_mecanique-appliquee_Epreuve-F4-Travaux-publics.pdf",
