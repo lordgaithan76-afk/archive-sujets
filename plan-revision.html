@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Plan de révision et compte à rebours | Archive.Sujets</title>
+<meta name="description" content="Crée ton plan de révision jusqu'à ton examen : compte à rebours, tâches du jour par matière et suivi de ta progression. Gratuit.">
+<link rel="canonical" href="https://lordgaithan76-afk.github.io/archive-sujets/plan-revision.html">
+<meta name="theme-color" content="#1B2559">
+<style>
+:root{--navy:#1B2559;--jaune:#FFD84D;--fond:#F2F5FB;--ligne:#D5DCEB;--muted:#4A5580;--vert:#1f9d55}
+*{box-sizing:border-box}
+body{margin:0;font:16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:var(--fond);color:var(--navy)}
+header{background:var(--navy);color:#fff;padding:14px 18px}
+header a{color:#fff;text-decoration:none;font-family:Georgia,serif;font-weight:700;font-size:1.25rem}
+header span{color:var(--jaune)}
+main{max-width:52rem;margin:0 auto;padding:18px}
+h1,h2{font-family:Georgia,serif;line-height:1.2}
+h2{margin:.2em 0 .4em;font-size:1.25rem}
+.note{color:var(--muted)}
+.carte{background:#fff;border:1px solid var(--ligne);border-radius:10px;padding:16px;margin:14px 0}
+label{display:block;font-weight:700;margin:12px 0 4px}
+select,input[type=date],input[type=text]{width:100%;font:inherit;padding:10px;border:2px solid var(--ligne);border-radius:8px;background:#fff;color:var(--navy)}
+.btn{display:inline-block;background:var(--navy);color:#fff;border:2px solid var(--navy);border-radius:8px;padding:11px 16px;font:inherit;font-weight:700;text-decoration:none;cursor:pointer;margin:10px 8px 0 0}
+.btn.alt{background:#fff;color:var(--navy)} .btn.vert{background:var(--vert);border-color:var(--vert)}
+.mat{display:flex;gap:8px;align-items:center;margin:6px 0}
+.mat label{flex:1;margin:0;font-weight:400;display:flex;gap:8px;align-items:center}
+.mat select{width:auto;padding:6px}
+.jours{display:flex;gap:6px;flex-wrap:wrap}
+.jours label{margin:0;font-weight:400;border:2px solid var(--ligne);border-radius:8px;padding:6px 10px}
+.compte{background:var(--navy);color:#fff;border-radius:10px;padding:16px;text-align:center}
+.compte b{font:700 2.6rem/1.1 Georgia,serif;color:var(--jaune);display:block}
+.barre{height:12px;background:var(--ligne);border-radius:6px;overflow:hidden;margin:8px 0}
+.barre i{display:block;height:100%;background:var(--vert)}
+.tache{display:flex;gap:10px;align-items:flex-start;padding:8px 0;border-top:1px solid var(--ligne)}
+.tache:first-of-type{border-top:0}
+.tache input{width:22px;height:22px;margin-top:3px;flex:none}
+.tache.fait span{text-decoration:line-through;opacity:.55}
+.tache a{color:var(--navy);font-weight:700}
+.jour h3{margin:12px 0 2px;font-size:1rem}
+details summary{cursor:pointer;font-weight:700}
+[hidden]{display:none!important}
+</style>
+</head>
+<body>
+<header><a href="./">Archive<span>.</span>Sujets</a></header>
+
+<section id="ecr-cfg">
+<main>
+<p><a href="./" style="color:var(--navy)">← Retour au site</a></p>
+<h1>Plan de révision</h1>
+<p class="note">Dis-nous quand est ton examen et quelles matières tu veux travailler. On te prépare un programme jour par jour, avec plus de temps pour tes matières difficiles.</p>
+<div class="carte">
+  <label for="c-exam">Ton examen</label>
+  <select id="c-exam"><option>Probatoire</option><option>BAC</option><option>Autre examen</option></select>
+  <label for="c-date">Date de l'examen</label><input type="date" id="c-date">
+  <label for="c-serie">Ta série</label><select id="c-serie"></select>
+  <label>Tes matières et ton niveau</label>
+  <div id="c-mat"></div>
+  <div style="display:flex;gap:8px;margin-top:8px"><input type="text" id="c-new" placeholder="Ajouter une autre matière"><button class="btn alt" id="c-add" type="button" style="margin:0">Ajouter</button></div>
+  <label for="c-min">Temps de révision par jour</label>
+  <select id="c-min"><option value="45">45 min</option><option value="90" selected>1 h 30</option><option value="135">2 h 15</option><option value="180">3 h</option><option value="270">4 h 30</option></select>
+  <label>Jours de repos</label>
+  <div class="jours" id="c-repos"></div>
+  <p id="c-err" class="note" style="color:#c62828" role="alert"></p>
+  <button class="btn vert" id="c-go" type="button">Créer mon plan</button>
+</div>
+</main>
+</section>
+
+<section id="ecr-plan" hidden>
+<main>
+<p><a href="./" style="color:var(--navy)">← Retour au site</a></p>
+<div class="compte"><span id="p-exam"></span><b id="p-jours"></b><span id="p-heures"></span></div>
+<div class="carte"><b id="p-prog"></b><div class="barre"><i id="p-barre" style="width:0"></i></div></div>
+<div class="carte"><h2>Aujourd'hui</h2><div id="p-auj"></div></div>
+<div class="carte"><h2>Les 7 prochains jours</h2><div id="p-sem"></div></div>
+<details class="carte"><summary>Tout le plan</summary><div id="p-tout"></div></details>
+<a class="btn" href="examen-blanc.html">Passer un examen blanc</a>
+<button class="btn alt" id="p-modif" type="button">Modifier mes réglages</button>
+<button class="btn alt" id="p-reset" type="button">Recommencer</button>
+</main>
+</section>
+
+<script src="sujets.js"></script>
+<script src="sujets-ajouts.js"></script>
+<script>
+const $=i=>document.getElementById(i);
+const ST={get:k=>{try{return JSON.parse(localStorage.getItem(k))}catch(e){return null}},set:(k,v)=>{try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}},del:k=>{try{localStorage.removeItem(k)}catch(e){}}};
+/* ---- fonctions pures (testées) ---- */
+const DAY=864e5;
+const iso=d=>d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0");
+const midi=s=>new Date(s+"T00:00:00");
+const aujourdhui=()=>{const n=new Date();return new Date(n.getFullYear(),n.getMonth(),n.getDate())};
+const swrr=items=>{const cur=items.map(()=>0),tot=items.reduce((a,x)=>a+x.w,0);return()=>{let b=0;items.forEach((x,i)=>{cur[i]+=x.w;if(cur[i]>cur[b])b=i});cur[b]-=tot;return items[b]}};
+const ACT=["Relire le cours et les fiches","Faire des exercices corrigés","Refaire un sujet d'examen"];
+const W={faible:3,moyen:2,fort:1};
+const generer=(cfg,today)=>{
+  const exam=midi(cfg.date),jours=[];
+  for(let d=new Date(today);d<exam;d=new Date(d.getFullYear(),d.getMonth(),d.getDate()+1))jours.push(new Date(d));
+  const n=Math.max(1,Math.round(cfg.minutes/45)),dur=Math.round(cfg.minutes/n/5)*5;
+  const items=cfg.matieres.map(x=>({m:x.m,w:W[x.niveau]||2,k:0})),suiv=items.length?swrr(items):null,plan=[];
+  jours.forEach((d,i)=>{
+    const reste=jours.length-i,j={date:iso(d),taches:[]};
+    if(reste===1){j.taches.push({t:"Veille de l'examen : relis tes fiches, prépare ton matériel et dors tôt.",min:Math.min(60,cfg.minutes)});plan.push(j);return}
+    if(cfg.repos.includes(d.getDay())){j.repos=true;plan.push(j);return}
+    const pris=new Set();
+    for(let s=0;s<n;s++){
+      if(!suiv){j.taches.push({t:"Séance de révision",min:dur});continue}
+      let it=suiv(),e=0;while(pris.has(it.m)&&pris.size<items.length&&e++<30)it=suiv();pris.add(it.m);
+      if(reste<=28&&reste%7===2&&s===0)j.taches.push({t:"Examen blanc chronométré : "+it.m,m:it.m,min:dur,lien:"examen-blanc.html?serie="+encodeURIComponent(cfg.serie||"")+"&mat="+encodeURIComponent(it.m)});
+      else j.taches.push({t:it.m+" : "+ACT[it.k++%3],m:it.m,min:dur});
+    }
+    plan.push(j);
+  });
+  return plan;
+};
+const joursAvant=(dateExam,today)=>Math.round((midi(dateExam)-today)/DAY);
+/* ---- matières proposées ---- */
+let DOCJ=[];
+const mats=serie=>{
+  const l=new Set(),ajoute=(m,ser)=>{if(m&&(!serie||[].concat(ser||[]).includes(serie)))l.add(m)};
+  (typeof SUJETS_AJOUTS!=="undefined"?SUJETS_AJOUTS:[]).forEach(x=>ajoute(x.matiere,x.serie));
+  (typeof SUJETS!=="undefined"?SUJETS:[]).forEach(x=>ajoute(x.matiere,x.serie));
+  DOCJ.forEach(a=>ajoute(a.m,a.sr));
+  return [...l].sort((a,b)=>a.localeCompare(b));
+};
+const seriesDispo=()=>{
+  const s=new Set(),ajoute=a=>[].concat(a||[]).forEach(k=>s.add(k));
+  (typeof SUJETS_AJOUTS!=="undefined"?SUJETS_AJOUTS:[]).forEach(x=>ajoute(x.serie));
+  (typeof SUJETS!=="undefined"?SUJETS:[]).forEach(x=>ajoute(x.serie));
+  DOCJ.forEach(a=>ajoute(a.sr));
+  const o=["C","D","A","E","TI","F4BE","F4BA"];s.delete("F4BA");
+  return [...s].sort((a,b)=>{const i=o.indexOf(a),j=o.indexOf(b);return (i<0?99:i)-(j<0?99:j)||a.localeCompare(b)});
+};
+/* ---- réglages ---- */
+let extra=[];
+const choisies=()=>{const m={};document.querySelectorAll("#c-mat .mat").forEach(r=>{if(r.querySelector("input").checked)m[r.dataset.m]=r.querySelector("select").value});return m};
+const dessinerMat=()=>{
+  const prev=choisies(),l=[...new Set([...mats($("c-serie").value),...extra])];
+  $("c-mat").innerHTML=l.length?l.map(m=>'<div class="mat" data-m="'+m.replace(/"/g,"&quot;")+'"><label><input type="checkbox"'+(prev[m]?" checked":"")+'>'+m.replace(/</g,"&lt;")+'</label><select><option value="faible"'+(prev[m]==="faible"?" selected":"")+'>À renforcer</option><option value="moyen"'+(!prev[m]||prev[m]==="moyen"?" selected":"")+'>Moyen</option><option value="fort"'+(prev[m]==="fort"?" selected":"")+'>À l\'aise</option></select></div>').join(""):'<p class="note">Aucune matière trouvée : ajoute les tiennes ci-dessous.</p>';
+};
+const dessinerSeries=()=>{
+  const v=$("c-serie").value,l=seriesDispo();
+  $("c-serie").innerHTML=l.map(k=>'<option value="'+k+'">'+(k==="F4BE"?"F4BE et F4BA":"Série "+k)+'</option>').join("")+'<option value="">Autre</option>';
+  if(l.includes(v)||v==="")$("c-serie").value=v;
+  dessinerMat();
+};
+$("c-serie").onchange=dessinerMat;
+$("c-add").onclick=()=>{const v=$("c-new").value.trim().slice(0,40);if(v&&!extra.includes(v)){const p=choisies();extra.push(v);dessinerMat();document.querySelectorAll("#c-mat .mat").forEach(r=>{if(r.dataset.m===v)r.querySelector("input").checked=true});$("c-new").value=""}};
+["Dim","Lun","Mar","Mer","Jeu","Ven","Sam"].forEach((n,i)=>{$("c-repos").insertAdjacentHTML("beforeend",'<label><input type="checkbox" value="'+i+'"> '+n+'</label>')});
+const demain=new Date(aujourdhui().getTime()+DAY);$("c-date").min=iso(demain);
+$("c-go").onclick=()=>{
+  const date=$("c-date").value,m=choisies(),err=$("c-err");err.textContent="";
+  if(!date||midi(date)<=aujourdhui()){err.textContent="Choisis une date d'examen après aujourd'hui.";return}
+  if(!Object.keys(m).length){err.textContent="Coche au moins une matière.";return}
+  const cfg={exam:$("c-exam").value,date,serie:$("c-serie").value,minutes:+$("c-min").value,repos:[...document.querySelectorAll("#c-repos input:checked")].map(x=>+x.value),matieres:Object.keys(m).map(k=>({m:k,niveau:m[k]}))};
+  ST.set("plan",{cfg,plan:generer(cfg,aujourdhui()),faits:{}});afficher();
+};
+/* ---- plan ---- */
+const jourFr=s=>midi(s).toLocaleDateString("fr-FR",{weekday:"long",day:"numeric",month:"long"});
+const ligneJour=(j,P)=>{
+  if(j.repos)return '<div class="jour"><h3>'+jourFr(j.date)+'</h3><p class="note">Jour de repos.</p></div>';
+  return '<div class="jour"><h3>'+jourFr(j.date)+'</h3>'+j.taches.map((t,i)=>{const k=j.date+"#"+i,f=P.faits[k];return '<div class="tache'+(f?" fait":"")+'"><input type="checkbox" data-k="'+k+'"'+(f?" checked":"")+' aria-label="Fait"><span>'+t.t.replace(/</g,"&lt;")+' <small class="note">('+t.min+' min)</small>'+(t.lien?' <a href="'+t.lien+'">Démarrer</a>':"")+'</span></div>'}).join("")+'</div>';
+};
+const afficher=()=>{
+  const P=ST.get("plan");if(!P){$("ecr-plan").hidden=true;$("ecr-cfg").hidden=false;return}
+  $("ecr-cfg").hidden=true;$("ecr-plan").hidden=false;
+  const t=aujourdhui(),n=joursAvant(P.cfg.date,t),ms=midi(P.cfg.date)-new Date();
+  $("p-exam").textContent=P.cfg.exam+" le "+jourFr(P.cfg.date);
+  $("p-jours").textContent=n>0?"J-"+n:"C'est le jour J";
+  $("p-heures").textContent=ms>0?"soit environ "+Math.floor(ms/36e5).toLocaleString("fr-FR")+" heures":"Bonne chance !";
+  const taches=P.plan.flatMap(j=>j.repos?[]:j.taches.map((x,i)=>j.date+"#"+i)),f=taches.filter(k=>P.faits[k]).length;
+  $("p-prog").textContent="Progression : "+f+" séance"+(f>1?"s":"")+" sur "+taches.length;
+  $("p-barre").style.width=(taches.length?Math.round(f*100/taches.length):0)+"%";
+  const auj=P.plan.find(j=>j.date===iso(t));
+  $("p-auj").innerHTML=auj?ligneJour(auj,P):'<p class="note">Rien de prévu aujourd\'hui. '+(P.plan.length&&midi(P.plan[0].date)>t?"":"Le plan est terminé ou l'examen est passé.")+'</p>';
+  const fut=P.plan.filter(j=>midi(j.date)>t).slice(0,7);
+  $("p-sem").innerHTML=fut.length?fut.map(j=>ligneJour(j,P)).join(""):'<p class="note">Aucun jour à venir.</p>';
+  $("p-tout").innerHTML=P.plan.map(j=>ligneJour(j,P)).join("");
+};
+document.addEventListener("change",e=>{const k=e.target.dataset&&e.target.dataset.k;if(!k)return;const P=ST.get("plan");if(!P)return;if(e.target.checked)P.faits[k]=1;else delete P.faits[k];ST.set("plan",P);afficher()});
+$("p-modif").onclick=()=>{const P=ST.get("plan");if(P){$("c-exam").value=P.cfg.exam;$("c-date").value=P.cfg.date;$("c-min").value=P.cfg.minutes;P.cfg.repos.forEach(d=>{const c=document.querySelector('#c-repos input[value="'+d+'"]');if(c)c.checked=true})}$("ecr-plan").hidden=true;$("ecr-cfg").hidden=false};
+$("p-reset").onclick=()=>{if(confirm("Effacer ton plan et ta progression ?")){ST.del("plan");afficher()}};
+/* ---- démarrage ---- */
+dessinerSeries();afficher();
+setInterval(()=>{if(!$("ecr-plan").hidden)afficher()},60000);
+fetch("documents.json").then(r=>r.ok?r.json():Promise.reject()).then(j=>{DOCJ=(j.docs||[]).concat(j.fiches||[]);dessinerSeries()}).catch(()=>{});
+</script>
+</body>
+</html>
