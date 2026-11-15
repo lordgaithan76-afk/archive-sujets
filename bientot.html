@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Séries bientôt disponibles | Archive.Sujets</title>
+<meta name="description" content="Les séries qui arrivent bientôt sur Archive.Sujets : sujets, fiches et recueils. Demande à être prévenu sur WhatsApp.">
+<link rel="canonical" href="https://lordgaithan76-afk.github.io/archive-sujets/bientot.html">
+<meta name="theme-color" content="#1B2559">
+<style>
+:root{--navy:#1B2559;--jaune:#FFD84D;--fond:#F2F5FB;--ligne:#D5DCEB;--muted:#4A5580}
+*{box-sizing:border-box}
+body{margin:0;font:16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:var(--fond);color:var(--navy)}
+header{background:var(--navy);color:#fff;padding:14px 18px}
+header a{color:#fff;text-decoration:none;font-family:Georgia,serif;font-weight:700;font-size:1.25rem}
+header span{color:var(--jaune)}
+main{max-width:56rem;margin:0 auto;padding:20px 18px 40px}
+h1{font-family:Georgia,serif;line-height:1.2;margin:.2em 0 .4em}
+.intro{color:var(--muted)}
+.grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));margin:20px 0}
+.carte{background:#fff;border:1px solid var(--ligne);border-radius:10px;padding:16px;display:flex;flex-direction:column;gap:8px}
+.carte h2{font-family:Georgia,serif;margin:0;font-size:1.3rem}
+.tag{display:inline-block;background:var(--jaune);color:var(--navy);font-size:.75rem;font-weight:700;padding:2px 8px;border-radius:4px;align-self:flex-start}
+.tag.ok{background:#1f9d55;color:#fff}
+.carte ul{margin:0;padding-left:1.1rem;color:var(--muted);font-size:.95rem}
+.btn{display:inline-block;text-align:center;background:var(--navy);color:#fff;border:2px solid var(--navy);border-radius:8px;padding:10px 14px;font-weight:700;text-decoration:none;margin-top:auto}
+.btn.alt{background:#fff;color:var(--navy)}
+footer{text-align:center;font-size:.85rem;color:var(--muted);padding:0 18px 30px}
+footer a{color:inherit}
+</style>
+</head>
+<body>
+<header><a href="./">Archive<span>.</span>Sujets</a></header>
+<main>
+<p><a href="./" style="color:var(--navy)">← Retour au site</a></p>
+<h1>Séries bientôt disponibles</h1>
+<p class="intro">Ces séries arrivent sur Archive.Sujets. Demande à être prévenu sur WhatsApp : tu seras averti dès que les premiers documents sont en ligne.</p>
+<div class="grid" id="liste" aria-live="polite"></div>
+<p class="intro">Tu as des sujets de ces séries ? <a id="envoi" href="#" style="color:var(--navy)">Envoie-les-nous sur WhatsApp</a>.</p>
+</main>
+<footer><a href="./">Accueil</a> · <a href="mentions-legales.html">Mentions légales et confidentialité</a></footer>
+<script src="bientot.js"></script>
+<script src="sujets.js"></script>
+<script src="sujets-ajouts.js"></script>
+<script>
+const WA="237673045034";
+const L=window.BIENTOT||["F3","F1","CMA","MVPL","ACA","CG","F8"];
+const wa=t=>"https://wa.me/"+WA+"?text="+encodeURIComponent(t);
+const dispo=new Set();
+const add=a=>[].concat(a||[]).forEach(k=>dispo.add(String(k).toUpperCase()));
+try{[].concat(typeof SUJETS!=="undefined"?SUJETS:[],typeof SUJETS_AJOUTS!=="undefined"?SUJETS_AJOUTS:[]).forEach(x=>add(x.serie))}catch(e){}
+document.getElementById("envoi").href=wa("Bonjour, j'ai des sujets à partager pour une série bientôt disponible.");
+const dessiner=()=>{
+  document.getElementById("liste").innerHTML=L.map(k=>dispo.has(k)
+    ?'<article class="carte"><h2>Série '+k+'</h2><span class="tag ok">Disponible</span><p style="margin:0">Les premiers documents sont en ligne.</p><a class="btn" href="./#choix">Voir les documents</a></article>'
+    :'<article class="carte"><h2>Série '+k+'</h2><span class="tag">Bientôt disponible</span><ul><li>Sujets d\'évaluation et de séquence</li><li>Fiches de révision</li><li>Recueil de la série</li></ul><a class="btn alt" href="'+wa("Bonjour, prévenez-moi dès que la série "+k+" est disponible.")+'">Préviens-moi (WhatsApp)</a></article>'
+  ).join("");
+};
+dessiner();
+fetch("documents.json").then(r=>r.ok?r.json():Promise.reject()).then(j=>{[].concat(j.docs||[],j.fiches||[]).forEach(a=>add(a.sr));dessiner()}).catch(()=>{});
+</script>
+</body>
+</html>
