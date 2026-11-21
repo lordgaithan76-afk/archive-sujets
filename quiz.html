@@ -7,6 +7,7 @@
 <meta name="description" content="Un défi de 5 questions chaque jour, des quiz par matière, une série de jours d'affilée et des badges. Gratuit, pour réviser en t'amusant.">
 <link rel="canonical" href="https://lordgaithan76-afk.github.io/archive-sujets/quiz.html">
 <meta name="theme-color" content="#1B2559">
+<meta property="og:type" content="website"><meta property="og:locale" content="fr_FR"><meta property="og:title" content="Défi du jour et quiz | Archive.Sujets"><meta property="og:description" content="5 questions par jour, des quiz par matière et des badges. Gratuit."><meta property="og:url" content="https://lordgaithan76-afk.github.io/archive-sujets/quiz.html"><meta property="og:image" content="https://lordgaithan76-afk.github.io/archive-sujets/og-image.png"><meta name="twitter:card" content="summary_large_image">
 <style>
 :root{--navy:#1B2559;--jaune:#FFD84D;--fond:#F2F5FB;--ligne:#D5DCEB;--muted:#4A5580;--vert:#1f9d55;--rouge:#c62828}
 *{box-sizing:border-box}
@@ -47,6 +48,7 @@ select{width:100%;font:inherit;padding:10px;border:2px solid var(--ligne);border
 <p><a href="./" style="color:var(--navy)">← Retour au site</a></p>
 <h1>Défi du jour</h1>
 <div class="serie" id="a-serie"></div>
+<div class="carte"><label for="a-ser" class="note">Ta série</label><select id="a-ser"><option value="">Toutes les séries</option><option value="F4">F4BE et F4BA</option><option value="A">Série A</option><option value="C">Série C</option><option value="D">Série D</option></select></div>
 <div class="carte"><h2>Le défi d'aujourd'hui</h2><p class="note" id="a-defi"></p><button class="btn vert" id="b-defi" type="button">Relever le défi</button><button class="btn alt" id="b-partage-defi" type="button" hidden>Partager mon résultat</button></div>
 <div class="carte"><h2>S'entraîner</h2><label for="a-mat" class="note">Choisis une matière</label><select id="a-mat"></select><button class="btn" id="b-train" type="button">10 questions</button></div>
 <div class="carte"><h2>Mes badges</h2><p class="note" id="a-badges"></p><button class="btn alt" id="b-badges" type="button">Voir mes badges et mes progrès</button></div>
@@ -119,13 +121,16 @@ const partager=async t=>{try{if(navigator.share){await navigator.share({text:t})
 const accueil=()=>{
   const s=serieEnCours(stats.jours,aujour()),fait=stats.jours[aujour()];
   $("a-serie").innerHTML="<b>"+(s?"🔥 "+s:"0")+"</b>"+(s>1?"jours d'affilée":s===1?"jour d'affilée":"Lance ta série aujourd'hui !");
-  $("a-defi").textContent=fait!==undefined?"Défi terminé aujourd'hui : "+fait+"/5. Reviens demain pour un nouveau défi.":"5 questions dans 5 matières, les mêmes pour tous les élèves aujourd'hui.";
+  $("a-defi").textContent=fait!==undefined?"Défi terminé aujourd'hui : "+fait+"/5. Reviens demain pour un nouveau défi.":"5 questions dans 5 matières, les mêmes pour tous les élèves de ta série aujourd'hui.";
   $("b-defi").hidden=fait!==undefined;$("b-partage-defi").hidden=fait===undefined;
   $("a-badges").textContent=gagnes(stats).length+" badge"+(gagnes(stats).length>1?"s":"")+" sur "+BADGES.length+" · "+stats.total+" question"+(stats.total>1?"s":"")+" répondue"+(stats.total>1?"s":"");
   ecran("accueil");
 };
-const mats=[...new Set(Q.map(q=>q.m))].sort();
-$("a-mat").innerHTML='<option value="">Toutes les matières</option>'+mats.map(m=>"<option>"+m+"</option>").join("");
+let SER=ST.get("quiz_serie","");
+const F4OK=["Mathématiques","Physique","Chimie","Français","Anglais","Topographie et métré","Procédés de construction","Dessin","Exploitation des chantiers","Laboratoire et essais"];
+const dispo=()=>Q.filter(q=>!SER?true:SER==="F4"?F4OK.includes(q.m):(!q.s||q.s.includes(SER)));
+const remplirMats=()=>{const l=[...new Set(dispo().map(q=>q.m))].sort();$("a-mat").innerHTML='<option value="">Toutes les matières</option>'+l.map(m=>"<option>"+m+"</option>").join("")};
+$("a-ser").value=SER;remplirMats();$("a-ser").onchange=()=>{SER=$("a-ser").value;ST.set("quiz_serie",SER);remplirMats();accueil()};
 $("a-propose").href="https://wa.me/"+WA+"?text="+encodeURIComponent("Bonjour, je propose une question pour le quiz d'Archive.Sujets :");
 /* ---- jeu ---- */
 const demarrer=(mode,qs)=>{run={mode,qs,i:0,rep:[],date:aujour()};montrer()};
@@ -162,9 +167,9 @@ const fin=()=>{
 };
 $("r-partage").onclick=()=>partager(run.mode==="defi"?texteDefi(run.score,run.rep):"J'ai fait "+run.score+"/"+run.qs.length+" au quiz d'Archive.Sujets "+carres(run.rep)+"\nÀ toi de jouer : "+URL_QUIZ);
 $("r-retour").onclick=accueil;
-$("b-defi").onclick=()=>demarrer("defi",tirageDefi(Q,aujour(),5));
+$("b-defi").onclick=()=>demarrer("defi",tirageDefi(dispo(),aujour(),5));
 $("b-partage-defi").onclick=()=>{const sc=stats.jours[aujour()];partager("Archive.Sujets · Défi du jour : "+sc+"/5"+(serieEnCours(stats.jours,aujour())>1?"\n🔥 "+serieEnCours(stats.jours,aujour())+" jours d'affilée":"")+"\nÀ toi de jouer : "+URL_QUIZ)};
-$("b-train").onclick=()=>{const m=$("a-mat").value,pool=Q.filter(q=>!m||q.m===m),rng=Math.random;demarrer("train",melanger(pool,rng).slice(0,10).map(q=>prep(q,rng)))};
+$("b-train").onclick=()=>{const m=$("a-mat").value,pool=dispo().filter(q=>!m||q.m===m),rng=Math.random;demarrer("train",melanger(pool,rng).slice(0,10).map(q=>prep(q,rng)))};
 /* ---- badges ---- */
 $("b-badges").onclick=()=>{
   const g=gagnes(stats);

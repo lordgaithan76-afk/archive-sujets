@@ -7,6 +7,7 @@
 <meta name="description" content="Passe un examen blanc chronométré : un sujet tiré au hasard pour ta série, un minuteur, puis ton auto-évaluation. Gratuit.">
 <link rel="canonical" href="https://lordgaithan76-afk.github.io/archive-sujets/examen-blanc.html">
 <meta name="theme-color" content="#1B2559">
+<meta property="og:type" content="website"><meta property="og:locale" content="fr_FR"><meta property="og:title" content="Examen blanc chronométré | Archive.Sujets"><meta property="og:description" content="Passe un sujet d'examen tiré au hasard, chronométré comme le jour J. Gratuit."><meta property="og:url" content="https://lordgaithan76-afk.github.io/archive-sujets/examen-blanc.html"><meta property="og:image" content="https://lordgaithan76-afk.github.io/archive-sujets/og-image.png"><meta name="twitter:card" content="summary_large_image">
 <style>
 :root{--navy:#1B2559;--jaune:#FFD84D;--fond:#F2F5FB;--ligne:#D5DCEB;--muted:#4A5580;--rouge:#c62828}
 *{box-sizing:border-box}
@@ -71,7 +72,9 @@ ul.h{padding-left:1.1rem;margin:6px 0}
   <button class="btn vert" id="b-save" type="button">Enregistrer</button>
   <button class="btn alt" id="b-partage" type="button">Partager mon résultat</button>
   <a class="btn alt" id="b-corr" href="#" target="_blank" rel="noopener">Revoir le sujet</a>
+  <a class="btn vert" id="b-corrige" href="#" target="_blank" rel="noopener" hidden>Voir le corrigé et comparer</a>
   <button class="btn alt" id="b-autre" type="button">Un autre sujet</button>
+  <p class="note" id="corr-msg" hidden></p>
 </div>
 </main>
 </section>
@@ -182,6 +185,8 @@ const terminer=()=>{
   S.used=used;S.fini=true;ST.del("ex_en_cours");if(lock){lock.release();lock=null}$("pdf").hidden=false;
   $("fin-titre").textContent=r<=0?"Temps écoulé":"Épreuve terminée";
   $("fin-info").textContent=S.t+" · "+used+" min sur "+S.duree+" min.";$("b-corr").href=encodeURI(S.f);
+  const cf=S.f.replace(/\.pdf$/i,"_corrige.pdf");$("b-corrige").hidden=true;$("corr-msg").hidden=true;
+  fetch(encodeURI(cf),{method:"HEAD"}).then(r=>{if(!r.ok)throw 0;$("b-corrige").href=encodeURI(cf);$("b-corrige").hidden=false}).catch(()=>{$("corr-msg").innerHTML='Le corrigé de ce sujet n\'est pas encore en ligne. <a href="https://wa.me/237673045034?text='+encodeURIComponent("Bonjour, je voudrais le corrigé de : "+S.t)+'" target="_blank" rel="noopener" style="color:var(--navy)">Demande-le sur WhatsApp</a>.';$("corr-msg").hidden=false});
   $("n-note").value="";$("n-diff").value="";ecran("fin");
 };
 const histo=()=>{
@@ -209,7 +214,7 @@ $("b-abandon").onclick=()=>{if(confirm("Abandonner l'épreuve en cours ?")){ST.d
 construire();histo();
 const Q=new URLSearchParams(location.search);
 const nz=s=>String(s).normalize("NFD").replace(/[\u0300-\u036f]/g,"").toLowerCase();
-const ALIAS={"svt":["svteehb","svt"],"francais":["langue francaise","litterature francaise","francais"],"topographie et metre":["topographie","metre"],"mathematiques":["mathematiques","maths"]};
+const ALIAS={"svt":["svteehb","svt"],"francais":["langue francaise","litterature francaise","francais"],"topographie et metre":["topographie","metre"],"mathematiques":["mathematiques","maths"],"procedes de construction":["procedes","pdc"],"exploitation des chantiers":["exploitation"],"laboratoire et essais":["laboratoire","essais"]};
 const trouveMat=(opts,q)=>{const al=ALIAS[nz(q)]||[nz(q)];return opts.find(o=>o.value&&al.some(a=>nz(o.value).includes(a)))};
 const pre=()=>{const s=Q.get("serie"),m=Q.get("mat");if(s&&[...$("f-serie").options].some(o=>o.value===s)){$("f-serie").value=s;maj()}if(m){const o=trouveMat([...$("f-mat").options],m);if(o){$("f-mat").value=o.value;maj()}}};
 pre();
