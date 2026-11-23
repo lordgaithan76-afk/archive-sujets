@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex">
+<title>Liste des fichiers</title>
+<style>body{font:16px/1.5 system-ui,sans-serif;margin:0;padding:16px;background:#F2F5FB;color:#1c2238}h1{font-size:20px;margin:0 0 8px}button{font:inherit;padding:12px 16px;border:0;border-radius:10px;background:#1B2559;color:#fff;margin:8px 0}textarea{width:100%;height:55vh;font:12px/1.4 monospace;box-sizing:border-box}#r{font-weight:700;margin:8px 0}input{font:inherit;padding:8px;width:100%;box-sizing:border-box;margin-bottom:6px}</style></head><body>
+<h1>Liste des fichiers du dossier fiches</h1>
+<input id="rp" value="lordgaithan76-afk/archive-sujets" aria-label="Dépôt">
+<div id="r">Lecture en cours…</div>
+<button id="cp" type="button" hidden>Copier la liste</button>
+<textarea id="t" readonly hidden></textarea>
+<script>
+const $=i=>document.getElementById(i);
+async function go(){
+  $("r").textContent="Lecture en cours…";
+  try{
+    const res=await fetch("https://api.github.com/repos/"+$("rp").value.trim()+"/git/trees/main?recursive=1");
+    if(!res.ok)throw new Error("Réponse "+res.status);
+    const j=await res.json();
+    const l=j.tree.filter(x=>x.type==="blob"&&x.path.startsWith("fiches/")).map(x=>x.path).sort();
+    const c={};l.forEach(p=>{const d=p.split("/").slice(0,-1).join("/");c[d]=(c[d]||0)+1});
+    const txt=Object.entries(c).map(([d,n])=>"# "+d+" : "+n+" fichiers").join("\n")+"\n\n"+l.join("\n");
+    $("r").textContent=l.length+" fichiers dans fiches/"+(j.truncated?" (liste tronquée)":"");
+    $("t").value=txt;$("t").hidden=false;$("cp").hidden=false;
+  }catch(e){$("r").textContent="Impossible de lire la liste ("+e.message+"). Vérifie le nom du dépôt ci-dessus.";}
+}
+$("cp").onclick=()=>{$("t").select();try{navigator.clipboard.writeText($("t").value)}catch(e){document.execCommand("copy")}$("cp").textContent="Copié ✔";};
+$("rp").onchange=go;go();
+</script></body></html>
