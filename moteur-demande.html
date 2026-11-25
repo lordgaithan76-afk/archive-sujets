@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sujet ou corrigé à la demande | Archive.Sujets</title>
+<meta name="description" content="Tu ne trouves pas ton sujet ou son corrigé ? Fais ta demande en une minute et paie en Mobile Money avec Campay, ou commande par WhatsApp.">
+<meta name="theme-color" content="#1B2559"><meta name="color-scheme" content="light">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="canonical" href="https://lordgaithan76-afk.github.io/archive-sujets/moteur-demande.html">
+<meta property="og:type" content="website"><meta property="og:locale" content="fr_FR"><meta property="og:title" content="Sujet ou corrigé à la demande | Archive.Sujets"><meta property="og:description" content="Fais ta demande en une minute : paiement Mobile Money avec Campay ou commande par WhatsApp."><meta property="og:url" content="https://lordgaithan76-afk.github.io/archive-sujets/moteur-demande.html"><meta property="og:image" content="https://lordgaithan76-afk.github.io/archive-sujets/og-image.png"><meta name="twitter:card" content="summary_large_image">
+<style>
+:root{--navy:#1B2559;--jaune:#FFD45C;--bg:#F2F5FB;--ink:#1c2238;--mut:#4A5580;--line:#d6dcee;--vert:#107a4a}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;font:16px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:var(--bg);color:var(--ink)}
+header{background:var(--navy);color:#fff;padding:14px 16px;padding-top:calc(14px + env(safe-area-inset-top,0px))}
+header a{color:var(--jaune);text-decoration:none;font-size:14px}header h1{margin:4px 0 0;font-size:20px;line-height:1.25}
+.libre{display:flex;gap:8px;overflow-x:auto;padding:10px 14px;background:#fff;border-bottom:1px solid var(--line)}
+.libre a{flex:none;padding:8px 12px;border-radius:20px;background:var(--bg);color:var(--navy);text-decoration:none;font-size:14px;border:1px solid var(--line)}
+main{max-width:720px;margin:0 auto;padding:14px 14px 80px}
+.card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px;margin:0 0 14px}
+h2{font-size:17px;margin:0 0 10px;color:var(--navy)}
+.offres{display:grid;gap:10px}
+.offre{display:flex;gap:10px;align-items:flex-start;border:2px solid var(--line);border-radius:12px;padding:12px;cursor:pointer}
+.offre:has(input:checked){border-color:var(--navy);background:#eef2ff}
+.offre input{margin-top:4px;width:20px;height:20px;flex:none}.offre b{display:block}.offre small{color:var(--mut)}
+.prix{margin-left:auto;font-weight:800;color:var(--navy);white-space:nowrap}
+label.c{display:block;font-weight:600;margin:10px 0 4px;font-size:15px}
+select,input[type=text],textarea{width:100%;font:inherit;padding:12px;border:1px solid var(--line);border-radius:10px;background:#fff;color:var(--ink)}
+textarea{min-height:90px;resize:vertical}
+.btn{display:block;width:100%;text-align:center;font:inherit;font-weight:700;padding:14px;border-radius:12px;border:0;text-decoration:none;margin-top:10px;cursor:pointer;min-height:48px}
+.pay{background:var(--vert);color:#fff}.wa{background:#fff;color:var(--navy);border:2px solid var(--navy)}.imp{background:transparent;color:var(--navy);text-decoration:underline}
+.btn[hidden]{display:none}.off{opacity:.45}
+.rec{white-space:pre-line;background:var(--bg);border-radius:10px;padding:12px;font-size:15px}
+.ref{font-weight:800;color:var(--navy);margin:0 0 8px}.note{font-size:13px;color:var(--mut)}
+:focus-visible{outline:3px solid #f5a300;outline-offset:2px}
+details{background:#fff;border:1px solid var(--line);border-radius:14px;padding:12px 14px}summary{font-weight:700;color:var(--navy);cursor:pointer}
+details label{display:block;margin:10px 0}
+.pied{display:none}
+#apercu h3{font-size:16px;margin:14px 0 6px;color:var(--navy)}#apercu ol,#apercu ul{margin:0;padding-left:20px}#apercu li{margin:4px 0}#apercu .t{font-weight:800;font-size:18px;margin:0}
+.pied{margin-top:10px}
+@media print{body{background:#fff}header,.libre,#offres-card,#form-card,.btn,details,.note,#hint{display:none!important}main{padding:0}.card{border:0;padding:0;margin:0 0 12px}h2{font-size:20px}.rec{background:#fff;border:1px solid #999;font-size:13px}#apercu{font-size:14px}.pied{display:block!important;font-size:13px}#apercu li{break-inside:avoid}}
+</style></head><body>
+<header><a href="index.html">← Retour à l’accueil</a><h1>Sujet ou corrigé à la demande</h1></header>
+<nav class="libre" aria-label="Outils gratuits"><a href="index.html#documents">Sujets gratuits</a><a href="examen-blanc.html">Examen blanc</a><a href="plan-revision.html">Plan de révision</a><a href="quiz.html">Défi du jour</a></nav>
+<main>
+<p style="font-size:15px;margin:0 0 14px">Cherche d’abord dans les outils gratuits ci-dessus : ils restent ouverts à tous. Si tu ne trouves pas ton sujet ou son corrigé, fais ta demande ici en une minute.</p>
+<section class="card" id="offres-card"><h2>1. Choisis ton offre</h2><div class="offres" id="offres" role="radiogroup" aria-label="Offre"></div></section>
+<section class="card" id="form-card"><h2>2. Décris ta demande</h2>
+<label class="c" for="ens">Enseignement</label><select id="ens"></select>
+<label class="c" for="ser">Série</label><select id="ser"></select>
+<label class="c" for="exa">Examen</label><select id="exa"></select>
+<label class="c" for="mat">Matière</label><input id="mat" type="text" list="mats" autocomplete="off"><datalist id="mats"></datalist>
+<label class="c" for="ann">Année(s)</label><input id="ann" type="text" placeholder="Exemple : 2023, 2024">
+<label class="c" for="nom">Ton nom ou ton numéro (pour te répondre)</label><input id="nom" type="text" autocomplete="name" placeholder="Exemple : Paul, 6XX XX XX XX">
+<label class="c" for="pre">Besoin précis</label><textarea id="pre" placeholder="Exemple : sujet de métré, session 2 de 2022, avec corrigé"></textarea>
+</section>
+<section class="card" id="recap"><h2>3. Ma commande</h2>
+<p class="ref">Référence : <span id="ref"></span></p>
+<div class="rec" id="rec" aria-live="polite"></div>
+<p class="note" id="hint"></p>
+<a class="btn pay" id="pay" target="_blank" rel="noopener noreferrer" href="#">Payer avec Campay</a>
+<a class="btn wa" id="wa" target="_blank" rel="noopener noreferrer" href="#">Envoyer ma commande sur WhatsApp</a>
+<p class="note" id="etape"></p>
+<p class="note">Ordre conseillé : 1) paie avec Campay, 2) envoie ta commande sur WhatsApp avec ta preuve de paiement. Le paiement est confirmé par notre équipe, puis on t’envoie ton fichier.</p>
+<button class="btn imp" id="neuf" type="button">Nouvelle demande</button>
+</section>
+<section class="card" id="fiche"><h2>4. Aperçu de ta fiche-méthode</h2>
+<p class="note" id="fnote">Fiche-méthode générale, gratuite, adaptée à ta matière. La ressource demandée (sujet, corrigé…) t’est envoyée après paiement.</p>
+<div id="apercu"></div>
+<button class="btn imp" id="imp" type="button">Imprimer ou enregistrer en PDF</button>
+<p class="pied" id="pied"></p>
+</section>
+<details id="auto-verification"><summary>Auto-vérification d’un corrigé</summary>
+<p class="note">Avant de passer à l’exercice suivant, coche ce que tu as vérifié.</p>
+<label><input type="checkbox"> Chaque calcul a son unité (m, m², m³, kN, MPa…).</label>
+<label><input type="checkbox"> Le résultat est réaliste : ordre de grandeur, signe, bornes.</label>
+<label><input type="checkbox"> Les étapes sont écrites clairement, sans saut.</label>
+<label><input type="checkbox"> Le résultat final est encadré, avec son unité.</label>
+<label><input type="checkbox"> J’ai repéré le piège classique de cet exercice.</label>
+</details>
+</main>
+<script>
+/* ===== À RENSEIGNER ===== */
+const CONFIG={
+  /* Lien de paiement Campay : un seul lien (texte) pour toutes les offres, OU un lien par offre : {500:"https://…",1500:"https://…",2500:"https://…"}. Laisse "" tant que tu n’as pas de lien : le bouton reste caché et la commande passe par WhatsApp. */
+  campayUrl:"",
+  /* Numéro WhatsApp du vendeur, avec l’indicatif du pays, sans + ni espaces. */
+  whatsappVendeur:"237673045034",
+  /* Offres (à adapter) */
+  offres:[
+    {id:500,nom:"Essentiel",prix:500,detail:"1 sujet précis ou 1 corrigé détaillé"},
+    {id:1500,nom:"Standard",prix:1500,detail:"Jusqu’à 3 sujets ou corrigés"},
+    {id:2500,nom:"Complet",prix:2500,detail:"Jusqu’à 6 sujets ou corrigés, de la même matière"}
+  ]
+};
+const ENS={
+ "Enseignement général":{series:["A","C","D","Autre série"],mats:["Mathématiques","Physique","Chimie","SVT","Français","Anglais","Histoire","Géographie","Philosophie","Informatique"]},
+ "Technique industriel":{series:["F4BE (Génie civil, bureau d’études)","F4BA","F1","F3","E","TI","Autre série"],mats:["Métré","Topographie","Procédés généraux de construction","Dessin","Résistance des matériaux","Laboratoire","Mathématiques","Physique","Français","Anglais"]},
+ "Commercial et tertiaire":{series:["ACA","CG","Autre série"],mats:["Comptabilité","Économie","Droit","Techniques commerciales","Mathématiques","Français","Anglais"]}
+};
+const EXA=["BEPC (3ème)","Probatoire (1ère)","BAC (Terminale)","Autre examen"];
+const $=i=>document.getElementById(i),P=new URLSearchParams(location.search);
+const opt=l=>'<option value="">Choisis</option>'+l.map(x=>"<option>"+x+"</option>").join("");
+const fcfa=n=>n.toLocaleString("fr-FR")+" FCFA",num=()=>CONFIG.whatsappVendeur.replace(/\D/g,""),val=i=>$(i).value.trim();
+const F=["ens","ser","exa","mat","ann","pre","nom"],K="as_ticket_v1";
+const nouvelleRef=()=>{const d=new Date(),p=n=>String(n).padStart(2,"0");let r;try{r=crypto.getRandomValues(new Uint32Array(1))[0].toString(36)}catch(e){r=Math.random().toString(36).slice(2)}return"AS-"+String(d.getFullYear()).slice(2)+p(d.getMonth()+1)+p(d.getDate())+"-"+r.slice(0,4).toUpperCase().padEnd(4,"0")};
+const lire=()=>{try{const t=JSON.parse(localStorage.getItem(K)||"null");return t&&Date.now()-t.t<6048e5?t:null}catch(e){return null}};
+const tk=lire();let ref=tk?tk.ref:nouvelleRef(),payOuvert=!!(tk&&tk.p);
+$("offres").innerHTML=CONFIG.offres.map(o=>'<label class="offre"><input type="radio" name="o" value="'+o.id+'"><span><b>'+o.nom+"</b><small>"+o.detail+'</small></span><span class="prix">'+fcfa(o.prix)+"</span></label>").join("");
+$("ens").innerHTML=opt(Object.keys(ENS));$("exa").innerHTML=opt(EXA);
+const remplir=()=>{const e=ENS[$("ens").value];$("ser").innerHTML=opt(e?e.series:[]);$("mats").innerHTML=(e?e.mats:[]).map(m=>'<option value="'+m+'">').join("")};
+const offreChoisie=()=>{const c=document.querySelector("input[name=o]:checked");return c?CONFIG.offres.find(o=>String(o.id)===c.value):null};
+/* ---- fiche-méthode adaptée ---- */
+const T={
+ tech:{o:"Réussir un exercice de calcul ou de dessin technique sans perdre de points sur la méthode et les unités.",e:["Lis l’énoncé et note les données avec leurs unités.","Fais un schéma ou un plan coté propre.","Écris la formule avant de remplacer par les valeurs.","Calcule pas à pas, avec les mêmes unités partout.","Vérifie l’ordre de grandeur du résultat.","Encadre le résultat final avec son unité."],p:["Mélanger cm, m, N et kN dans un même calcul.","Arrondir trop tôt : garde tous les chiffres jusqu’au résultat final.","Oublier de déduire un vide ou compter deux fois un élément.","Confondre longueur, surface et volume."]},
+ sci:{o:"Rédiger une solution complète et justifiée : méthode, calcul, conclusion.",e:["Lis tout le sujet et souligne ce qui est demandé.","Note les données, les inconnues et les notations.","Choisis la formule ou le théorème et écris-le.","Applique-le pas à pas, sans sauter d’étape.","Vérifie : unité, signe, résultat réaliste.","Termine par une phrase de conclusion."]  ,p:["Oublier l’unité ou ne pas convertir avant de calculer.","Donner un résultat sans justifier.","Se tromper de signe en recopiant d’une ligne à l’autre.","Arrondir avant la fin du calcul."]},
+ lit:{o:"Construire une réponse organisée et argumentée, avec des exemples précis.",e:["Lis le sujet deux fois et repère les mots-clés.","Fais un plan rapide : idée, argument, exemple.","Rédige l’introduction : contexte, problème, annonce du plan.","Développe chaque partie avec un exemple ou une citation.","Conclus en répondant clairement à la question.","Garde 5 minutes pour la relecture."],p:["Réciter le cours sans répondre à la question posée.","Oublier les dates, les noms ou les exemples précis.","Écrire sans paragraphes ni connecteurs logiques.","Négliger l’orthographe et la présentation."]},
+ ter:{o:"Présenter un travail propre, équilibré et vérifié (tableaux, calculs, justification).",e:["Lis la consigne et repère les documents à utiliser.","Relève les données utiles et laisse de côté le reste.","Applique la règle ou la formule du cours.","Présente un tableau ou un calcul clair.","Vérifie les totaux et les équilibres.","Rédige la conclusion ou l’interprétation."],p:["Une erreur de recopie qui fausse tous les totaux.","Un tableau sans titre, sans unité ou sans total.","Oublier une opération ou une charge à prendre en compte.","Ne pas vérifier l’équilibre (par exemple débit = crédit)."]}
+};
+const SPEC=[[/m[ée]tr[ée]/,"Métré : présente le détail (désignation, nombre, dimensions, quantité) et donne l’unité de chaque poste (m, m², m³)."],[/topograph/,"Topographie : une pente de 2 % vaut 2 m pour 100 m ; ne confonds pas distance horizontale et distance suivant la pente."],[/sol|g[ée]otech/,"Sols : w = masse d’eau ÷ masse de sol sec × 100 ; ne confonds pas masse volumique (kg/m³) et poids volumique (kN/m³)."],[/rdm|r[ée]sistance/,"RDM : garde la même convention de signes jusqu’au bout ; moments en kN·m, contraintes en MPa (1 MPa = 1 N/mm²)."],[/dessin/,"Dessin : à l’échelle 1/100, 1 cm sur le plan représente 1 m réel ; contours visibles en trait continu fort."]];
+const typeDe=()=>{const e=val("ens"),m=val("mat").toLowerCase();if(/technique/i.test(e)||/f4|g[ée]nie civil/i.test(val("ser")+" "+m))return"tech";if(/commercial/i.test(e))return"ter";if(/fran[cç]ais|histoire|g[ée]ograph|philo|anglais|allemand|espagnol|ecm|lettres/.test(m))return"lit";return"sci"};
+const J=["Fais le point : refais un ancien sujet en 30 minutes et note ce qui bloque.","Reprends les notions faibles avec ta fiche et deux exemples résolus.","Fais deux exercices types, chronométrés.","Compare avec le corrigé et note chaque erreur.","Refais les exercices ratés, sans regarder le corrigé.","Passe un sujet complet en conditions d’examen (Examen blanc).","Relis tes erreurs et ta fiche, puis repose-toi."];
+const h=(t,tag)=>{const n=document.createElement(tag||"h3");n.textContent=t;return n};
+const liste=(a,tag)=>{const l=document.createElement(tag);a.forEach(x=>{const li=document.createElement("li");li.textContent=x;l.appendChild(li)});return l};
+function apercu(){
+  const t=T[typeDe()],A=$("apercu"),m=val("mat"),ex=val("exa"),titre="Fiche-méthode"+(m?" : "+m:"")+(ex?" ("+ex+")":"");
+  A.textContent="";const p=h(titre,"p");p.className="t";A.appendChild(p);
+  A.appendChild(h("Objectif"));const o=document.createElement("p");o.textContent=t.o;A.appendChild(o);
+  A.appendChild(h("Méthode, étape par étape"));A.appendChild(liste(t.e,"ol"));
+  const sp=SPEC.filter(([r])=>r.test(m.toLowerCase())).map(x=>x[1]);
+  A.appendChild(h("Points de vigilance et pièges fréquents"));A.appendChild(liste(sp.concat(t.p),"ul"));
+  A.appendChild(h("Rythme de révision sur 7 jours (30 à 60 minutes par jour)"));A.appendChild(liste(J.map((x,i)=>"Jour "+(i+1)+" : "+x),"ul"));
+}
+/* ---- récapitulatif, liens, sauvegarde ---- */
+function sauver(){try{const o=offreChoisie(),f={};F.forEach(i=>f[i]=$(i).value);localStorage.setItem(K,JSON.stringify({ref,o:o?o.id:"",f,t:Date.now(),p:payOuvert}))}catch(e){}}
+function maj(){
+  const o=offreChoisie(),L=["Formule : "+(o?o.nom+" ("+fcfa(o.prix)+")":"à choisir")];
+  [["Niveau","ens"],["Série","ser"],["Examen","exa"],["Matière ou chapitre","mat"],["Année(s)","ann"],["Besoin précis","pre"],["Contact","nom"]].forEach(([n,i])=>{if(val(i))L.push(n+" : "+val(i))});
+  const txt=L.join("\n"),ok=!!o&&!!(val("mat")||val("pre"));
+  $("rec").textContent=txt;$("ref").textContent=ref;
+  $("hint").textContent=ok?"":(o?"Ajoute la matière ou ton besoin précis pour continuer.":"Choisis une offre pour continuer.");
+  const msg="Bonjour, je passe commande.\nRéférence : "+ref+"\n"+txt+(o?"\nMontant : "+fcfa(o.prix):"")+(payOuvert?"\nJ’ai ouvert le paiement Campay.":""),
+  wa=$("wa"),pay=$("pay"),cu=CONFIG.campayUrl,lien=o&&cu?(typeof cu==="object"?cu[o.id]:cu):"";
+  pay.hidden=!(cu&&(typeof cu!=="object"||Object.values(cu).some(Boolean)));
+  pay.textContent="Payer "+(o?fcfa(o.prix)+" ":"")+"avec Campay";
+  const lienOk=ok&&/^https:\/\//i.test(lien||"");
+  wa.href=ok?"https://wa.me/"+num()+"?text="+encodeURIComponent(msg):"#";pay.href=lienOk?lien:"#";
+  wa.classList.toggle("off",!ok);wa.setAttribute("aria-disabled",!ok);pay.classList.toggle("off",!lienOk);pay.setAttribute("aria-disabled",!lienOk);
+  $("etape").textContent=payOuvert?"Paiement ouvert dans un autre onglet. Quand c’est fait, envoie ta commande et ta preuve sur WhatsApp.":"";
+  $("pied").textContent="Référence "+ref+" · "+new Date().toLocaleDateString("fr-FR")+" · Paiement : Orange Money ou MTN MoMo avec Campay. Envoie ta référence et ta preuve de paiement sur WhatsApp au +"+num()+".";
+  apercu();sauver();
+}
+/* ---- restauration puis pré-remplissage URL : ?pack= ?q= (et serie, examen, matiere, annee) ---- */
+remplir();
+if(tk){if(tk.f){$("ens").value=tk.f.ens||"";remplir();F.forEach(i=>{if(tk.f[i]!=null&&i!=="ens")$(i).value=tk.f[i]})}const r0=document.querySelector('input[name=o][value="'+tk.o+'"]');if(r0)r0.checked=true}
+const pk=(P.get("pack")||"").toLowerCase(),oo=CONFIG.offres.find(o=>String(o.id)===pk||o.nom.toLowerCase()===pk);
+if(oo)document.querySelector('input[name=o][value="'+oo.id+'"]').checked=true;
+if(P.get("q"))$("pre").value=P.get("q").slice(0,300);if(P.get("matiere"))$("mat").value=P.get("matiere").slice(0,60);if(P.get("annee"))$("ann").value=P.get("annee").slice(0,40);
+const sp=(P.get("serie")||"").toLowerCase();
+if(sp)for(const k of Object.keys(ENS)){const s=ENS[k].series.find(x=>x.toLowerCase().startsWith(sp));if(s){$("ens").value=k;remplir();$("ser").value=s;break}}
+const ex=(P.get("examen")||"").toLowerCase(),e1=EXA.find(x=>ex&&x.toLowerCase().startsWith(ex));if(e1)$("exa").value=e1;
+$("ens").addEventListener("change",()=>{remplir();maj()});
+document.querySelectorAll("input,select,textarea").forEach(e=>{e.addEventListener("input",maj);e.addEventListener("change",maj)});
+$("pay").addEventListener("click",e=>{if($("pay").classList.contains("off")){e.preventDefault();return}payOuvert=true;setTimeout(maj,0)});
+$("wa").addEventListener("click",e=>{if($("wa").classList.contains("off"))e.preventDefault()});
+$("imp").onclick=()=>window.print();
+$("neuf").onclick=()=>{try{localStorage.removeItem(K)}catch(e){}location.href=location.pathname};
+maj();
+</script></body></html>
